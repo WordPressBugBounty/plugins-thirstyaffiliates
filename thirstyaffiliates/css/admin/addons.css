@@ -1,0 +1,331 @@
+.thirstylink_page_thirstyaffiliates-addons .ta-upgrade-header {
+  display: none;
+}
+
+.ta-addons, .ta-addons * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#ta-addons-container .ta-clearfix:before,
+#ta-addons-container .ta-clearfix:after {
+  content: " ";
+  display: block;
+}
+
+#ta-addons-container .ta-clearfix:after {
+  clear: both;
+}
+
+.add-new-h2.ta-addons-refresh, .add-new-h2.ta-addons-refresh:active {
+  margin-left: 20px;
+}
+
+#ta-addons-search {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #333;
+  vertical-align: middle;
+  padding: 8px 12px;
+  margin: -4px 10px 0 0;
+  min-height: 30px;
+  line-height: 1.5;
+  width: 200px;
+  float: right;
+}
+
+#ta-addons-search:focus {
+  border-color: #bbb;
+}
+
+#ta-admin-addons h4 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.ta-addons {
+  margin: 30px -20px 0 -20px;
+}
+
+.ta-addon {
+  padding: 0 20px;
+  float: left;
+  width: 33.333333%;
+}
+
+.ta-addon-inner {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 0 0 40px 0;
+}
+
+.ta-addon-details {
+  padding: 30px 20px;
+  padding-bottom: 50px;
+}
+
+.ta-addon-details img {
+  border: 1px solid #eee;
+  float: left;
+  max-width: 75px;
+}
+
+.ta-addon-details h5 {
+  margin: 0 0 10px 100px;
+  font-size: 16px;
+}
+
+.ta-addon-details p {
+  margin: 0 0 0 100px;
+}
+
+.ta-addon-actions {
+  background-color: #f7f7f7;
+  border-top: 1px solid #ddd;
+  padding: 20px;
+  position: relative;
+}
+
+.ta-addon-action {
+  float: right;
+}
+
+.ta-addon-status {
+  float: left;
+  padding-top: 8px;
+}
+
+.ta-addon-status-download .ta-addon-status-label {
+  color: #666;
+}
+
+.ta-addon .ta-addon-action button .ta-icon {
+  font-size: 13px;
+  margin-right: 8px;
+  color: #999;
+}
+
+.ta-addon-status-active .ta-addon-status-label,
+.ta-addon-status-active .ta-addon-action button .ta-icon {
+  color: #2a9b39;
+}
+
+.ta-addon-status-inactive .ta-addon-status-label,
+.ta-addon-status-inactive .ta-addon-action button .ta-icon {
+  color: #f00;
+}
+
+.ta-addon-action button {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 15px;
+  font-size: 13px;
+  line-height: 1.30769230769;
+}
+
+.ta-addon-action button:hover,
+.ta-addon-action button.ta-loading {
+  background-color: #e9e9e9;
+}
+
+.ta-addon .ta-addon-action button .ta-icon.ta-icon-spinner {
+  color: #999;
+  margin-right: 0;
+}
+
+.ta-addon-action button .ta-icon {
+  font-size: 13px;
+  margin-right: 8px;
+  color: #999;
+}
+
+.ta-addon .ta-addon-actions .ta-addon-message {
+  background-color: #f7f7f7;
+  position: absolute;
+  text-align: center;
+  font-weight: 600;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  padding: 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.ta-addon .ta-addon-actions .ta-addon-message.ta-addon-message-success {
+  color: #2a9b39;
+}
+
+.ta-addon .ta-addon-actions .ta-addon-message.ta-addon-message-error {
+  color: red;
+}
+
+.ta-addon-action-upgrade {
+  text-align: center;
+  float: none;
+}
+
+.ta-addon-action-upgrade a {
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  box-shadow: none;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.30769230769;
+  font-weight: 600;
+  padding: 8px 28px;
+}
+
+@media (max-width: 1249px) {
+  .ta-addon {
+      width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  #ta-addons-search {
+      width: 100%;
+      float: none;
+      display: block;
+      margin: 30px 0 0 0;
+  }
+
+  .ta-addon {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .ta-addon-inner {
+      margin: 0;
+  }
+}
+
+.thirstyaffiliates-blur-wrap {
+  position: relative;
+}
+
+.thirstyaffiliates-blur {
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.thirstyaffiliates-blur > .notice,
+.thirstyaffiliates-blur > .error {
+  display: none;
+}
+
+.thirstyaffiliates-popup {
+  position: absolute;
+  top: 5%;
+  z-index: 10;
+  background: rgba( 0,0,0,.2 );
+  width: 620px;
+  left: calc(50% - 310px);
+  margin: 0 auto;
+}
+
+.thirstyaffiliates-popup-long {
+  position: fixed;
+  width: 650px;
+  top: 50%;
+  left: 50%;
+  margin-top: -295px;
+  margin-left: -245px;
+}
+body.folded .thirstyaffiliates-popup-long {
+  margin-left: -307px;
+}
+
+.thirstyaffiliates-popup-wrap {
+  box-shadow: 0 0 30px #ccc;
+}
+
+.thirstyaffiliates-popup-content .thirstyaffiliates-popup-logo {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.thirstyaffiliates-popup-long .thirstyaffiliates-popup-logo {
+  margin-bottom: 30px;
+}
+
+.thirstyaffiliates-popup-long .thirstyaffiliates-popup-content .thirstyaffiliates-popup-logo img {
+  max-width: 280px;
+}
+
+.thirstyaffiliates-popup-content {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.thirstyaffiliates-popup-long .thirstyaffiliates-popup-content {
+  padding: 40px 40px 30px;
+}
+
+.thirstyaffiliates-popup-content h2 {
+  font-size: 24px;
+}
+
+.thirstyaffiliates-popup-content h4 {
+  font-size: 18px;
+}
+
+.thirstyaffiliates-popup-content .features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 10px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.thirstyaffiliates-popup-long .thirstyaffiliates-popup-content .features {
+  max-width: 570px;
+}
+
+.thirstyaffiliates-popup-content .features li:before {
+  content: "\f147";
+  font-family: dashicons;
+  color: #03c5f1;
+  font-size: 20px;
+  position: relative;
+  top: 4px;
+  margin-right: 10px;
+}
+
+.thirstyaffiliates-popup-cta {
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+}

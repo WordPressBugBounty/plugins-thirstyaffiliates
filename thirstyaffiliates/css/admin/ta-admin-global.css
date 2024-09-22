@@ -1,0 +1,34 @@
+#menu-posts-thirstylink.wp-not-current-submenu ul.wp-submenu {
+    box-sizing: content-box;
+}
+.ta-new-badge {
+    background-color: #ed5a4c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-left: 5px;
+    padding: 2px 6px 3px;
+    border-radius: 100px;
+    position: relative;
+    top: -1px;
+}
+.wp-not-current-submenu .ta-new-badge {
+    margin-left: 4px;
+}
+#menu-posts-thirstylink > ul > li {
+    position: relative;
+}
+#menu-posts-thirstylink .ta-new-badge {
+    position: absolute;
+    right: 10px;
+    font-size: 9px;
+    padding: 2px 5px 3px;
+    top: 50%;
+    margin-top: -8px;
+    margin-left: 0;
+}
+#menu-posts-thirstylink a[href*="edit.php?post_type=thirstylink&thirstypay=1"],
+#menu-posts-thirstylink a[href*="edit.php?post_type=thirstylink&page=thirstypay-links"] {
+    padding-right: 43px !important;
+}

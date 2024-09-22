@@ -1,0 +1,87 @@
+.ta-thirstypay-invoice {
+    margin-top: 24px;
+}
+.ta-thirstypay-invoice > p {
+    color: #5e5e5e;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+.ta-thirstypay-invoice > p a {
+    color: #5e5e5e;
+}
+.ta-thirstypay-invoice svg.ta-check {
+    fill: none;
+    color: #06429e;
+    width: 64px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.ta-thirstypay-invoice > p.ta-invoice-amount {
+    font-size: 48px;
+    color: #1D1D1D;
+}
+.ta-thirstypay-invoice-table {
+    color: #5e5e5e;
+    border: 0;
+    border-collapse: collapse;
+    width: 500px;
+    max-width: 100%;
+    margin: 20px auto;
+}
+.ta-thirstypay-invoice-table th,
+.ta-thirstypay-invoice-table td {
+    border: 0;
+    text-align: left;
+    padding: 10px;
+}
+.ta-thirstypay-invoice-table th:first-child,
+.ta-thirstypay-invoice-table td:first-child {
+    text-align: left;
+}
+.ta-thirstypay-invoice-table th:last-child,
+.ta-thirstypay-invoice-table td:last-child {
+    text-align: right;
+    width: 180px;
+}
+.ta-thirstypay-invoice-table th.ta-text-align-right,
+.ta-thirstypay-invoice-table td.ta-text-align-right {
+    text-align: right;
+}
+.ta-thirstypay-invoice-table .ta-line-item-row td:first-child {
+    width: 40px;
+}
+.ta-line-item-image-url {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+.ta-line-item-image-default {
+    display: flex;
+    padding: 12px;
+    background-color: rgba(247, 250, 252, 0.5);
+    box-shadow: rgb(235, 238, 241) 0 0 0 1px;
+    color: rgb(192, 200, 210);
+    border-radius: 6px;
+}
+.ta-line-item-image-default svg {
+    fill: currentColor;
+    width: 16px;
+    height: 16px;
+    max-width: none;
+}
+.ta-thirstypay-invoice-table .ta-subtotal-row td {
+    border-bottom: 1px solid #dbdbdb;
+}
+.ta-thirstypay-invoice-table .ta-total-row td {
+    border-top: 1px solid #dbdbdb;
+}
+.ta-thirstypay-invoice-table .ta-subtotal-row td:first-child,
+.ta-thirstypay-invoice-table .ta-total-row td:first-child {
+    border: 0;
+}
+.ta-thirstypay-invoice-table .ta-font-weight-bold {
+    font-weight: bold;
+}

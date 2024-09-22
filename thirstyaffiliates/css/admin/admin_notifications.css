@@ -1,0 +1,257 @@
+#thirstyaff-notifications {
+  position: fixed;
+  min-height: 48px;
+  margin: 0 0 14px 0;
+  top: 0;
+  width: 100%;
+  max-width: 440px;
+  max-height: 100vh;
+  overflow-y: scroll;
+  background: #FFFFFF;
+  box-shadow: 0px 5px 15px #0000000D;
+  transform: translate3d(100%, 0, 0);
+  transition: transform .3s ease-in-out;
+  z-index: -9;
+  visibility: hidden;
+  right: -9999999999px;
+}
+
+#thirstyaff-notifications.visible {
+  transform: translate3d(0, 0, 0);
+  z-index: 999999;
+  visibility: visible;
+  right: 0;
+}
+
+.admin-bar #thirstyaff-notifications {
+  top: 32px;
+  max-height: calc( 100vh - 32px );
+}
+
+#thirstyaff-notifications * {
+  box-sizing: border-box;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-top-title {
+  background-color: #2679c1;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-top-title h3 {
+  color: #fff;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-top-title > div {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-top-title svg {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-top-title .actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-top-title .actions a {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-top-title .actions a.close {
+  text-decoration: none;
+  margin-right: 0;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-top-title .actions a.close svg {
+  margin-right: 0;
+}
+
+#thirstyaff-notifications .thirstyaff-notification-icon-title {
+  display: flex;
+  align-items: center;
+}
+
+#thirstyaff-notifications .thirstyaff-notification-icon-title img {
+  margin-right: 10px;
+  max-width: 32px;
+}
+
+#thirstyaff-notifications .thirstyaff-notification-icon-title time {
+  margin-left: auto;
+  font-size: 13px;
+  color: #7f899f;
+  min-width: 100px;
+  text-align: right;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(204, 208, 212, 0.5);
+}
+
+#thirstyaff-notifications .dismiss-all {
+  text-decoration: underline;
+  color: #99a1b3;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-header-bell {
+  display: flex;
+  align-items: center;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-header .thirstyaff-notifications-bell {
+  position: relative;
+  top: 2px;
+  margin-right: 10px;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-header .thirstyaff-notifications-bell svg {
+  max-width: 30px;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-header .thirstyaff-notifications-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #23282D;
+}
+
+.thirstyaff-notifications-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #eb5757;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+#thirstyaff-notifications .dismissed-messages,
+#thirstyaff-notifications #viewActive {
+  display: none;
+}
+
+#thirstyaff-notifications .dismissed-messages .thirstyaff-notice-dismiss {
+  display: none;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-header.single-digit .thirstyaff-notifications-count {
+  font-size: 12px;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-body {
+  position: relative;
+  padding: 16px;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages {
+
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-message {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  position: relative;
+  border-bottom: 1px solid rgba(204, 208, 212, 0.5);
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .active-messages .thirstyaff-notifications-message:last-of-type,
+#thirstyaff-notifications .thirstyaff-notifications-messages .dismissed-messages .thirstyaff-notifications-message:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-title {
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 17px;
+  margin: 0;
+  color: #444;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-content {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 8px 0 41px 0;
+  color: #777777;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-buttons {
+  margin: -30px 80px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-buttons a {
+  margin: 0 10px 0 0;
+  min-height: unset;
+}
+
+.thirstyaff-notifications-buttons button.thirstyaff-notice-dismiss {
+  font-size: 13px;
+  color: #7f899f;
+  background: none;
+  padding: 0;
+  border: 0;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-buttons button.thirstyaff-notice-dismiss:hover {
+  cursor: pointer;
+}
+
+#thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-buttons button.thirstyaff-notice-dismiss[disabled] {
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 768px) {
+  #thirstyaff-notifications .thirstyaff-notifications-messages {
+    padding: 15px 50px 20px 16px;
+  }
+  #thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-message .thirstyaff-notifications-title {
+    margin: 0 30px 0 0;
+    line-height: 22px;
+  }
+  #thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-message .thirstyaff-notifications-content {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  #thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-message .thirstyaff-notifications-buttons {
+    margin: -30px 80px 0 0;
+  }
+  #thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-message .thirstyaff-notifications-buttons a {
+    margin: 0;
+    display: table;
+  }
+  #thirstyaff-notifications .thirstyaff-notifications-messages .thirstyaff-notifications-message .thirstyaff-notifications-buttons .button-secondary {
+    margin-top: 6px;
+  }
+}

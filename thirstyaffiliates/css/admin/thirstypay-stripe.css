@@ -1,0 +1,177 @@
+#ta-thirstypay-stripe-metabox .inside {
+    margin-top: 12px;
+}
+.ta-stripe-line-item-box {
+    position: relative;
+    display: flex;
+    width: 420px;
+    padding: 16px;
+    border: 1px solid rgb(235, 238, 241);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.ta-stripe-line-item-box:last-child {
+    margin-bottom: 0;
+}
+.ta-stripe-price-image-url {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+.ta-stripe-price-image-default {
+    display: flex;
+    padding: 12px;
+    background-color: rgba(247, 250, 252, 0.5);
+    box-shadow: rgb(235, 238, 241) 0 0 0 1px;
+    color: rgb(192, 200, 210);
+    border-radius: 6px;
+}
+.ta-stripe-price-image-default svg {
+    fill: currentColor;
+}
+.ta-stripe-product-name-price {
+    margin-left: 16px;
+}
+.ta-stripe-product-name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    color: rgb(26, 27, 37);
+}
+.ta-stripe-product-price {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgb(104, 115, 133);
+}
+.ta-stripe-line-item-x {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+    color: rgb(104, 115, 133);
+}
+.ta-stripe-line-item-x svg {
+    fill: currentColor;
+}
+.ta-stripe-thirstypay-link-option {
+    margin-bottom: 15px;
+}
+.ta-stripe-thirstypay-link-sub-option {
+    padding-left: 25px;
+    padding-top: 10px;
+}
+#ta-stripe-add-product-popup {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #fff;
+}
+#ta-stripe-add-product-popup .notice {
+    margin: 10px 0;
+}
+.ta-stripe-add-product-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+.ta-stripe-add-product-option {
+    margin-bottom: 15px;
+}
+.ta-stripe-add-product-option > label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+.ta-stripe-add-product-option input[type="text"],
+.ta-stripe-add-product-option textarea,
+.ta-stripe-add-product-option select {
+    border-color: rgba(64, 68, 82, 0.16);
+}
+.ta-stripe-add-product-option input[type="text"]:not(#ta_stripe_add_product_interval_count),
+.ta-stripe-add-product-option textarea,
+.ta-stripe-add-product-option select:not(#ta_stripe_add_product_interval) {
+    width: 100%;
+    max-width: none;
+}
+.ta-stripe-add-product-option .select2-container--ta .select2-selection--single,
+.ta-stripe-add-product-option .select2-dropdown {
+    border-color: rgba(64, 68, 82, 0.16);
+}
+.ta-stripe-add-product-option > label .ta-optional {
+    border-radius: 4px;
+    padding: 1px 6px;
+    background-color: rgb(235, 238, 241);
+    color: rgb(84, 89, 105);
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 8px;
+}
+.ta-stripe-add-product-price,
+.ta-stripe-recurring-tiles {
+    display: flex;
+    gap: 8px;
+}
+.ta-stripe-recurring-tiles input[type="radio"] {
+    display: none;
+}
+.ta-stripe-recurring-tiles label {
+    display: inline-block;
+    line-height: 18px;
+    padding: 5px 20px;
+    border-radius: 6px;
+    box-shadow: rgba(64, 68, 82, 0.16) 0 0 0 1px;
+}
+.ta-stripe-recurring-tiles input[type="radio"]:checked + label {
+    box-shadow: rgb(99, 91, 255) 0 0 0 2px;
+}
+.ta-stripe-add-product-recurring-custom {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+.ta-stripe-add-product-buttons {
+    display: flex;
+    padding-top: 10px;
+    gap: 6px;
+    justify-content: flex-end;
+}
+#ta-stripe-add-product-cancel,
+#ta-stripe-add-product-save {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    border: 0;
+}
+#ta-stripe-add-product-cancel {
+    color: rgb(26, 27, 37);
+    background-color: transparent;
+    box-shadow: rgba(64, 68, 82, 0.16) 0 0 0 1px;
+}
+#ta-stripe-add-product-save {
+    background-color: rgb(99, 91, 255);
+}
+#ta-stripe-add-product-save i {
+    font-size: inherit;
+    color: inherit;
+}
+.ta-stripe-add-product-option input[type="text"].ta-stripe-field-has-error,
+.ta-stripe-add-product-option textarea.ta-stripe-field-has-error,
+.ta-stripe-add-product-option select.ta-stripe-field-has-error {
+    border-color: rgb(223, 27, 65);
+}
+.ta-stripe-field-error {
+    margin: 4px 0 0 10px;
+    color: rgb(223, 27, 65);
+}
+.ta-stripe-ty-page-settings {
+    vertical-align: middle;
+    margin-left: 5px;
+    text-decoration: none;
+}
