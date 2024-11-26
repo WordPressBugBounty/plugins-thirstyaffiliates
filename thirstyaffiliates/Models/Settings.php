@@ -2248,7 +2248,12 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
                 });
             </script>
         <?php endif; ?>
-        <div id="ta-admin-header"><img class="ta-logo" src="<?php echo esc_url( $this->_constants->IMAGES_ROOT_URL() . 'TA.svg' ); ?>" alt="" /></div>
+        <div id="ta-admin-header">
+            <img class="ta-logo" src="<?php echo esc_url( $this->_constants->IMAGES_ROOT_URL() . 'TA.svg' ); ?>" />
+            <div class="ta-admin-header-actions">
+                <?php do_action('ta_admin_header_actions'); ?>
+            </div>
+        </div>
         <?php
     }
 

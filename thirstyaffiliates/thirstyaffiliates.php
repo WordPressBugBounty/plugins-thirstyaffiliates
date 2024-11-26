@@ -3,7 +3,7 @@
  * Plugin Name: ThirstyAffiliates
  * Plugin URI: http://thirstyaffiliates.com/
  * Description: ThirstyAffiliates is a revolution in affiliate link management. Collect, collate and store your affiliate links for use in your posts and pages.
- * Version: 3.11.2
+ * Version: 3.11.3
  * Requires PHP: 7.4
  * Author: Caseproof
  * Author URI: https://caseproof.com/
@@ -37,11 +37,13 @@ use ThirstyAffiliates\Models\Guided_Tour;
 use ThirstyAffiliates\Models\REST_API;
 use ThirstyAffiliates\Models\Notifications;
 use ThirstyAffiliates\Models\Onboarding;
+use ThirstyAffiliates\Models\GrdLvl;
 use ThirstyAffiliates\Models\Authenticator;
 use ThirstyAffiliates\Models\Stripe_Connect;
 use ThirstyAffiliates\Models\Stripe;
 use ThirstyAffiliates\Models\Addons;
 
+require_once 'vendor-prefixed/autoload.php';
 /**
  * Register plugin autoloader.
  *
@@ -285,8 +287,11 @@ class ThirstyAffiliates extends Abstract_Main_Plugin_Class {
             $authenticator,
             $stripe_connect,
             $stripe,
-            $addons,
+            $addons
         );
+
+        $groundlevel = GrdLvl::get_instance( $this , $plugin_constants , $helper_functions );
+        add_action( 'init', array( $groundlevel, 'initialize' ), 5 );
 
         Bootstrap::get_instance( $this , $plugin_constants , $helper_functions , $activatables , $initiables , $deactivatables );
         Script_Loader::get_instance( $this , $plugin_constants , $helper_functions , $guided_tour );

@@ -1145,5 +1145,4 @@ class Helper_Functions {
 
         return ! empty( get_option( 'ta_stripe_live_secret_key' ) );
     }
-
 }

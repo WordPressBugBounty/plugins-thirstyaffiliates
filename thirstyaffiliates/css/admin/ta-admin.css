@@ -148,6 +148,13 @@
   height: 36px;
 }
 
+#wpcontent #ta-admin-header .ta-admin-header-actions {
+  align-items: center;
+  display: flex;
+  float: right;
+  gap: 10px;
+}
+
 #caseproof-flyout {
   position: fixed;
   z-index: 99999;

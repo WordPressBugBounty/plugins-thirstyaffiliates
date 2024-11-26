@@ -212,7 +212,7 @@ class Affiliate_Link_Attachment implements Model_Interface , Initiable_Interface
         elseif ( ! isset( $_POST[ 'attachment_id' ] ) || ! isset( $_POST[ 'affiliate_link_id' ] ) )
             $response = array( 'status' => 'fail' , 'error_msg' => __( 'Missing required post data' , 'thirstyaffiliates' ) );
         else {
-            $attachment_id = (int) sanitize_text_field( wp_unslash( $_POST[ 'attachment_id' ] ) );
+            $attachment_id = sanitize_text_field( wp_unslash( $_POST['attachment_id'] ) );
             $affiliate_link_id = (int) sanitize_text_field( wp_unslash( $_POST[ 'affiliate_link_id' ] ) );
             $result = $this->remove_attachment_to_affiliate_link( $attachment_id, $affiliate_link_id );
 

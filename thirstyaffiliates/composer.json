@@ -1,0 +1,41 @@
+{
+    "name": "caseproof/thirstyaffiliates",
+    "authors": [
+        {
+            "name": "Team Caseproof",
+            "email": "developers@caseproof.com"
+        }
+    ],
+    "scripts": {
+        "strauss": [
+            "vendor/bin/strauss"
+        ]
+    },
+    "require": {
+        "caseproof/ground-level-in-product-notifications": "^0.14.1"
+    },
+    "repositories": {
+        "caseproof": {
+            "type": "composer",
+            "url": "https://pkgs.cspf.co"
+        }
+    },
+    "require-dev": {
+        "brianhenryie/strauss": "^0.19.2"
+    },
+    "config": {
+        "lock": false,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "platform": {
+            "php": "7.4.33"
+        }
+    },
+    "extra": {
+        "strauss": {
+            "include_modified_date": false,
+            "namespace_prefix": "ThirstyAffiliates\\"
+        }
+    }
+}
