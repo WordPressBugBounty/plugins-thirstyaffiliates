@@ -523,7 +523,7 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
                                                     array(
                                                         'id'        =>  'ta_disable_thirsty_link_class',
                                                         'title'     =>  __( 'Disable ThirstyAffiliates CSS classes?' , 'thirstyaffiliates' ),
-                                                        'desc'      =>  __( 'To help with styling a CSS class called "thirstylink" is added links on insertion.<br>Likewise the "thirstylinkimg" class is added to images when using the image insertion type. This option disables the addition these CSS classes.' , 'thirstyaffiliates' ),
+                                                        'desc'      =>  __( 'To help with styling a CSS class called "thirstylink" is added links on insertion.<br>Likewise the "thirstylinkimg" class is added to images when using the image insertion type. This option disables the addition of these CSS classes.' , 'thirstyaffiliates' ),
                                                         'type'      =>  'toggle'
                                                     ),
 

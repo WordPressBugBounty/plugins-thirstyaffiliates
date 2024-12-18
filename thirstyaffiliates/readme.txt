@@ -1,11 +1,11 @@
 === ThirstyAffiliates - Affiliate Links, Link Branding, Link Tracking & Marketing Plugin ===
-Contributors: supercleanse, cartpauj, sethshoultes
+Contributors: supercleanse, cartpauj
 Donate link: https://thirstyaffiliates.com
-Tags: affiliate links, link branding, link shortner, link tracking, redirects, affiliate, affiliate marketing, affiliates, short links, shorten, shortening, shortlink, shortlinks, shorturl, shrinking, marketing, marketing plugin, cloak, cloaker, cloaking, 301, 302, 307, 404, bit.ly, bitly, tinyurl, link cloaking, link redirection, link shortener, links, thirstyaffiliates, thirsty, url redirection, url shortener, urls, seo, slug, slugs
+Tags: affiliate links, amazon affiliates, link shortner, link tracking, redirects
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 3.11.3
+Stable tag: 3.11.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -184,6 +184,9 @@ If you need to run an affiliate program on your store we recommend you check out
 5. Reports Page
 
 == Changelog ==
+= 3.11.4 =
+* Minor bugfixes
+
 = 3.11.3 =
 * New In-plugin Notifications Inbox
 * Fix broken attachments

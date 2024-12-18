@@ -134,6 +134,9 @@
 }
 
 #wpcontent #ta-admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-left: -20px;
   padding: 15px;
   padding-left: 22px;
@@ -146,6 +149,19 @@
 
 #wpcontent #ta-admin-header img.ta-logo {
   height: 36px;
+}
+
+@media screen and (max-width: 600px) {
+  #wpcontent #ta-admin-header {
+    position: relative;
+    top: 46px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  #wpcontent #ta-admin-header img.ta-logo {
+    height: 28px;
+  }
 }
 
 #wpcontent #ta-admin-header .ta-admin-header-actions {

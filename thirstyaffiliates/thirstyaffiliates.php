@@ -3,7 +3,7 @@
  * Plugin Name: ThirstyAffiliates
  * Plugin URI: http://thirstyaffiliates.com/
  * Description: ThirstyAffiliates is a revolution in affiliate link management. Collect, collate and store your affiliate links for use in your posts and pages.
- * Version: 3.11.3
+ * Version: 3.11.4
  * Requires PHP: 7.4
  * Author: Caseproof
  * Author URI: https://caseproof.com/
@@ -43,7 +43,7 @@ use ThirstyAffiliates\Models\Stripe_Connect;
 use ThirstyAffiliates\Models\Stripe;
 use ThirstyAffiliates\Models\Addons;
 
-require_once 'vendor-prefixed/autoload.php';
+require_once __DIR__ . '/vendor-prefixed/autoload.php';
 /**
  * Register plugin autoloader.
  *
