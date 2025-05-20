@@ -2179,6 +2179,21 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
      * @implements \ThirstyAffiliates\Interfaces\Initiable_Interface
      */
     public function initialize() {
+        if (version_compare(phpversion(), '7.4', '>=') && class_exists('\ThirstyAffiliates\Caseproof\GrowthTools\App')) {
+            add_action('admin_enqueue_scripts', function () {
+                $screen = get_current_screen();
+                if ($screen->id == 'thirstylink_page_thirstyaffiliates-growth-tools') {
+                    wp_enqueue_style( 'ta-admin-styles' , $this->_constants->CSS_ROOT_URL() . 'admin/ta-admin.css' , array() , Plugin_Constants::VERSION , 'all' );
+                }
+            });
+            $config = new \ThirstyAffiliates\Caseproof\GrowthTools\Config( [
+                'parentMenuSlug' => 'edit.php?post_type=thirstylink',
+                'instanceId'     => 'thirstyaffiliates',
+                'menuSlug'       => 'thirstyaffiliates-growth-tools',
+                'buttonCSSClasses' => ['ta-cta-button', 'ta-cta-gt-button'],
+            ] );
+            new \ThirstyAffiliates\Caseproof\GrowthTools\App( $config );
+        }
 
         add_action( 'wp_ajax_ta_import_settings' , array( $this , 'ajax_import_settings' ) );
         add_action( 'wp_ajax_ta_dismiss_upgrade_header', array( $this, 'dismiss_upgrade_header' ) );

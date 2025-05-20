@@ -13,13 +13,13 @@
     },
     "autoload": {
         "psr-4": {
-            "GroundLevel\\InProductNotifications\\": ""
+            "ThirstyAffiliates\\GroundLevel\\InProductNotifications\\": ""
         }
     },
     "require": {
         "php": ">=7.4",
-        "caseproof/ground-level-container": "^0.14.1",
-        "caseproof/ground-level-mothership": "^0.14.1",
-        "caseproof/ground-level-support": "^0.14.1"
+        "caseproof/ground-level-container": "^0.15.1",
+        "caseproof/ground-level-mothership": "^0.15.1",
+        "caseproof/ground-level-support": "^0.15.1"
     }
 }

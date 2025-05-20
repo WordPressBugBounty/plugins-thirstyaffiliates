@@ -7,12 +7,15 @@
         }
     ],
     "scripts": {
+        "ground-level": "./vendor/bin/ground-level",
         "strauss": [
-            "vendor/bin/strauss"
+            "rm -rf vendor-prefixed && vendor/bin/strauss",
+            "@ground-level i18n:replace -d thirstyaffiliates -D vendor-prefixed"
         ]
     },
     "require": {
-        "caseproof/ground-level-in-product-notifications": "^0.14.1"
+        "caseproof/growth-tools": "^1.4.0",
+        "caseproof/ground-level-in-product-notifications": "^0.15.1"
     },
     "repositories": {
         "caseproof": {
@@ -21,10 +24,11 @@
         }
     },
     "require-dev": {
-        "brianhenryie/strauss": "^0.19.2"
+        "brianhenryie/strauss": "^0.21.0",
+        "caseproof/ground-level-console": "^0.15.0",
+        "caseproof/coding-standards-php": "^0.6.0"
     },
     "config": {
-        "lock": false,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         },

@@ -103,6 +103,18 @@
 .ta-cta-button:hover {
   color: #fff;
 }
+
+.ta-cta-gt-button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ta-cta-gt-button:hover {
+  color: inherit;
+}
+
 .ta-upgrade-tr td {
   position: relative;
 }

@@ -731,6 +731,6 @@ class Link_Picker implements Model_Interface , Initiable_Interface {
         add_filter( 'mce_css' , array( $this , 'register_wp_editor_style_mce_css' ) );
 
         add_filter( 'the_content' , array( $this , 'gutenberg_transform_ta_tags_to_link' ) );
-        add_filter( 'widget_block_content' , array( $this , 'gutenberg_transform_ta_tags_to_link' ) );
+        add_filter( 'render_block' , array( $this , 'gutenberg_transform_ta_tags_to_link' ) );
     }
 }

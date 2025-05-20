@@ -183,17 +183,21 @@ class Link_Fixer implements Model_Interface , Initiable_Interface {
             if ( $thirstylink->get_prop( 'css_classes' ) != $global_class )
                 $class = str_replace( $global_class , '' , $class ) ;
 
-            $data[] = array(
-                'key'     => $key,
-                'link_id' => $link_id,
-                'class'   => trim( esc_attr( preg_replace( '!\s+!' , ' ',  $class ) ) ),
-                'href'    => esc_url_raw( $href ),
-                'rel'     => trim( esc_attr( preg_replace( '!\s+!' , ' ',  $rel ) ) ),
-                'target'  => esc_attr( $target ),
-                'title'   => $title,
-                'nojs'    => apply_filters( 'ta_nojs_redirect_attribute' , false , $thirstylink ),
-                'pass_qs' => $thirstylink->is( 'pass_query_str' ),
-                'thirstypay' => $thirstylink->get_prop( 'thirstypay_link' ) == '1'
+            $data[] = apply_filters(
+                'ta_link_fixer_link_data',
+                array(
+                    'key'     => $key,
+                    'link_id' => $link_id,
+                    'class'   => trim( esc_attr( preg_replace( '!\s+!' , ' ',  $class ) ) ),
+                    'href'    => esc_url_raw( $href ),
+                    'rel'     => trim( esc_attr( preg_replace( '!\s+!' , ' ',  $rel ) ) ),
+                    'target'  => esc_attr( $target ),
+                    'title'   => $title,
+                    'nojs'    => apply_filters( 'ta_nojs_redirect_attribute' , false , $thirstylink ),
+                    'pass_qs' => $thirstylink->is( 'pass_query_str' ),
+                    'thirstypay' => $thirstylink->get_prop( 'thirstypay_link' ) == '1'
+                ),
+                $thirstylink
             );
         }
 

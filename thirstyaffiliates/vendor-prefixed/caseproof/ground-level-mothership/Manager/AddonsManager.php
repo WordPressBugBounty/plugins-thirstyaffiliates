@@ -1,9 +1,4 @@
 <?php
-/**
- * @license GPL-3.0
- *
- * Modified by Team Caseproof using {@see https://github.com/BrianHenryIE/strauss}.
- */
 
 declare(strict_types=1);
 
@@ -44,7 +39,6 @@ class AddonsManager implements StaticContainerAwareness
      */
     public static function addonsUpdatePlugins($transient)
     {
-
         // If the license key is not set, return the transient.
         if (! self::getContainer()->get(MothershipService::CONNECTION_PLUGIN_SERVICE_ID)->getLicenseKey()) {
             return $transient;
@@ -55,10 +49,10 @@ class AddonsManager implements StaticContainerAwareness
             return $transient;
         }
 
-        // Only continue if the transient is expired or doesn't exist. This is run every 30 minutes.
-        $updateCheck = get_transient(self::getContainer()->get(MothershipService::CONNECTION_PLUGIN_SERVICE_ID)->pluginId . '-mosh-addons-update-check');
-        if ($updateCheck !== false) {
-            return $transient;
+        $transientCheck = self::checkAddonsUpdateTransient();
+        if ($transientCheck !== false) {
+            $productsTransient = get_transient(self::getContainer()->get(MothershipService::CONNECTION_PLUGIN_SERVICE_ID)->pluginId . '-mosh-products');
+            return ($productsTransient->products ?? false) ? self::getTransientWithAddonsUpdates($productsTransient->products, $transient) : $transient;
         }
 
         if (! is_object($transient)) {
@@ -69,7 +63,7 @@ class AddonsManager implements StaticContainerAwareness
             $transient->response = [];
         }
 
-        $products = self::getAddons(true);
+        $products = self::getAddons(false);
 
         if ($products instanceof Response && $products->isError()) {
             // Set transient to expire in 30 minutes so we don't keep checking..
@@ -77,37 +71,11 @@ class AddonsManager implements StaticContainerAwareness
             return $transient;
         }
 
-        if (empty($products) || ! is_array($products)) {
+        if (! is_array($products->products ?? null)) {
             return $transient;
         }
 
-        foreach ($products->products ?? [] as $product) {
-            if (! isset($transient->checked[$product->main_file])) {
-                continue;
-            }
-
-            $item = (object) [
-                'id'          => $product->main_file,
-                'slug'        => $product->slug,
-                'plugin'      => $product->main_file,
-                'new_version' => $product->_embedded->{'version-latest'}->number,
-                'package'     => $product->_embedded->{'version-latest'}->url,
-                'icons'       => [
-                    'png' => $product->image,
-                ],
-            ];
-            if (
-                version_compare(
-                    $transient->checked[$product->main_file],
-                    $product->_embedded->{'version-latest'}->number,
-                    '>='
-                )
-            ) {
-                $transient->no_update[$product->main_file] = $item;
-            } else {
-                $transient->response[$product->main_file] = $item;
-            }
-        }
+        $transient = self::getTransientWithAddonsUpdates($products->products, $transient);
 
         // Create a transient that expires every 30 minutes. We only want this to run once every 30 minutes.
         set_transient(
@@ -120,6 +88,62 @@ class AddonsManager implements StaticContainerAwareness
     }
 
     /**
+     * Check if the add-ons update transient is available which expires every 30 minutes.
+     *
+     * @return boolean True if the transient is available, false otherwise.
+     */
+    public static function checkAddonsUpdateTransient(): bool
+    {
+        $updateCheck = get_transient(self::getContainer()->get(MothershipService::CONNECTION_PLUGIN_SERVICE_ID)->pluginId . '-mosh-addons-update-check');
+        if ($updateCheck !== false) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns the modified transient with add-ons updates.
+     *
+     * @param  array  $products  The products to check.
+     * @param  object $transient The transient to update.
+     * @return object The modified transient.
+     */
+    public static function getTransientWithAddonsUpdates(array $products, object $transient)
+    {
+        foreach ($products ?? [] as $product) {
+            if (! isset($transient->checked[$product->main_file])) {
+                continue;
+            }
+
+            $versionLatest = $product->_embedded->{'version-latest'}->number ?? '';
+            $urlLatest     = $product->_embedded->{'version-latest'}->url ?? '';
+
+            $item = (object) [
+                'id'          => $product->main_file,
+                'slug'        => $product->slug,
+                'plugin'      => $product->main_file,
+                'new_version' => $versionLatest,
+                'package'     => $urlLatest,
+                'icons'       => [
+                    'png' => $product->image,
+                ],
+            ];
+            if (
+                version_compare(
+                    $transient->checked[$product->main_file],
+                    $versionLatest,
+                    '>='
+                )
+            ) {
+                $transient->no_update[$product->main_file] = $item;
+            } else {
+                $transient->response[$product->main_file] = $item;
+            }
+        }
+        return $transient;
+    }
+
+    /**
      * Activate an add-on.
      *
      * @return void
@@ -127,15 +151,15 @@ class AddonsManager implements StaticContainerAwareness
     public static function ajaxAddonActivate(): void
     {
         if (! isset($_POST['plugin'])) {
-            wp_send_json_error(esc_html__('Bad request.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Bad request.', 'thirstyaffiliates'));
         }
 
         if (! current_user_can('activate_plugins')) {
-            wp_send_json_error(esc_html__('Sorry, you don\'t have permission to do this.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Sorry, you don\'t have permission to do this.', 'thirstyaffiliates'));
         }
 
         if (! check_ajax_referer('mosh_addons', false, false)) {
-            wp_send_json_error(esc_html__('Security check failed.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Security check failed.', 'thirstyaffiliates'));
         }
 
         $result = activate_plugins(wp_unslash($_POST['plugin']));
@@ -146,23 +170,23 @@ class AddonsManager implements StaticContainerAwareness
                 wp_send_json_error(
                     esc_html__(
                         'Could not activate plugin. Please activate from the Plugins page manually.',
-                        'caseproof-mothership'
+                        'thirstyaffiliates'
                     )
                 );
             } else {
                 wp_send_json_error(
                     esc_html__(
                         'Could not activate add-on. Please activate from the Plugins page manually.',
-                        'caseproof-mothership'
+                        'thirstyaffiliates'
                     )
                 );
             }
         }
 
         if ($type === 'plugin') {
-            wp_send_json_success(esc_html__('Plugin activated.', 'caseproof-mothership'));
+            wp_send_json_success(esc_html__('Plugin activated.', 'thirstyaffiliates'));
         } else {
-            wp_send_json_success(esc_html__('Add-on activated.', 'caseproof-mothership'));
+            wp_send_json_success(esc_html__('Add-on activated.', 'thirstyaffiliates'));
         }
     }
 
@@ -174,22 +198,22 @@ class AddonsManager implements StaticContainerAwareness
     public static function ajaxAddonDeactivate(): void
     {
         if (! isset($_POST['plugin'])) {
-            wp_send_json_error(esc_html__('Bad request.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Bad request.', 'thirstyaffiliates'));
         }
         if (! current_user_can('deactivate_plugins')) {
-            wp_send_json_error(esc_html__('Sorry, you don\'t have permission to do this.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Sorry, you don\'t have permission to do this.', 'thirstyaffiliates'));
         }
         if (! check_ajax_referer('mosh_addons', false, false)) {
-            wp_send_json_error(esc_html__('Security check failed.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Security check failed.', 'thirstyaffiliates'));
         }
 
         deactivate_plugins(wp_unslash($_POST['plugin']));
         $type = isset($_POST['type']) ? sanitize_key($_POST['type']) : 'add-on';
 
         if ($type === 'plugin') {
-            wp_send_json_success(esc_html__('Plugin deactivated.', 'caseproof-mothership'));
+            wp_send_json_success(esc_html__('Plugin deactivated.', 'thirstyaffiliates'));
         } else {
-            wp_send_json_success(esc_html__('Add-on deactivated.', 'caseproof-mothership'));
+            wp_send_json_success(esc_html__('Add-on deactivated.', 'thirstyaffiliates'));
         }
     }
 
@@ -201,15 +225,15 @@ class AddonsManager implements StaticContainerAwareness
     public static function ajaxAddonInstall(): void
     {
         if (! isset($_POST['plugin'])) {
-            wp_send_json_error(esc_html__('Bad request.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Bad request.', 'thirstyaffiliates'));
         }
 
         if (! current_user_can('install_plugins') || ! current_user_can('activate_plugins')) {
-            wp_send_json_error(esc_html__('Sorry, you don\'t have permission to do this.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Sorry, you don\'t have permission to do this.', 'thirstyaffiliates'));
         }
 
         if (! check_ajax_referer('mosh_addons', false, false)) {
-            wp_send_json_error(esc_html__('Security check failed.', 'caseproof-mothership'));
+            wp_send_json_error(esc_html__('Security check failed.', 'thirstyaffiliates'));
         }
 
         $type = isset($_POST['type']) ? sanitize_key($_POST['type']) : 'add-on';
@@ -217,10 +241,10 @@ class AddonsManager implements StaticContainerAwareness
         if ($type === 'plugin') {
             $error = esc_html__(
                 'Could not install plugin. Please download and install manually.',
-                'caseproof-mothership'
+                'thirstyaffiliates'
             );
         } else {
-            $error = esc_html__('Could not install add-on.', 'caseproof-mothership');
+            $error = esc_html__('Could not install add-on.', 'thirstyaffiliates');
         }
 
         // Set the current screen to avoid undefined notices.
@@ -267,8 +291,8 @@ class AddonsManager implements StaticContainerAwareness
                 wp_send_json_success(
                     [
                         'message'   => $type === 'plugin'
-                                        ? esc_html__('Plugin installed & activated.', 'caseproof-mothership')
-                                        : esc_html__('Add-on installed & activated.', 'caseproof-mothership'),
+                                        ? esc_html__('Plugin installed & activated.', 'thirstyaffiliates')
+                                        : esc_html__('Add-on installed & activated.', 'thirstyaffiliates'),
                         'activated' => true,
                         'basename'  => $pluginBaseName,
                     ]
@@ -277,8 +301,8 @@ class AddonsManager implements StaticContainerAwareness
                 wp_send_json_success(
                     [
                         'message'   => $type === 'plugin'
-                                        ? esc_html__('Plugin installed.', 'caseproof-mothership')
-                                        : esc_html__('Add-on installed.', 'caseproof-mothership'),
+                                        ? esc_html__('Plugin installed.', 'thirstyaffiliates')
+                                        : esc_html__('Add-on installed.', 'thirstyaffiliates'),
                         'activated' => false,
                         'basename'  => $pluginBaseName,
                     ]
@@ -293,7 +317,7 @@ class AddonsManager implements StaticContainerAwareness
      * Get the add-ons from the API.
      *
      * @param  boolean $cached Whether to use the cached products or not.
-     * @return array The add-ons.
+     * @return object The add-ons.
      */
     public static function getAddons(bool $cached = false)
     {
@@ -322,7 +346,7 @@ class AddonsManager implements StaticContainerAwareness
     public static function generateAddonsHtml(): string
     {
         if (! self::getContainer()->get(MothershipService::CONNECTION_PLUGIN_SERVICE_ID)->getLicenseKey()) {
-            return '<div class="notice notice-error is-dismissible"><p>' . esc_html__('Please enter your license key to access add-ons.', 'caseproof-mothership') . '</p></div>';
+            return '<div class="notice notice-error is-dismissible"><p>' . esc_html__('Please enter your license key to access add-ons.', 'thirstyaffiliates') . '</p></div>';
         }
 
         // Refresh the add-ons if the button is clicked.
@@ -334,7 +358,7 @@ class AddonsManager implements StaticContainerAwareness
         if ($addons instanceof Response && $addons->isError()) {
             return sprintf(
                 '<div class=""><p>%s <b>%s</b></p></div>',
-                esc_html__('There was an issue connecting with the API.', 'caseproof-mothership'),
+                esc_html__('There was an issue connecting with the API.', 'thirstyaffiliates'),
                 $addons->error
             );
         }
@@ -359,17 +383,17 @@ class AddonsManager implements StaticContainerAwareness
         wp_localize_script('mosh-addons-js', 'MoshAddons', [
             'ajax_url'              => admin_url('admin-ajax.php'),
             'nonce'                 => wp_create_nonce('mosh_addons'),
-            'active'                => esc_html__('Active', 'caseproof-mothership'),
-            'inactive'              => esc_html__('Inactive', 'caseproof-mothership'),
-            'activate'              => esc_html__('Activate', 'caseproof-mothership'),
-            'deactivate'            => esc_html__('Deactivate', 'caseproof-mothership'),
+            'active'                => esc_html__('Active', 'thirstyaffiliates'),
+            'inactive'              => esc_html__('Inactive', 'thirstyaffiliates'),
+            'activate'              => esc_html__('Activate', 'thirstyaffiliates'),
+            'deactivate'            => esc_html__('Deactivate', 'thirstyaffiliates'),
             'install_failed'        => esc_html__(
                 'Could not install add-on. Please download and install manually.',
-                'caseproof-mothership'
+                'thirstyaffiliates'
             ),
             'plugin_install_failed' => esc_html__(
                 'Could not install plugin. Please download and install manually.',
-                'caseproof-mothership'
+                'thirstyaffiliates'
             ),
         ]);
     }
