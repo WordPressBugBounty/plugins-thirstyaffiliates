@@ -42,22 +42,33 @@ wp_nonce_field( 'thirsty_affiliates_cpt_nonce', '_thirstyaffiliates_nonce' ); ?>
     var wpActiveEditor = 'content';
 </script>
 
-<?php if ( ! empty( $attachments ) ) : ?>
-    <div id="thirsty_image_holder" data-attachments="<?php echo esc_attr( wp_json_encode( $attachments ) ); ?>">
-        <?php foreach ( $attachments as $attachment_id ) {
+<?php
+    if ( ! empty( $attachments ) ) {
+        ob_start();
 
+        foreach ( $attachments as $key => $attachment_id ) {
             if ( filter_var( $attachment_id , FILTER_VALIDATE_URL ) ) {
-
                 $img_url = esc_url_raw( $attachment_id );
                 include( $this->_constants->VIEWS_ROOT_PATH() . 'cpt/view-attach-images-metabox-external-image.php' );
-
             } else {
-
                 $img = wp_get_attachment_image_src( $attachment_id , 'full' );
-                include( $this->_constants->VIEWS_ROOT_PATH() . 'cpt/view-attach-images-metabox-single-image.php' );
 
+                if (is_array($img) && !empty($img)) {
+                    include( $this->_constants->VIEWS_ROOT_PATH() . 'cpt/view-attach-images-metabox-single-image.php' );
+                } else {
+                    unset( $attachments[$key] );
+                }
             }
+        }
 
-        } ?>
-    </div>
-<?php endif; ?>
+        $images = ob_get_clean();
+
+        if ( !empty( $attachments ) ) {
+            printf(
+                '<div id="thirsty_image_holder" data-attachments="%1$s">%2$s</div>',
+                esc_attr( wp_json_encode( array_values( $attachments ) ) ),
+                $images
+            );
+        }
+    }
+?>

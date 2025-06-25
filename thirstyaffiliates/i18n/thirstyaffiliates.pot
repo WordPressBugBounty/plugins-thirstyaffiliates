@@ -1,0 +1,4080 @@
+# Copyright (C) 2025 Caseproof
+# This file is distributed under the same license as the ThirstyAffiliates plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: ThirstyAffiliates 3.11.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/thirstyaffiliates\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-20T22:21:47+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: thirstyaffiliates\n"
+
+#. Plugin Name of the plugin
+#: thirstyaffiliates.php
+#: Helpers/Onboarding_Helper.php:163
+#: Models/Affiliate_Links_CPT.php:467
+#: Models/Affiliate_Links_CPT.php:553
+msgid "ThirstyAffiliates"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: thirstyaffiliates.php
+msgid "http://thirstyaffiliates.com/"
+msgstr ""
+
+#. Description of the plugin
+#: thirstyaffiliates.php
+msgid "ThirstyAffiliates is a revolution in affiliate link management. Collect, collate and store your affiliate links for use in your posts and pages."
+msgstr ""
+
+#. Author of the plugin
+#: thirstyaffiliates.php
+msgid "Caseproof"
+msgstr ""
+
+#. Author URI of the plugin
+#: thirstyaffiliates.php
+msgid "https://caseproof.com/"
+msgstr ""
+
+#: Helpers/Helper_Functions.php:751
+msgid "NEW"
+msgstr ""
+
+#: Helpers/Helper_Functions.php:992
+msgid "Manage your Payments"
+msgstr ""
+
+#: Helpers/Helper_Functions.php:1086
+msgid "- Auto Create New Page -"
+msgstr ""
+
+#: Helpers/Helper_Functions.php:1095
+msgid "Edit"
+msgstr ""
+
+#: Helpers/Helper_Functions.php:1096
+msgid "View"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:143
+msgid "Check out what you set up..."
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:156
+#: Models/Settings.php:307
+msgid "Link"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:166
+msgid "View your imported links on the <a href=\"%1$s\" target=\"_blank\">ThirstyAffiliates page</a>"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:178
+#: Models/Affiliate_Links_CPT.php:626
+msgid "Link Category"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:234
+msgid "Basic"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:236
+#: Helpers/Onboarding_Helper.php:242
+#: Helpers/Onboarding_Helper.php:248
+#: Models/Stripe.php:1151
+msgid "Upgrade"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:237
+#: Helpers/Onboarding_Helper.php:243
+#: Helpers/Onboarding_Helper.php:249
+msgid "Seems like you're eyeing one of our premium features! To unveil this remarkable offering, upgrade to one of our pro plans and let the possibilities unfold."
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:240
+msgid "Advanced"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:246
+msgid "Plus"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:274
+#: views/admin/onboarding/features.php:14
+msgid "Link Tracking"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:275
+#: Models/Settings.php:570
+#: views/admin/onboarding/features.php:25
+msgid "Uncloak Links"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:276
+#: views/admin/onboarding/features.php:36
+msgid "AutoLinker"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:277
+#: Models/Settings.php:799
+#: Models/Settings.php:800
+#: views/admin/onboarding/features.php:47
+msgid "Event Notifications"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:278
+#: Models/Settings.php:790
+#: Models/Settings.php:791
+#: views/admin/onboarding/features.php:58
+msgid "Amazon Import"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:279
+#: views/admin/onboarding/features.php:69
+msgid "Link Health"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:280
+#: views/admin/onboarding/features.php:81
+msgid "Import/Export Links"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:281
+#: views/admin/onboarding/features.php:93
+msgid "Geographic Redirects"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:282
+msgid "ThirstyAffiliates Product Displays"
+msgstr ""
+
+#: Helpers/Onboarding_Helper.php:283
+#: views/admin/onboarding/features.php:122
+msgid "MonsterInsights"
+msgstr ""
+
+#: Helpers/Plugin_Constants.php:163
+msgid "301 Permanent"
+msgstr ""
+
+#: Helpers/Plugin_Constants.php:164
+msgid "302 Temporary"
+msgstr ""
+
+#: Helpers/Plugin_Constants.php:165
+#: views/admin/onboarding/parts/link_popup.php:20
+msgid "307 Temporary (alternative)"
+msgstr ""
+
+#: i18n/countries.php:5
+msgid "Afghanistan"
+msgstr ""
+
+#: i18n/countries.php:6
+msgid "&#197;land Islands"
+msgstr ""
+
+#: i18n/countries.php:7
+msgid "Albania"
+msgstr ""
+
+#: i18n/countries.php:8
+msgid "Algeria"
+msgstr ""
+
+#: i18n/countries.php:9
+msgid "Andorra"
+msgstr ""
+
+#: i18n/countries.php:10
+msgid "Angola"
+msgstr ""
+
+#: i18n/countries.php:11
+msgid "Anguilla"
+msgstr ""
+
+#: i18n/countries.php:12
+msgid "Antarctica"
+msgstr ""
+
+#: i18n/countries.php:13
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: i18n/countries.php:14
+msgid "Argentina"
+msgstr ""
+
+#: i18n/countries.php:15
+msgid "Armenia"
+msgstr ""
+
+#: i18n/countries.php:16
+msgid "Aruba"
+msgstr ""
+
+#: i18n/countries.php:17
+msgid "Australia"
+msgstr ""
+
+#: i18n/countries.php:18
+msgid "Austria"
+msgstr ""
+
+#: i18n/countries.php:19
+msgid "Azerbaijan"
+msgstr ""
+
+#: i18n/countries.php:20
+msgid "Bahamas"
+msgstr ""
+
+#: i18n/countries.php:21
+msgid "Bahrain"
+msgstr ""
+
+#: i18n/countries.php:22
+msgid "Bangladesh"
+msgstr ""
+
+#: i18n/countries.php:23
+msgid "Barbados"
+msgstr ""
+
+#: i18n/countries.php:24
+msgid "Belarus"
+msgstr ""
+
+#: i18n/countries.php:25
+msgid "Belgium"
+msgstr ""
+
+#: i18n/countries.php:26
+msgid "Belau"
+msgstr ""
+
+#: i18n/countries.php:27
+msgid "Belize"
+msgstr ""
+
+#: i18n/countries.php:28
+msgid "Benin"
+msgstr ""
+
+#: i18n/countries.php:29
+msgid "Bermuda"
+msgstr ""
+
+#: i18n/countries.php:30
+msgid "Bhutan"
+msgstr ""
+
+#: i18n/countries.php:31
+msgid "Bolivia"
+msgstr ""
+
+#: i18n/countries.php:32
+msgid "Bonaire, Saint Eustatius and Saba"
+msgstr ""
+
+#: i18n/countries.php:33
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: i18n/countries.php:34
+msgid "Botswana"
+msgstr ""
+
+#: i18n/countries.php:35
+msgid "Bouvet Island"
+msgstr ""
+
+#: i18n/countries.php:36
+msgid "Brazil"
+msgstr ""
+
+#: i18n/countries.php:37
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: i18n/countries.php:38
+msgid "British Virgin Islands"
+msgstr ""
+
+#: i18n/countries.php:39
+msgid "Brunei"
+msgstr ""
+
+#: i18n/countries.php:40
+msgid "Bulgaria"
+msgstr ""
+
+#: i18n/countries.php:41
+msgid "Burkina Faso"
+msgstr ""
+
+#: i18n/countries.php:42
+msgid "Burundi"
+msgstr ""
+
+#: i18n/countries.php:43
+msgid "Cambodia"
+msgstr ""
+
+#: i18n/countries.php:44
+msgid "Cameroon"
+msgstr ""
+
+#: i18n/countries.php:45
+msgid "Canada"
+msgstr ""
+
+#: i18n/countries.php:46
+msgid "Cape Verde"
+msgstr ""
+
+#: i18n/countries.php:47
+msgid "Cayman Islands"
+msgstr ""
+
+#: i18n/countries.php:48
+msgid "Central African Republic"
+msgstr ""
+
+#: i18n/countries.php:49
+msgid "Chad"
+msgstr ""
+
+#: i18n/countries.php:50
+msgid "Chile"
+msgstr ""
+
+#: i18n/countries.php:51
+msgid "China"
+msgstr ""
+
+#: i18n/countries.php:52
+msgid "Christmas Island"
+msgstr ""
+
+#: i18n/countries.php:53
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: i18n/countries.php:54
+msgid "Colombia"
+msgstr ""
+
+#: i18n/countries.php:55
+msgid "Comoros"
+msgstr ""
+
+#: i18n/countries.php:56
+msgid "Congo (Brazzaville)"
+msgstr ""
+
+#: i18n/countries.php:57
+msgid "Congo (Kinshasa)"
+msgstr ""
+
+#: i18n/countries.php:58
+msgid "Cook Islands"
+msgstr ""
+
+#: i18n/countries.php:59
+msgid "Costa Rica"
+msgstr ""
+
+#: i18n/countries.php:60
+msgid "Croatia"
+msgstr ""
+
+#: i18n/countries.php:61
+msgid "Cuba"
+msgstr ""
+
+#: i18n/countries.php:62
+msgid "Cura&Ccedil;ao"
+msgstr ""
+
+#: i18n/countries.php:63
+msgid "Cyprus"
+msgstr ""
+
+#: i18n/countries.php:64
+msgid "Czech Republic"
+msgstr ""
+
+#: i18n/countries.php:65
+msgid "Denmark"
+msgstr ""
+
+#: i18n/countries.php:66
+msgid "Djibouti"
+msgstr ""
+
+#: i18n/countries.php:67
+msgid "Dominica"
+msgstr ""
+
+#: i18n/countries.php:68
+msgid "Dominican Republic"
+msgstr ""
+
+#: i18n/countries.php:69
+msgid "Ecuador"
+msgstr ""
+
+#: i18n/countries.php:70
+msgid "Egypt"
+msgstr ""
+
+#: i18n/countries.php:71
+msgid "El Salvador"
+msgstr ""
+
+#: i18n/countries.php:72
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: i18n/countries.php:73
+msgid "Eritrea"
+msgstr ""
+
+#: i18n/countries.php:74
+msgid "Estonia"
+msgstr ""
+
+#: i18n/countries.php:75
+msgid "Ethiopia"
+msgstr ""
+
+#: i18n/countries.php:76
+msgid "Falkland Islands"
+msgstr ""
+
+#: i18n/countries.php:77
+msgid "Faroe Islands"
+msgstr ""
+
+#: i18n/countries.php:78
+msgid "Fiji"
+msgstr ""
+
+#: i18n/countries.php:79
+msgid "Finland"
+msgstr ""
+
+#: i18n/countries.php:80
+msgid "France"
+msgstr ""
+
+#: i18n/countries.php:81
+msgid "French Guiana"
+msgstr ""
+
+#: i18n/countries.php:82
+msgid "French Polynesia"
+msgstr ""
+
+#: i18n/countries.php:83
+msgid "French Southern Territories"
+msgstr ""
+
+#: i18n/countries.php:84
+msgid "Gabon"
+msgstr ""
+
+#: i18n/countries.php:85
+msgid "Gambia"
+msgstr ""
+
+#: i18n/countries.php:86
+msgid "Georgia"
+msgstr ""
+
+#: i18n/countries.php:87
+msgid "Germany"
+msgstr ""
+
+#: i18n/countries.php:88
+msgid "Ghana"
+msgstr ""
+
+#: i18n/countries.php:89
+msgid "Gibraltar"
+msgstr ""
+
+#: i18n/countries.php:90
+msgid "Greece"
+msgstr ""
+
+#: i18n/countries.php:91
+msgid "Greenland"
+msgstr ""
+
+#: i18n/countries.php:92
+msgid "Grenada"
+msgstr ""
+
+#: i18n/countries.php:93
+msgid "Guadeloupe"
+msgstr ""
+
+#: i18n/countries.php:94
+msgid "Guatemala"
+msgstr ""
+
+#: i18n/countries.php:95
+msgid "Guernsey"
+msgstr ""
+
+#: i18n/countries.php:96
+msgid "Guinea"
+msgstr ""
+
+#: i18n/countries.php:97
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: i18n/countries.php:98
+msgid "Guyana"
+msgstr ""
+
+#: i18n/countries.php:99
+msgid "Haiti"
+msgstr ""
+
+#: i18n/countries.php:100
+msgid "Heard Island and McDonald Islands"
+msgstr ""
+
+#: i18n/countries.php:101
+msgid "Honduras"
+msgstr ""
+
+#: i18n/countries.php:102
+msgid "Hong Kong"
+msgstr ""
+
+#: i18n/countries.php:103
+msgid "Hungary"
+msgstr ""
+
+#: i18n/countries.php:104
+msgid "Iceland"
+msgstr ""
+
+#: i18n/countries.php:105
+msgid "India"
+msgstr ""
+
+#: i18n/countries.php:106
+msgid "Indonesia"
+msgstr ""
+
+#: i18n/countries.php:107
+msgid "Iran"
+msgstr ""
+
+#: i18n/countries.php:108
+msgid "Iraq"
+msgstr ""
+
+#: i18n/countries.php:109
+msgid "Republic of Ireland"
+msgstr ""
+
+#: i18n/countries.php:110
+msgid "Isle of Man"
+msgstr ""
+
+#: i18n/countries.php:111
+msgid "Israel"
+msgstr ""
+
+#: i18n/countries.php:112
+msgid "Italy"
+msgstr ""
+
+#: i18n/countries.php:113
+msgid "Ivory Coast"
+msgstr ""
+
+#: i18n/countries.php:114
+msgid "Jamaica"
+msgstr ""
+
+#: i18n/countries.php:115
+msgid "Japan"
+msgstr ""
+
+#: i18n/countries.php:116
+msgid "Jersey"
+msgstr ""
+
+#: i18n/countries.php:117
+msgid "Jordan"
+msgstr ""
+
+#: i18n/countries.php:118
+msgid "Kazakhstan"
+msgstr ""
+
+#: i18n/countries.php:119
+msgid "Kenya"
+msgstr ""
+
+#: i18n/countries.php:120
+msgid "Kiribati"
+msgstr ""
+
+#: i18n/countries.php:121
+msgid "Kuwait"
+msgstr ""
+
+#: i18n/countries.php:122
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: i18n/countries.php:123
+msgid "Laos"
+msgstr ""
+
+#: i18n/countries.php:124
+msgid "Latvia"
+msgstr ""
+
+#: i18n/countries.php:125
+msgid "Lebanon"
+msgstr ""
+
+#: i18n/countries.php:126
+msgid "Lesotho"
+msgstr ""
+
+#: i18n/countries.php:127
+msgid "Liberia"
+msgstr ""
+
+#: i18n/countries.php:128
+msgid "Libya"
+msgstr ""
+
+#: i18n/countries.php:129
+msgid "Liechtenstein"
+msgstr ""
+
+#: i18n/countries.php:130
+msgid "Lithuania"
+msgstr ""
+
+#: i18n/countries.php:131
+msgid "Luxembourg"
+msgstr ""
+
+#: i18n/countries.php:132
+msgid "Macao S.A.R., China"
+msgstr ""
+
+#: i18n/countries.php:133
+msgid "Macedonia"
+msgstr ""
+
+#: i18n/countries.php:134
+msgid "Madagascar"
+msgstr ""
+
+#: i18n/countries.php:135
+msgid "Malawi"
+msgstr ""
+
+#: i18n/countries.php:136
+msgid "Malaysia"
+msgstr ""
+
+#: i18n/countries.php:137
+msgid "Maldives"
+msgstr ""
+
+#: i18n/countries.php:138
+msgid "Mali"
+msgstr ""
+
+#: i18n/countries.php:139
+msgid "Malta"
+msgstr ""
+
+#: i18n/countries.php:140
+msgid "Marshall Islands"
+msgstr ""
+
+#: i18n/countries.php:141
+msgid "Martinique"
+msgstr ""
+
+#: i18n/countries.php:142
+msgid "Mauritania"
+msgstr ""
+
+#: i18n/countries.php:143
+msgid "Mauritius"
+msgstr ""
+
+#: i18n/countries.php:144
+msgid "Mayotte"
+msgstr ""
+
+#: i18n/countries.php:145
+msgid "Mexico"
+msgstr ""
+
+#: i18n/countries.php:146
+msgid "Micronesia"
+msgstr ""
+
+#: i18n/countries.php:147
+msgid "Moldova"
+msgstr ""
+
+#: i18n/countries.php:148
+msgid "Monaco"
+msgstr ""
+
+#: i18n/countries.php:149
+msgid "Mongolia"
+msgstr ""
+
+#: i18n/countries.php:150
+msgid "Montenegro"
+msgstr ""
+
+#: i18n/countries.php:151
+msgid "Montserrat"
+msgstr ""
+
+#: i18n/countries.php:152
+msgid "Morocco"
+msgstr ""
+
+#: i18n/countries.php:153
+msgid "Mozambique"
+msgstr ""
+
+#: i18n/countries.php:154
+msgid "Myanmar"
+msgstr ""
+
+#: i18n/countries.php:155
+msgid "Namibia"
+msgstr ""
+
+#: i18n/countries.php:156
+msgid "Nauru"
+msgstr ""
+
+#: i18n/countries.php:157
+msgid "Nepal"
+msgstr ""
+
+#: i18n/countries.php:158
+msgid "Netherlands"
+msgstr ""
+
+#: i18n/countries.php:159
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: i18n/countries.php:160
+msgid "New Caledonia"
+msgstr ""
+
+#: i18n/countries.php:161
+msgid "New Zealand"
+msgstr ""
+
+#: i18n/countries.php:162
+msgid "Nicaragua"
+msgstr ""
+
+#: i18n/countries.php:163
+msgid "Niger"
+msgstr ""
+
+#: i18n/countries.php:164
+msgid "Nigeria"
+msgstr ""
+
+#: i18n/countries.php:165
+msgid "Niue"
+msgstr ""
+
+#: i18n/countries.php:166
+msgid "Norfolk Island"
+msgstr ""
+
+#: i18n/countries.php:167
+msgid "North Korea"
+msgstr ""
+
+#: i18n/countries.php:168
+msgid "Norway"
+msgstr ""
+
+#: i18n/countries.php:169
+msgid "Oman"
+msgstr ""
+
+#: i18n/countries.php:170
+msgid "Pakistan"
+msgstr ""
+
+#: i18n/countries.php:171
+msgid "Palestinian Territory"
+msgstr ""
+
+#: i18n/countries.php:172
+msgid "Panama"
+msgstr ""
+
+#: i18n/countries.php:173
+msgid "Papua New Guinea"
+msgstr ""
+
+#: i18n/countries.php:174
+msgid "Paraguay"
+msgstr ""
+
+#: i18n/countries.php:175
+msgid "Peru"
+msgstr ""
+
+#: i18n/countries.php:176
+msgid "Philippines"
+msgstr ""
+
+#: i18n/countries.php:177
+msgid "Pitcairn"
+msgstr ""
+
+#: i18n/countries.php:178
+msgid "Poland"
+msgstr ""
+
+#: i18n/countries.php:179
+msgid "Portugal"
+msgstr ""
+
+#: i18n/countries.php:180
+msgid "Puerto Rico"
+msgstr ""
+
+#: i18n/countries.php:181
+msgid "Qatar"
+msgstr ""
+
+#: i18n/countries.php:182
+msgid "Reunion"
+msgstr ""
+
+#: i18n/countries.php:183
+msgid "Romania"
+msgstr ""
+
+#: i18n/countries.php:184
+msgid "Russia"
+msgstr ""
+
+#: i18n/countries.php:185
+msgid "Rwanda"
+msgstr ""
+
+#: i18n/countries.php:186
+msgid "Saint Barth&eacute;lemy"
+msgstr ""
+
+#: i18n/countries.php:187
+msgid "Saint Helena"
+msgstr ""
+
+#: i18n/countries.php:188
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: i18n/countries.php:189
+msgid "Saint Lucia"
+msgstr ""
+
+#: i18n/countries.php:190
+msgid "Saint Martin (French part)"
+msgstr ""
+
+#: i18n/countries.php:191
+msgid "Saint Martin (Dutch part)"
+msgstr ""
+
+#: i18n/countries.php:192
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: i18n/countries.php:193
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: i18n/countries.php:194
+msgid "San Marino"
+msgstr ""
+
+#: i18n/countries.php:195
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe"
+msgstr ""
+
+#: i18n/countries.php:196
+msgid "Saudi Arabia"
+msgstr ""
+
+#: i18n/countries.php:197
+msgid "Senegal"
+msgstr ""
+
+#: i18n/countries.php:198
+msgid "Serbia"
+msgstr ""
+
+#: i18n/countries.php:199
+msgid "Seychelles"
+msgstr ""
+
+#: i18n/countries.php:200
+msgid "Sierra Leone"
+msgstr ""
+
+#: i18n/countries.php:201
+msgid "Singapore"
+msgstr ""
+
+#: i18n/countries.php:202
+msgid "Slovakia"
+msgstr ""
+
+#: i18n/countries.php:203
+msgid "Slovenia"
+msgstr ""
+
+#: i18n/countries.php:204
+msgid "Solomon Islands"
+msgstr ""
+
+#: i18n/countries.php:205
+msgid "Somalia"
+msgstr ""
+
+#: i18n/countries.php:206
+msgid "South Africa"
+msgstr ""
+
+#: i18n/countries.php:207
+msgid "South Georgia/Sandwich Islands"
+msgstr ""
+
+#: i18n/countries.php:208
+msgid "South Korea"
+msgstr ""
+
+#: i18n/countries.php:209
+msgid "South Sudan"
+msgstr ""
+
+#: i18n/countries.php:210
+msgid "Spain"
+msgstr ""
+
+#: i18n/countries.php:211
+msgid "Sri Lanka"
+msgstr ""
+
+#: i18n/countries.php:212
+msgid "Sudan"
+msgstr ""
+
+#: i18n/countries.php:213
+msgid "Suriname"
+msgstr ""
+
+#: i18n/countries.php:214
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+#: i18n/countries.php:215
+msgid "Swaziland"
+msgstr ""
+
+#: i18n/countries.php:216
+msgid "Sweden"
+msgstr ""
+
+#: i18n/countries.php:217
+msgid "Switzerland"
+msgstr ""
+
+#: i18n/countries.php:218
+msgid "Syria"
+msgstr ""
+
+#: i18n/countries.php:219
+msgid "Taiwan"
+msgstr ""
+
+#: i18n/countries.php:220
+msgid "Tajikistan"
+msgstr ""
+
+#: i18n/countries.php:221
+msgid "Tanzania"
+msgstr ""
+
+#: i18n/countries.php:222
+msgid "Thailand"
+msgstr ""
+
+#: i18n/countries.php:223
+msgid "Timor-Leste"
+msgstr ""
+
+#: i18n/countries.php:224
+msgid "Togo"
+msgstr ""
+
+#: i18n/countries.php:225
+msgid "Tokelau"
+msgstr ""
+
+#: i18n/countries.php:226
+msgid "Tonga"
+msgstr ""
+
+#: i18n/countries.php:227
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: i18n/countries.php:228
+msgid "Tunisia"
+msgstr ""
+
+#: i18n/countries.php:229
+msgid "Turkey"
+msgstr ""
+
+#: i18n/countries.php:230
+msgid "Turkmenistan"
+msgstr ""
+
+#: i18n/countries.php:231
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: i18n/countries.php:232
+msgid "Tuvalu"
+msgstr ""
+
+#: i18n/countries.php:233
+msgid "Uganda"
+msgstr ""
+
+#: i18n/countries.php:234
+msgid "Ukraine"
+msgstr ""
+
+#: i18n/countries.php:235
+msgid "United Arab Emirates"
+msgstr ""
+
+#: i18n/countries.php:236
+msgid "United Kingdom (UK)"
+msgstr ""
+
+#: i18n/countries.php:237
+msgid "United States"
+msgstr ""
+
+#: i18n/countries.php:238
+msgid "Uruguay"
+msgstr ""
+
+#: i18n/countries.php:239
+msgid "Uzbekistan"
+msgstr ""
+
+#: i18n/countries.php:240
+msgid "Vanuatu"
+msgstr ""
+
+#: i18n/countries.php:241
+msgid "Vatican"
+msgstr ""
+
+#: i18n/countries.php:242
+msgid "Venezuela"
+msgstr ""
+
+#: i18n/countries.php:243
+msgid "Vietnam"
+msgstr ""
+
+#: i18n/countries.php:244
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: i18n/countries.php:245
+msgid "Western Sahara"
+msgstr ""
+
+#: i18n/countries.php:246
+msgid "Western Samoa"
+msgstr ""
+
+#: i18n/countries.php:247
+msgid "Yemen"
+msgstr ""
+
+#: i18n/countries.php:248
+msgid "Zambia"
+msgstr ""
+
+#: i18n/countries.php:249
+msgid "Zimbabwe"
+msgstr ""
+
+#: Models/Addons.php:134
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:386
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:40
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:102
+#: views/admin/addons/addon-page-pro.php:37
+msgid "Active"
+msgstr ""
+
+#: Models/Addons.php:135
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:387
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:46
+#: views/admin/addons/addon-page-lite.php:27
+#: views/admin/addons/addon-page-pro.php:43
+msgid "Inactive"
+msgstr ""
+
+#: Models/Addons.php:136
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:388
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:100
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:103
+#: views/admin/addons/addon-page-lite.php:32
+#: views/admin/addons/addon-page-pro.php:90
+#: views/admin/onboarding/license.php:37
+msgid "Activate"
+msgstr ""
+
+#: Models/Addons.php:137
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:389
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:92
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:104
+#: views/admin/addons/addon-page-pro.php:86
+msgid "Deactivate"
+msgstr ""
+
+#: Models/Addons.php:138
+#: Models/Addons.php:251
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:247
+msgid "Could not install add-on."
+msgstr ""
+
+#: Models/Addons.php:139
+#: Models/Addons.php:249
+msgid "Could not install plugin."
+msgstr ""
+
+#: Models/Addons.php:171
+#: Models/Settings.php:817
+msgid "Add-ons"
+msgstr ""
+
+#: Models/Addons.php:181
+#: Models/Addons.php:212
+#: Models/Addons.php:235
+#: Models/Onboarding.php:224
+#: Models/Onboarding.php:240
+#: Models/Onboarding.php:246
+#: Models/Onboarding.php:417
+#: Models/Onboarding.php:463
+#: Models/Onboarding.php:505
+#: Models/Onboarding.php:549
+#: Models/Onboarding.php:799
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:154
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:201
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:228
+msgid "Bad request."
+msgstr ""
+
+#: Models/Addons.php:185
+#: Models/Addons.php:216
+#: Models/Addons.php:239
+#: Models/Onboarding.php:228
+#: Models/Onboarding.php:421
+#: Models/Onboarding.php:459
+#: Models/Onboarding.php:509
+#: Models/Onboarding.php:553
+#: Models/Onboarding.php:803
+#: Models/Stripe_Connect.php:322
+#: Models/Stripe_Connect.php:378
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:158
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:204
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:232
+msgid "Sorry, you don't have permission to do this."
+msgstr ""
+
+#: Models/Addons.php:189
+#: Models/Addons.php:220
+#: Models/Addons.php:243
+#: Models/Onboarding.php:232
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:162
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:207
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:236
+msgid "Security check failed."
+msgstr ""
+
+#: Models/Addons.php:197
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:171
+msgid "Could not activate plugin. Please activate from the Plugins page manually."
+msgstr ""
+
+#: Models/Addons.php:199
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:178
+msgid "Could not activate add-on. Please activate from the Plugins page manually."
+msgstr ""
+
+#: Models/Addons.php:204
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:187
+msgid "Plugin activated."
+msgstr ""
+
+#: Models/Addons.php:206
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:189
+msgid "Add-on activated."
+msgstr ""
+
+#: Models/Addons.php:227
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:214
+#: vendor-prefixed/caseproof/growth-tools/src/Helper/AddonHelper.php:70
+msgid "Plugin deactivated."
+msgstr ""
+
+#: Models/Addons.php:229
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:216
+msgid "Add-on deactivated."
+msgstr ""
+
+#: Models/Addons.php:303
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:294
+msgid "Plugin installed & activated."
+msgstr ""
+
+#: Models/Addons.php:303
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:295
+msgid "Add-on installed & activated."
+msgstr ""
+
+#: Models/Addons.php:311
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:304
+msgid "Plugin installed."
+msgstr ""
+
+#: Models/Addons.php:311
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:305
+msgid "Add-on installed."
+msgstr ""
+
+#: Models/Affiliate_Link.php:624
+msgid "Unable to save affiliate link as there are no changes registered on the object yet."
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:166
+#: Models/Affiliate_Links_CPT.php:167
+#: Models/Affiliate_Links_CPT.php:465
+#: Models/Affiliate_Links_CPT.php:469
+msgid "ThirstyPay™ Links"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:211
+#: Models/Affiliate_Links_CPT.php:551
+#: Models/Affiliate_Links_CPT.php:555
+#: Models/Affiliate_Links_CPT.php:567
+msgid "Affiliate Links"
+msgstr ""
+
+#. translators: %s: number of links
+#: Models/Affiliate_Links_CPT.php:347
+msgid "All %s"
+msgstr ""
+
+#. translators: %s: number of links in the trash
+#: Models/Affiliate_Links_CPT.php:356
+msgid "Trash %s"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:466
+msgid "ThirstyPay™ Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:468
+msgid "Parent ThirstyPay™ Link:"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:470
+msgid "View ThirstyPay™ Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:471
+#: Models/Affiliate_Links_CPT.php:472
+msgid "Add New ThirstyPay™ Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:473
+msgid "Edit ThirstyPay™ Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:474
+msgid "Update ThirstyPay™ Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:475
+msgid "Search ThirstyPay™ Links"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:476
+msgid "No ThirstyPay™ Links found"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:477
+msgid "No ThirstyPay™ Links found in Trash"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:552
+msgid "Affiliate Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:554
+msgid "Parent Affiliate Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:556
+msgid "View Affiliate Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:557
+msgid "Add Affiliate Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:558
+msgid "New Affiliate Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:559
+msgid "Edit Affiliate Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:560
+msgid "Update Affiliate Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:561
+msgid "Search Affiliate Links"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:562
+msgid "No Affiliate Link found"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:563
+msgid "No Affiliate Links found in Trash"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:568
+msgid "ThirstyAffiliates affiliate links"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:625
+#: Models/Affiliate_Links_CPT.php:627
+#: views/linkpicker/quick-add-affiliate-link.php:74
+msgid "Link Categories"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:628
+#: views/linkpicker/advance-link-picker.php:23
+msgid "All Categories"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:629
+msgid "Parent Category"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:630
+msgid "Parent Category:"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:631
+msgid "New Category Name"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:632
+msgid "Add New Category"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:633
+msgid "Edit Category"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:634
+msgid "Update Category"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:635
+msgid "View Category"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:636
+msgid "Separate items with commas"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:637
+msgid "Add or remove items"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:638
+msgid "Choose from the most used"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:639
+msgid "Popular Categories"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:640
+msgid "Search Categories"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:641
+msgid "Not Found"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:642
+msgid "No items"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:643
+msgid "Category list"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:644
+msgid "Category list navigation"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:687
+msgid "Link ID:"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:722
+msgid "URLs"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:729
+msgid "Attach Images"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:736
+msgid "Link Inserted Scanner"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:746
+msgid "Save Affiliate Link"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:753
+msgid "Link Options"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:769
+msgid "ThirstyPay™"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:945
+msgid "Not yet scanned"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:950
+#: Models/Affiliate_Links_CPT.php:1420
+msgid "Last scanned on:"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:969
+msgid "No results found."
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1122
+msgid "Link ID"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1125
+msgid "Redirect Type"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1128
+msgid "Cloaked URL"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1131
+msgid "Link Destination"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1266
+msgid "Show Link Categories"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1372
+#: Models/Affiliate_Links_CPT.php:1401
+#: Models/Affiliate_Link_Attachment.php:130
+#: Models/Affiliate_Link_Attachment.php:207
+#: Models/Affiliate_Link_Attachment.php:312
+#: Models/Guided_Tour.php:313
+#: Models/Link_Fixer.php:246
+#: Models/Link_Fixer.php:248
+#: Models/Link_Picker.php:340
+#: Models/Link_Picker.php:422
+#: Models/Link_Picker.php:561
+#: Models/Marketing.php:259
+#: Models/Marketing.php:411
+#: Models/Marketing.php:470
+#: Models/Settings.php:2015
+#: Models/Settings.php:2211
+#: Models/Stats_Reporting.php:421
+#: Models/Stats_Reporting.php:469
+msgid "Invalid AJAX call"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1374
+#: Models/Affiliate_Links_CPT.php:1403
+#: Models/Affiliate_Link_Attachment.php:132
+#: Models/Affiliate_Link_Attachment.php:209
+#: Models/Affiliate_Link_Attachment.php:314
+#: Models/Guided_Tour.php:315
+#: Models/Link_Picker.php:342
+#: Models/Link_Picker.php:424
+#: Models/Link_Picker.php:563
+#: Models/Marketing.php:261
+#: Models/Marketing.php:413
+#: Models/Marketing.php:472
+#: Models/Settings.php:2017
+#: Models/Stats_Reporting.php:423
+#: Models/Stats_Reporting.php:471
+msgid "You do not have permission to do this"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1376
+#: Models/Affiliate_Links_CPT.php:1405
+#: Models/Affiliate_Link_Attachment.php:134
+#: Models/Affiliate_Link_Attachment.php:211
+#: Models/Affiliate_Link_Attachment.php:316
+#: Models/Guided_Tour.php:317
+#: Models/Link_Picker.php:426
+#: Models/Link_Picker.php:565
+#: Models/Marketing.php:263
+#: Models/Marketing.php:415
+#: Models/Marketing.php:474
+#: Models/Migration.php:288
+#: Models/Settings.php:2019
+#: Models/Settings.php:2213
+msgid "Security Check Failed"
+msgstr ""
+
+#: Models/Affiliate_Links_CPT.php:1378
+#: Models/Affiliate_Links_CPT.php:1407
+#: Models/Affiliate_Link_Attachment.php:136
+#: Models/Affiliate_Link_Attachment.php:213
+#: Models/Affiliate_Link_Attachment.php:318
+#: Models/Link_Picker.php:344
+#: Models/Link_Picker.php:428
+#: Models/Link_Picker.php:567
+#: Models/Marketing.php:265
+#: Models/Marketing.php:476
+#: Models/Stats_Reporting.php:425
+#: Models/Stats_Reporting.php:473
+msgid "Missing required post data"
+msgstr ""
+
+#: Models/Affiliate_Link_Attachment.php:159
+msgid "Attachments successfully added to the affiliate link"
+msgstr ""
+
+#: Models/Affiliate_Link_Attachment.php:184
+msgid "Invalid attachment ids to attach to an affiliate link"
+msgstr ""
+
+#: Models/Affiliate_Link_Attachment.php:222
+msgid "Attachment successfully removed from attachment"
+msgstr ""
+
+#: Models/Affiliate_Link_Attachment.php:249
+msgid "Invalid attachment id to remove from an affiliate link"
+msgstr ""
+
+#: Models/Affiliate_Link_Attachment.php:320
+msgid "The external image source is not a valid url."
+msgstr ""
+
+#: Models/Affiliate_Link_Attachment.php:328
+msgid "The external image is already added."
+msgstr ""
+
+#: Models/Authenticator.php:315
+msgid "You had an HTTP error connecting to Caseproof's Mothership API"
+msgstr ""
+
+#: Models/Authenticator.php:327
+msgid "Your License Key was invalid"
+msgstr ""
+
+#: Models/Bootstrap.php:394
+#: Models/Settings.php:763
+#: views/cpt/view-thirstypay-stripe-metabox.php:258
+msgid "Settings"
+msgstr ""
+
+#: Models/Bootstrap.php:432
+#: Models/Settings.php:2140
+msgid "Sorry, you are not allowed to access this page."
+msgstr ""
+
+#: Models/Guided_Tour.php:151
+msgid ""
+"<h3>Congratulations, you just activated ThirstyAffiliates!</h3>\n"
+"                               <p>Would you like to take a tour of the plugin features? It takes less than a minute and you'll then know exactly how to use the plugin.</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:160
+msgid ""
+"<h3>ThirstyAffiliates helps you manage affiliate links that you are given from the various affiliate programs you are a member of.</h3>\n"
+"                               <p>It lets you hide long, and often confusing looking, affiliate link URLs behind another URL called a redirect. When your visitors click on that new URL they are automatically redirected to your affiliate link.</p>\n"
+"                               <p>This is helpful for five reasons:</p>\n"
+"                               <ol><li>AESTHETICS: Affiliate links are often long and ugly as mentioned and this can look off putting to visitors. ThirstyAffiliates redirects make them shorter and more attractive to click on like \"http://example.com/recommends/some-product-name\"</li>\n"
+"                               <li>PROTECTION: It hides the affiliate code, so malicious software (malware) cannot sniff out the affiliate code for common affiliate programs and replace it with their own code instead. In this way, it protects your commissions.</li>\n"
+"                               <li>CONVENIENCE: If the affiliate program ever changes the link code you’ll only have ONE place to change it on your blog, rather than going through all your content and changing every instance of the link.</li>\n"
+"                               <li>CATEGORIZATION: You categorize your affiliate links into logical groups which can make managing them much simpler.</li>\n"
+"                               <li>STATISTICS: Finally, because your visitors are travelling via a ThirstyAffiliates redirect, the plugin can provide you with statistics on what is being clicked.</li></ol>\n"
+"                               <p>You can now create an “Affiliate Link” in this new section in your dashboard. This view shows you all the affiliate links you are managing with ThirstyAffiliates.</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:177
+msgid ""
+"<h3>Affiliate links can be added to your posts easily by clicking on the “TA” button on your editor.</h3>\n"
+"                               <p>This works identically to the WordPress link tool, but only searches for affiliate links.</p>\n"
+"                               <p>Give it a try by typing in some text, highlighting it, then clicking the “TA” button.</p>\n"
+"                               <p>If you need to you can click the cog icon for an advanced search view which is handy for doing more advanced searches and for inserting images pre-wrapped with your affiliate link or via a shortcode instead.</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:190
+msgid ""
+"<h3>ThirstyAffiliates has a number of settings that change the way it works, behaves and how your links appear.</h3>\n"
+"                                   <p>Here are the General settings which are for changing the way you work with ThirstyAffiliates in the backend.</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:199
+msgid ""
+"<h3>One of the most important parts of the settings area is Link Appearance which changes the way your links look to your visitors.</h3>\n"
+"                                   <p>This includes the Link Prefix setting which is important to decide on before you start using ThirstyAffiliates.</p>\n"
+"                                   <p>By default, this is set to “recommends” so your links will look like “http://example.com/recommends/some-product-name”.</p>\n"
+"                                   <p>You can also choose to include the category slug in the URL, change the way ThirstyAffiliates redirects links, add no follow, make links open in a new window and more.</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:211
+msgid ""
+"<h3>We built ThirstyAffiliates to be flexible and as such, you can shut down the parts of ThirstyAffiliates that aren’t being used. This can make the plugin faster.</h3>\n"
+"                                   <p>If you have the Pro add-on each Pro module will show in here as well.</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:220
+msgid ""
+"<h3>Setting up multiple sites with all running ThirstyAffiliates?</h3>\n"
+"                                   <p>We’ve made it super simple to configure your additional sites by being able to import and export ThirstyAffiliate settings.</p>\n"
+"                                   <p>Just copy the Export section and paste it into the Import section on your other site and ThirstyAffiliates will be automatically configured the same way.</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:230
+msgid ""
+"<h3>Need some help with ThirstyAffiliates?</h3>\n"
+"                                   <p>We have a growing knowledge base filled with guides, troubleshooting and FAQ.</p>\n"
+"                                   <p>Our blog is also very active with lots of interesting affiliate marketing topics to help you grow your affiliate marketing empire.</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:241
+msgid ""
+"<h3>This concludes the guide. You are now ready to set up your first affiliate link!</h3>\n"
+"                               <p>We also have a Pro add-on for ThirstyAffiliates which contains lots of interesting features for affiliates like:</p>\n"
+"                               <ul><li>Automatically link up your affiliate links to keywords in your blog</li>\n"
+"                               <li>Get more detailed and advanced reports</li>\n"
+"                               <li>Geolocated affiliate links</li>\n"
+"                               <li>Google Analytics integration</li>\n"
+"                               <li>CSV importing/exporting, Amazon importing, and more</li>\n"
+"                               <li>Link event notification admin emails</li>\n"
+"                               <li>Automatic link health checker</li></ul>\n"
+"                               <p>Want to unlock all of the extra features you see here? The Pro add-on is for you. And we’re adding new features all the time!</p>"
+msgstr ""
+
+#: Models/Guided_Tour.php:256
+msgid "Check out the current Pro add-on features"
+msgstr ""
+
+#: Models/Link_Picker.php:271
+msgid "Select image:"
+msgstr ""
+
+#: Models/Link_Picker.php:286
+msgid "No images found"
+msgstr ""
+
+#: Models/Link_Picker.php:302
+msgid "Insert link"
+msgstr ""
+
+#: Models/Link_Picker.php:303
+msgid "Insert shortcode"
+msgstr ""
+
+#: Models/Link_Picker.php:304
+msgid "Insert image"
+msgstr ""
+
+#: Models/Link_Picker.php:325
+msgid "No affiliate links found"
+msgstr ""
+
+#: Models/Marketing.php:192
+msgid "Are you enjoying using ThirstyAffiliates?"
+msgstr ""
+
+#: Models/Marketing.php:196
+msgid "That's awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress to help us spread the word and boost our motivation?"
+msgstr ""
+
+#: Models/Marketing.php:199
+msgid "Okay, you deserve it"
+msgstr ""
+
+#: Models/Marketing.php:200
+msgid "Nope, maybe later"
+msgstr ""
+
+#: Models/Marketing.php:201
+msgid "I already did"
+msgstr ""
+
+#: Models/Marketing.php:205
+msgid "We're sorry to hear you aren't enjoying ThirstyAffiliates. We would love a chance to improve. Could you take a minute and let us know what we can do better?"
+msgstr ""
+
+#: Models/Marketing.php:207
+msgid "Give Feedback"
+msgstr ""
+
+#: Models/Marketing.php:208
+#: views/customer_portal_notice.php:18
+msgid "No thanks"
+msgstr ""
+
+#: Models/Marketing.php:344
+msgid "Enable Enhanced Javascript Redirect"
+msgstr ""
+
+#: Models/Marketing.php:345
+msgid ""
+"ThirstyAffiliates version 3.2.5 introduces a new method of redirecting via javascript which will only run on your website's frontend.\r\n"
+"                     We've added this so the plugin can provide more accurate tracking data of your affiliate link clicks.\r\n"
+"                     This feature is turned on automatically for <strong>new installs</strong>, but for this install we would like to give you the choice of enabling the feature or not."
+msgstr ""
+
+#: Models/Marketing.php:351
+msgid "Enable enhanced javascript redirect feature"
+msgstr ""
+
+#: Models/Marketing.php:442
+msgid "Advanced Features"
+msgstr ""
+
+#: Models/Migration.php:284
+msgid "Invalid AJAX Call."
+msgstr ""
+
+#: Models/Migration.php:286
+msgid "Unauthorized operation. Only authorized accounts can do data migration."
+msgstr ""
+
+#: Models/Migration.php:292
+msgid "Data Migration Complete!"
+msgstr ""
+
+#: Models/Migration.php:781
+msgid "ThirstyAffiliates is currently migrating your old affiliate link data to the new data model.<br>Please hold off making changes to your affiliate links. Please refresh the page and if this message has disappeared, the migration is complete."
+msgstr ""
+
+#. translators: %1$s open link tag, %2$s: close link tag
+#: Models/Onboarding.php:191
+msgid "Welcome back! Looks like you got sidetracked before finishing up your ThirstyAffiliates setup. No worries! %1$sClick here%2$s and we'll zip you back to where you left off."
+msgstr ""
+
+#: Models/Onboarding.php:436
+msgid "There was a problem attempting to create your link. Please try again."
+msgstr ""
+
+#: Models/Onboarding.php:447
+#: views/admin/onboarding/parts/thirsty-link.php:101
+msgid "Your Link"
+msgstr ""
+
+#: Models/Onboarding.php:470
+#: Models/Onboarding.php:693
+msgid "Invalid request."
+msgstr ""
+
+#: Models/Onboarding.php:568
+msgid "There was a problem processing your CSV file. Please try the import again."
+msgstr ""
+
+#: Models/Onboarding.php:570
+msgid "There was a problem processing your import. It is a pro only feature and CSV Import/Export module must be enabled."
+msgstr ""
+
+#: Models/Onboarding.php:706
+msgid "The correct edition of ThirstyAffiliates has been installed successfully."
+msgstr ""
+
+#: Models/Onboarding.php:709
+msgid "Failed to install the correct edition of ThirstyAffiliates, please download it from ThirstyAffiliates.com and install it manually."
+msgstr ""
+
+#: Models/Onboarding.php:713
+msgid "License data not found"
+msgstr ""
+
+#: Models/Onboarding.php:844
+#: views/admin/onboarding/parts/finish.php:90
+msgid "Unable to install. Please download and install manually."
+msgstr ""
+
+#: Models/Rewrites_Redirection.php:388
+msgid "<h1>Forbidden</h1><p>You don't have permission to access %s on this server.</p>"
+msgstr ""
+
+#: Models/Script_Loader.php:158
+msgid "Please provide a value for \"Custom Link Prefix\" option"
+msgstr ""
+
+#: Models/Script_Loader.php:169
+msgid "Please input settings string"
+msgstr ""
+
+#: Models/Script_Loader.php:170
+msgid "Settings string copied"
+msgstr ""
+
+#: Models/Script_Loader.php:171
+msgid "Failed to copy settings string"
+msgstr ""
+
+#: Models/Script_Loader.php:183
+msgid "Failed to do data migration"
+msgstr ""
+
+#: Models/Script_Loader.php:184
+msgid "Are you sure you want to migrate your ThirstyAffiliates data to version 3 format?"
+msgstr ""
+
+#: Models/Script_Loader.php:231
+msgid "Find or add a product..."
+msgstr ""
+
+#: Models/Script_Loader.php:233
+msgid "Select shipping countries"
+msgstr ""
+
+#: Models/Script_Loader.php:235
+msgid "This field is required"
+msgstr ""
+
+#: Models/Script_Loader.php:277
+msgid "Previous"
+msgstr ""
+
+#: Models/Script_Loader.php:278
+msgid "Next"
+msgstr ""
+
+#: Models/Script_Loader.php:279
+msgid "Close"
+msgstr ""
+
+#: Models/Script_Loader.php:280
+msgid "Start Tour"
+msgstr ""
+
+#: Models/Script_Loader.php:325
+msgid "Are you sure? You will no longer receive updates for ThirstyAffiliates if this License Key is deactivated."
+msgstr ""
+
+#: Models/Script_Loader.php:328
+msgid "An error occurred"
+msgstr ""
+
+#: Models/Script_Loader.php:332
+#: views/admin/onboarding/created-links-list.php:23
+msgid "Link Name"
+msgstr ""
+
+#: Models/Script_Loader.php:333
+msgid "Course"
+msgstr ""
+
+#: Models/Script_Loader.php:334
+msgid "Page"
+msgstr ""
+
+#: Models/Script_Loader.php:335
+msgid "This may take a couple of minutes"
+msgstr ""
+
+#: Models/Script_Loader.php:338
+msgid "An error occurred when installing an add-on, please download and install the add-ons manually."
+msgstr ""
+
+#: Models/Script_Loader.php:342
+#: views/admin/onboarding/created-links-list.php:31
+#: views/admin/onboarding/parts/category.php:33
+#: views/admin/onboarding/parts/thirsty-link.php:112
+msgid "Remove"
+msgstr ""
+
+#: Models/Script_Loader.php:414
+msgid "affiliate link"
+msgstr ""
+
+#: Models/Script_Loader.php:415
+msgid "quick add affiliate link"
+msgstr ""
+
+#: Models/Script_Loader.php:416
+msgid "Open the ThirstyAffiliates link picker"
+msgstr ""
+
+#: Models/Script_Loader.php:417
+msgid "Open quick add affiliate link dialog"
+msgstr ""
+
+#: Models/Script_Loader.php:418
+msgid "Type to search affiliate link"
+msgstr ""
+
+#: Models/Script_Loader.php:471
+msgid "See Quick Links"
+msgstr ""
+
+#: Models/Script_Loader.php:517
+msgid "Upgrade to ThirstyAffiliates Pro"
+msgstr ""
+
+#: Models/Script_Loader.php:524
+msgid "Support & Docs"
+msgstr ""
+
+#: Models/Script_Loader.php:531
+msgid "Suggest a Feature"
+msgstr ""
+
+#: Models/Script_Loader.php:558
+msgid "Support"
+msgstr ""
+
+#: Models/Script_Loader.php:563
+msgid "Docs"
+msgstr ""
+
+#: Models/Script_Loader.php:568
+msgid "Made with ♥ by the ThirstyAffiliates Team"
+msgstr ""
+
+#: Models/Settings.php:268
+#: views/cpt/view-link-options-metabox.php:12
+#: views/cpt/view-link-options-metabox.php:24
+#: views/cpt/view-link-options-metabox.php:37
+#: views/cpt/view-link-options-metabox.php:51
+#: views/linkpicker/quick-add-affiliate-link.php:56
+#: views/linkpicker/quick-add-affiliate-link.php:67
+msgid "Yes"
+msgstr ""
+
+#: Models/Settings.php:269
+#: views/cpt/view-link-options-metabox.php:13
+#: views/cpt/view-link-options-metabox.php:25
+#: views/cpt/view-link-options-metabox.php:38
+#: views/cpt/view-link-options-metabox.php:52
+#: views/linkpicker/quick-add-affiliate-link.php:57
+#: views/linkpicker/quick-add-affiliate-link.php:68
+msgid "No"
+msgstr ""
+
+#: Models/Settings.php:270
+msgid "Per category"
+msgstr ""
+
+#: Models/Settings.php:276
+#: views/reports/link-performance-report.php:39
+#: views/reports/link-performance-report.php:80
+msgid "General"
+msgstr ""
+
+#: Models/Settings.php:277
+msgid "Settings that change the general behaviour of ThirstyAffiliates."
+msgstr ""
+
+#: Models/Settings.php:280
+msgid "Link Appearance"
+msgstr ""
+
+#: Models/Settings.php:281
+msgid "Settings that specifically affect the behaviour & appearance of your affiliate links."
+msgstr ""
+
+#: Models/Settings.php:284
+msgid "Modules"
+msgstr ""
+
+#: Models/Settings.php:285
+msgid "This section allows you to turn certain parts of ThirstyAffiliates on or off. Below are the individual modules and features of the plugin that can be controlled."
+msgstr ""
+
+#: Models/Settings.php:288
+msgid "Import/Export"
+msgstr ""
+
+#: Models/Settings.php:289
+msgid "Import and Export global ThirstyAffiliates plugin settings from one site to another."
+msgstr ""
+
+#: Models/Settings.php:292
+msgid "Help"
+msgstr ""
+
+#: Models/Settings.php:293
+msgid "Links to knowledge base and other utilities."
+msgstr ""
+
+#: Models/Settings.php:302
+msgid "Default Link Insertion Type"
+msgstr ""
+
+#: Models/Settings.php:303
+msgid "Determines the default link type when inserting a link using the quick search."
+msgstr ""
+
+#: Models/Settings.php:308
+msgid "Shortcode"
+msgstr ""
+
+#: Models/Settings.php:314
+msgid "Disable \"uncategorized\" category on save?"
+msgstr ""
+
+#: Models/Settings.php:315
+msgid "If links are including categories in the URL then by default ThirstyAffiliates will add an \"uncategorized\" category to apply to non-categorised links during save. If you disable this, it allows you to have some links with categories in the URL and some without."
+msgstr ""
+
+#: Models/Settings.php:321
+msgid "Disable buttons on the Visual editor?"
+msgstr ""
+
+#: Models/Settings.php:322
+msgid "Hide the ThirstyAffiliates buttons on the Visual editor."
+msgstr ""
+
+#: Models/Settings.php:328
+msgid "Disable buttons on the Text/Quicktags editor?"
+msgstr ""
+
+#: Models/Settings.php:329
+msgid "Hide the ThirstyAffiliates buttons on the Text editor."
+msgstr ""
+
+#: Models/Settings.php:335
+msgid "Trim stats older than:"
+msgstr ""
+
+#: Models/Settings.php:336
+msgid "months (Automatically clean the statistics database records older than a set point. Setting this to 0 will disable it)."
+msgstr ""
+
+#: Models/Settings.php:345
+msgid "Don't cache 301 redirects? (server side redirects)"
+msgstr ""
+
+#: Models/Settings.php:346
+msgid "By default, browsers caches the 301 redirects. Enabling this option will tell the browser not to cache 301 redirects. Be aware that it is still up to the browser if it will cache it or not."
+msgstr ""
+
+#: Models/Settings.php:352
+msgid "Disable IP address collection"
+msgstr ""
+
+#: Models/Settings.php:353
+msgid "By default ThirstyAffiliates plugin collects visitor's IP address everytime they click an affiliate link as part of the statistics information. By checking this the IP address collection will be disabled, but other information will still be saved."
+msgstr ""
+
+#: Models/Settings.php:359
+msgid "Disable browser/device data collection"
+msgstr ""
+
+#: Models/Settings.php:360
+msgid "As of version 3.4, by default ThirstyAffiliates plugin collects visitor's browser and device used everytime they click an affiliate link as part of the statistics information. By checking this the browser/device collection will be disabled, but other information will still be saved."
+msgstr ""
+
+#: Models/Settings.php:366
+msgid "Blocked bots"
+msgstr ""
+
+#: Models/Settings.php:367
+msgid "By default ThirstyAffiliates blocks bots accessing your affiliate links to give you a more appropriate data in the report. Select bots, or enter new ones to block."
+msgstr ""
+
+#: Models/Settings.php:375
+msgid "Enable Bot Crawl Blocker Script"
+msgstr ""
+
+#: Models/Settings.php:376
+msgid "By enabling this setting, your affiliate links won't redirect for all the <em>blocked bots</em> set above and will send out a 403 forbidden error."
+msgstr ""
+
+#: Models/Settings.php:385
+msgid "Link Prefix"
+msgstr ""
+
+#: Models/Settings.php:386
+msgid "The prefix that comes before your cloaked link's slug. <br>eg. %s/<strong>recommends</strong>/your-affiliate-link-name.<br><br><b>Warning :</b> Changing this setting after you've used links in a post could break those links. Be careful!"
+msgstr ""
+
+#: Models/Settings.php:414
+msgid "Custom Link Prefix"
+msgstr ""
+
+#: Models/Settings.php:415
+msgid "Enter your preferred link prefix."
+msgstr ""
+
+#: Models/Settings.php:421
+msgid "Link Category in URL?"
+msgstr ""
+
+#: Models/Settings.php:422
+msgid "Shows the primary selected category in the url. eg. %s/recommends/<strong>link-category</strong>/your-affiliate-link-name.<br><br><b>Warning :</b> Changing this setting after you've used links in a post could break those links. Be careful!"
+msgstr ""
+
+#: Models/Settings.php:428
+msgid "Enable Enhanced Javascript Redirect on Frontend"
+msgstr ""
+
+#: Models/Settings.php:429
+msgid "By default affiliate links are redirected on the server side. Enabling this will set all affiliate links to be redirected via javascript on your website's frontend. This will then improve the accuracy of the link performance report (This will only work when <strong>Statistics</strong> module is enabled)."
+msgstr ""
+
+#: Models/Settings.php:436
+msgid "Link Redirect Type (server side redirects)"
+msgstr ""
+
+#: Models/Settings.php:437
+msgid "This is the type of redirect ThirstyAffiliates will use to redirect the user to your affiliate link."
+msgstr ""
+
+#: Models/Settings.php:445
+msgid "Use no follow on links? (server side redirects)"
+msgstr ""
+
+#: Models/Settings.php:446
+msgid "Add the nofollow attribute to links so search engines don't index them."
+msgstr ""
+
+#: Models/Settings.php:455
+msgid "No follow categories (server side redirects)"
+msgstr ""
+
+#: Models/Settings.php:456
+msgid "The links assigned to the selected category will be set as \"no follow\"."
+msgstr ""
+
+#: Models/Settings.php:460
+#: Models/Settings.php:482
+#: Models/Settings.php:504
+#: Models/Settings.php:545
+msgid "Select category..."
+msgstr ""
+
+#: Models/Settings.php:467
+msgid "Open links in new window?"
+msgstr ""
+
+#: Models/Settings.php:468
+msgid "Make links open in a new browser tab by default."
+msgstr ""
+
+#: Models/Settings.php:477
+msgid "New window categories"
+msgstr ""
+
+#: Models/Settings.php:478
+msgid "The links assigned to the selected category will be set as \"new window\"."
+msgstr ""
+
+#: Models/Settings.php:489
+msgid "Pass query strings to destination url?"
+msgstr ""
+
+#: Models/Settings.php:490
+msgid "Enabling this option will pass all of the query strings present after the cloaked url to the destination url automatically when redirecting."
+msgstr ""
+
+#: Models/Settings.php:499
+msgid "Pass query strings categories"
+msgstr ""
+
+#: Models/Settings.php:500
+msgid "The links assigned to the selected category will be set as \"pass query strings\"."
+msgstr ""
+
+#: Models/Settings.php:511
+msgid "Additional rel attribute tags"
+msgstr ""
+
+#: Models/Settings.php:512
+msgid "Allows you to add extra tags into the rel= attribute when links are inserted."
+msgstr ""
+
+#: Models/Settings.php:518
+msgid "Additional CSS classes"
+msgstr ""
+
+#: Models/Settings.php:519
+msgid "Allows you to add extra CSS classes when links are inserted."
+msgstr ""
+
+#: Models/Settings.php:525
+msgid "Disable ThirstyAffiliates CSS classes?"
+msgstr ""
+
+#: Models/Settings.php:526
+msgid "To help with styling a CSS class called \"thirstylink\" is added links on insertion.<br>Likewise the \"thirstylinkimg\" class is added to images when using the image insertion type. This option disables the addition of these CSS classes."
+msgstr ""
+
+#: Models/Settings.php:532
+msgid "Disable title attribute on link insertion?"
+msgstr ""
+
+#: Models/Settings.php:533
+msgid "Links are automatically output with a title html attribute (by default this shows the title of the affiliate link).<br>This option disables the output of the title attribute on your links."
+msgstr ""
+
+#: Models/Settings.php:539
+msgid "Select Category to Uncloak"
+msgstr ""
+
+#: Models/Settings.php:540
+msgid "The links assigned to the selected category will be uncloaked."
+msgstr ""
+
+#: Models/Settings.php:554
+msgid "Statistics"
+msgstr ""
+
+#: Models/Settings.php:555
+msgid "When enabled, ThirstyAffiliates will collect click statistics information about visitors that click on your affiliate links. Also adds a new Reports section."
+msgstr ""
+
+#: Models/Settings.php:562
+msgid "Link Fixer"
+msgstr ""
+
+#: Models/Settings.php:563
+msgid "Link Fixer is a tiny piece of javascript code that runs on the frontend of your site to fix any outdated/broken affiliate links it detects. It's cache-friendly and runs after page load so it doesn't affect the rendering of content. Changed the settings on your site recently? Enabling Link Fixer means you don't need to update all your previously inserted affiliate links one by one – your visitors will never see an out of date affiliate link again."
+msgstr ""
+
+#: Models/Settings.php:571
+msgid "Uncloak Links is a feature to allow uncloaking of specific links on your site. It replaces the cloaked url with the actual destination url which is important for compatibility with some affiliate program with stricter terms (such as Amazon Associates). Once enabled, you will see a new Uncloak Link checkbox on the affiliate link edit screen. It also introduces a new setting under the Links tab for uncloaking whole categories.<br><br><b>Warning : </b>For this feature to work, the <strong>Link Fixer</strong> module needs to be turned on."
+msgstr ""
+
+#: Models/Settings.php:581
+msgid "Import Global Settings"
+msgstr ""
+
+#: Models/Settings.php:583
+msgid "Paste settings string here..."
+msgstr ""
+
+#: Models/Settings.php:588
+msgid "Export Global Settings"
+msgstr ""
+
+#: Models/Settings.php:597
+#: Models/Settings.php:605
+msgid "Knowledge Base"
+msgstr ""
+
+#: Models/Settings.php:602
+msgid "Documentation"
+msgstr ""
+
+#: Models/Settings.php:606
+msgid "Guides, troubleshooting, FAQ and more."
+msgstr ""
+
+#: Models/Settings.php:611
+msgid "Our Blog"
+msgstr ""
+
+#: Models/Settings.php:614
+msgid "ThirstyAffiliates Blog"
+msgstr ""
+
+#: Models/Settings.php:615
+msgid "Learn & grow your affiliate marketing – covering increasing sales, generating traffic, optimising your affiliate marketing, interviews & case studies."
+msgstr ""
+
+#: Models/Settings.php:620
+msgid "Join the Community"
+msgstr ""
+
+#: Models/Settings.php:627
+msgid "Other Utilities"
+msgstr ""
+
+#: Models/Settings.php:632
+msgid "Migrate Old Data"
+msgstr ""
+
+#: Models/Settings.php:634
+msgid "Migrate old ThirstyAffiliates version 2 data to new version 3 data model."
+msgstr ""
+
+#: Models/Settings.php:762
+#: Models/Settings.php:902
+msgid "ThirstyAffiliates Settings"
+msgstr ""
+
+#: Models/Settings.php:772
+#: Models/Settings.php:773
+msgid "Import CSV"
+msgstr ""
+
+#: Models/Settings.php:781
+#: Models/Settings.php:782
+msgid "Export CSV"
+msgstr ""
+
+#: Models/Settings.php:809
+#: Models/Settings.php:810
+msgid "Welcome"
+msgstr ""
+
+#: Models/Settings.php:845
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:149
+#: views/admin/onboarding/license.php:33
+msgid "Activate License"
+msgstr ""
+
+#: Models/Settings.php:851
+msgid "Enable Features"
+msgstr ""
+
+#: Models/Settings.php:857
+msgid "Creating Your Link"
+msgstr ""
+
+#: Models/Settings.php:863
+msgid "Categorize Your Link"
+msgstr ""
+
+#: Models/Settings.php:869
+msgid "Finish Setup"
+msgstr ""
+
+#: Models/Settings.php:875
+msgid "Complete"
+msgstr ""
+
+#: Models/Settings.php:920
+msgid "Pro Features →"
+msgstr ""
+
+#: Models/Settings.php:1049
+msgid "Save Changes"
+msgstr ""
+
+#: Models/Settings.php:1558
+msgid "Key"
+msgstr ""
+
+#: Models/Settings.php:1559
+msgid "Value"
+msgstr ""
+
+#: Models/Settings.php:1682
+msgid "Another application is currently processing the database. Please wait for this to complete."
+msgstr ""
+
+#: Models/Settings.php:1692
+msgid "Migrate"
+msgstr ""
+
+#: Models/Settings.php:1695
+msgid "Migrating data. Please wait..."
+msgstr ""
+
+#: Models/Settings.php:1726
+msgid "Like us on Facebook"
+msgstr ""
+
+#: Models/Settings.php:1730
+msgid "Follow us on Twitter"
+msgstr ""
+
+#: Models/Settings.php:1734
+msgid "Follow us on Linkedin"
+msgstr ""
+
+#: Models/Settings.php:1737
+msgid "Join Our Affiliate Program"
+msgstr ""
+
+#: Models/Settings.php:1738
+msgid "(up to 30% commisions)"
+msgstr ""
+
+#: Models/Settings.php:1771
+msgid "Copy"
+msgstr ""
+
+#: Models/Settings.php:1808
+msgid "Import Settings"
+msgstr ""
+
+#: Models/Settings.php:1996
+msgid "Unauthorized operation. Only authorized accounts can access global plugin settings string"
+msgstr ""
+
+#: Models/Settings.php:2021
+msgid "Required parameter not passed"
+msgstr ""
+
+#: Models/Settings.php:2029
+msgid "Settings successfully imported"
+msgstr ""
+
+#: Models/Settings.php:2053
+msgid "Invalid global settings string"
+msgstr ""
+
+#. translators: %1$s: open link tag, %2$s: close link tag
+#: Models/Settings.php:2233
+msgid "You're using ThirstyAffiliates Lite. To unlock more features, consider %1$supgrading to Pro%2$s."
+msgstr ""
+
+#: Models/Shortcodes.php:267
+msgid "SHORTCODE ERROR: ThirstyAffiliates did not detect a valid link id, please check your short code!"
+msgstr ""
+
+#: Models/Stats_Reporting.php:439
+msgid "Selected affiliate link is invalid"
+msgstr ""
+
+#: Models/Stats_Reporting.php:576
+msgid "Link Overview"
+msgstr ""
+
+#: Models/Stats_Reporting.php:577
+msgid "Link Overview Report"
+msgstr ""
+
+#: Models/Stats_Reporting.php:578
+msgid "Total clicks on affiliate links over a given period."
+msgstr ""
+
+#: Models/Stats_Reporting.php:608
+msgid "ThirstyAffiliates Reports"
+msgstr ""
+
+#: Models/Stats_Reporting.php:609
+msgid "Reports"
+msgstr ""
+
+#: Models/Stats_Reporting.php:638
+msgid "Error loading report. Please ensure ThirstyAffiliates Pro is updated to the latest version. If the problem continues, please contact our support team."
+msgstr ""
+
+#: Models/Stats_Reporting.php:691
+msgid "Year"
+msgstr ""
+
+#: Models/Stats_Reporting.php:692
+msgid "Last Month"
+msgstr ""
+
+#: Models/Stats_Reporting.php:693
+msgid "This Month"
+msgstr ""
+
+#: Models/Stats_Reporting.php:694
+msgid "Last 7 Days"
+msgstr ""
+
+#: Models/Stripe.php:267
+#: Models/Stripe.php:391
+#: Models/Stripe.php:397
+#: Models/Stripe.php:1034
+msgid "Bad request"
+msgstr ""
+
+#: Models/Stripe.php:275
+msgid "+ Add a product"
+msgstr ""
+
+#: Models/Stripe.php:453
+msgid "A product name is required"
+msgstr ""
+
+#: Models/Stripe.php:457
+msgid "A product price is required"
+msgstr ""
+
+#: Models/Stripe.php:459
+msgid "The product price must be numeric and greater than zero"
+msgstr ""
+
+#: Models/Stripe.php:463
+msgid "A product currency is required"
+msgstr ""
+
+#: Models/Stripe.php:468
+msgid "The given currency is not supported"
+msgstr ""
+
+#: Models/Stripe.php:473
+msgid "The given product type is not supported"
+msgstr ""
+
+#: Models/Stripe.php:485
+msgid "The given billing period is not supported"
+msgstr ""
+
+#: Models/Stripe.php:488
+msgid "The given custom billing interval count must be numeric and greater than zero"
+msgstr ""
+
+#: Models/Stripe.php:492
+msgid "The given custom billing interval is not supported"
+msgstr ""
+
+#: Models/Stripe.php:497
+msgid "The given tax behavior is not supported"
+msgstr ""
+
+#: Models/Stripe.php:604
+msgid "Payment Pending"
+msgstr ""
+
+#: Models/Stripe.php:604
+msgid "Payment Successful"
+msgstr ""
+
+#: Models/Stripe.php:668
+msgid "HTTP error"
+msgstr ""
+
+#: Models/Stripe.php:680
+msgid "Invalid response from the remote server"
+msgstr ""
+
+#: Models/Stripe.php:759
+msgid "This link is not configured correctly."
+msgstr ""
+
+#: Models/Stripe.php:868
+msgid "Try again"
+msgstr ""
+
+#: Models/Stripe.php:1065
+#: Models/Stripe.php:1356
+#: views/customer_portal_notice.php:19
+msgid "Configure Customer Portal"
+msgstr ""
+
+#: Models/Stripe.php:1069
+msgid "The Customer Portal is not yet configured."
+msgstr ""
+
+#: Models/Stripe.php:1145
+msgid "Pocket All Your Profits!"
+msgstr ""
+
+#: Models/Stripe.php:1148
+msgid "<i>Psst!</i> Without a licensed plan, ThirstyPay™ links come with a 3% transaction fee. Switch to a premium plan today for total earnings every time!"
+msgstr ""
+
+#: Models/Stripe.php:1169
+#: Models/Stripe.php:1214
+#: Models/Stripe.php:1511
+msgid "ThirstyPay™ Thank You Page"
+msgstr ""
+
+#: Models/Stripe.php:1174
+#: Models/Stripe.php:1286
+msgid "Default Currency"
+msgstr ""
+
+#: Models/Stripe.php:1182
+#: Models/Stripe.php:1337
+#: views/customer_portal_notice.php:5
+msgid "Customer Portal"
+msgstr ""
+
+#: Models/Stripe.php:1215
+msgid "The page that customers will be redirected to after making a payment using a ThirstyPay™ Link, this can be overridden on individual ThirstyPay™ Links."
+msgstr ""
+
+#: Models/Stripe.php:1227
+msgid "Homepage"
+msgstr ""
+
+#: Models/Stripe.php:1249
+msgid "Thank You"
+msgstr ""
+
+#: Models/Stripe.php:1250
+msgid "Thank you for your purchase."
+msgstr ""
+
+#: Models/Stripe.php:1287
+msgid "Set the currency that is selected by default when creating products."
+msgstr ""
+
+#: Models/Stripe.php:1297
+#: views/cpt/view-thirstypay-stripe-metabox.php:50
+msgid "Currency"
+msgstr ""
+
+#: Models/Stripe.php:1338
+msgid "Configure the customer portal where customers can manage their recurring ThirstyPay™ Link subscriptions."
+msgstr ""
+
+#. translators: %1$s: open strong tag, %2$s: close strong tag, %3$s: the error message
+#: Models/Stripe.php:1531
+msgid "%1$sError saving Customer Portal:%2$s %3$s"
+msgstr ""
+
+#: Models/Stripe_Connect.php:163
+msgid "Thirsty for More Revenue?"
+msgstr ""
+
+#: Models/Stripe_Connect.php:167
+msgid "Quench it with %1$sNEW ThirstyPay™ Links!%2$s Make taking payments a cinch right on your site with %1$sbrandable checkout links%2$s. No fuss, all fun –  just simple, secure money moves that put more in your pocket."
+msgstr ""
+
+#: Models/Stripe_Connect.php:173
+msgid "Learn More"
+msgstr ""
+
+#: Models/Stripe_Connect.php:242
+msgid "Sorry, updating your credentials failed. (security)"
+msgstr ""
+
+#: Models/Stripe_Connect.php:252
+msgid "Sorry, updating your credentials failed. (pmt)"
+msgstr ""
+
+#: Models/Stripe_Connect.php:312
+#: Models/Stripe_Connect.php:317
+#: Models/Stripe_Connect.php:342
+msgid "Sorry, the refresh failed."
+msgstr ""
+
+#: Models/Stripe_Connect.php:373
+#: Models/Stripe_Connect.php:384
+msgid "Sorry, the disconnect failed."
+msgstr ""
+
+#: Models/Stripe_Connect.php:444
+msgid "Payments"
+msgstr ""
+
+#: Models/Stripe_Connect.php:461
+msgid "Live Publishable Key*"
+msgstr ""
+
+#: Models/Stripe_Connect.php:468
+msgid "Live Secret Key*"
+msgstr ""
+
+#: Models/Stripe_Connect.php:475
+msgid "Test Publishable Key*"
+msgstr ""
+
+#: Models/Stripe_Connect.php:482
+msgid "Test Secret Key*"
+msgstr ""
+
+#: thirstyaffiliates.php:184
+msgid "Activate this plugin"
+msgstr ""
+
+#: thirstyaffiliates.php:184
+msgid "Click here to activate &rarr;"
+msgstr ""
+
+#: thirstyaffiliates.php:186
+msgid "Install this plugin"
+msgstr ""
+
+#: thirstyaffiliates.php:186
+msgid "Click here to install from WordPress.org repo &rarr;"
+msgstr ""
+
+#: thirstyaffiliates.php:188
+msgid "<br/>Please ensure you have the <a href=\"%1$s\" target=\"_blank\">%2$s</a> plugin installed and activated.<br/>"
+msgstr ""
+
+#: thirstyaffiliates.php:195
+msgid "<b>ThirstyAffiliates</b> plugin missing dependency.<br/>"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-in-product-notifications/Services/Ajax.php:84
+msgid "Invalid nonce."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-in-product-notifications/Services/Ajax.php:88
+msgid "You must log in to perform this action."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-in-product-notifications/Services/Ajax.php:92
+msgid "You are not allowed to perform this action."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-in-product-notifications/Services/Ajax.php:96
+msgid "Missing required parameter: id."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-in-product-notifications/Services/Ajax.php:100
+msgid "Unknown error."
+msgstr ""
+
+#. Translators: %s The name of the property that does not exist on the response object.
+#: vendor-prefixed/caseproof/ground-level-mothership/Api/Response.php:108
+msgid "Property %s does not exist on the response object."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Credentials.php:75
+msgid "Cannot store credentials in database; found in environment variables or constants."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:242
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:394
+msgid "Could not install plugin. Please download and install manually."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:349
+msgid "Please enter your license key to access add-ons."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:361
+msgid "There was an issue connecting with the API."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/AddonsManager.php:390
+msgid "Could not install add-on. Please download and install manually."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:82
+msgid "License activated successfully"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:95
+msgid "License deactivated successfully"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:132
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:171
+msgid "License Key: "
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:185
+#: views/admin/onboarding/active_license.php:74
+msgid "Deactivate License"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:203
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:260
+msgid "Insufficient permissions"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:208
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:265
+msgid "Invalid nonce"
+msgstr ""
+
+#. Translators: %s is the response error message.
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:212
+msgid "License activation failed: %s"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Manager/LicenseManager.php:274
+msgid "License deactivation failed, you are using a license key from an environment variable or constant."
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:10
+#: views/admin/addons/addon-page-lite.php:15
+#: views/admin/addons/addon-page-pro.php:18
+msgid "Available Add-ons"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:14
+#: views/admin/addons/addon-page-lite.php:5
+#: views/admin/addons/addon-page-pro.php:5
+msgid "Refresh Add-ons"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:18
+#: views/admin/addons/addon-page-lite.php:5
+#: views/admin/addons/addon-page-pro.php:5
+msgid "Search add-ons"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:43
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:100
+#: views/admin/addons/addon-page-pro.php:40
+msgid "Not Installed"
+msgstr ""
+
+#. Translators: %s: add-on status label.
+#. translators: %s: add-on status label
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:73
+#: views/admin/addons/addon-page-pro.php:66
+msgid "Status: %s"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:109
+#: views/admin/addons/addon-page-pro.php:94
+msgid "Install Add-on"
+msgstr ""
+
+#: vendor-prefixed/caseproof/ground-level-mothership/Views/products.php:120
+msgid "There were no Add-ons found for your License Key."
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:58
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:59
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:205
+msgid "Growth Tools"
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:101
+msgid "Installed"
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/App.php:105
+msgid "Install"
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/Helper/AddonHelper.php:22
+msgid "Could not activate addon. Please check user permissions."
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/Helper/AddonHelper.php:31
+msgid "Addon activated."
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/Helper/AddonHelper.php:36
+msgid "Could not activate addon. Please activate from the Plugins page."
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/Helper/AddonHelper.php:41
+msgid "Could not activate addon. Please refresh page and try again."
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/Helper/AddonHelper.php:62
+msgid "Could not deactivate the theme. Please deactivate from the theme page."
+msgstr ""
+
+#: vendor-prefixed/caseproof/growth-tools/src/Helper/AddonHelper.php:72
+msgid "Could not deactivate the addon. Please deactivate from the Plugins page."
+msgstr ""
+
+#: views/admin/addons/addon-page-lite.php:5
+#: views/admin/addons/addon-page-pro.php:5
+msgid "ThirstyAffiliates Add-ons"
+msgstr ""
+
+#: views/admin/addons/addon-page-lite.php:10
+msgid "Improve your links with our premium add-ons. Missing an add-on that you think you should be able to see? Click the <a href=\"#\">Refresh Add-ons</a> button above."
+msgstr ""
+
+#: views/admin/addons/addon-page-lite.php:21
+msgid "Thirsty Affiliates Product Displays"
+msgstr ""
+
+#: views/admin/addons/addon-page-lite.php:22
+#: views/admin/onboarding/features.php:105
+msgid "Product Displays"
+msgstr ""
+
+#: views/admin/addons/addon-page-lite.php:23
+msgid "Add beautifully styled product displays to your site."
+msgstr ""
+
+#: views/admin/addons/addon-page-lite.php:27
+msgid "Status: "
+msgstr ""
+
+#. translators: %1$s: open link tag, %2$s: close link tag
+#: views/admin/addons/addon-page-pro.php:11
+msgid "Improve your links with our premium add-ons. Missing an add-on that you think you should be able to see? Click the %1$sRefresh Add-ons%2$s button above."
+msgstr ""
+
+#: views/admin/addons/addon-page-pro.php:98
+msgid "Upgrade Now"
+msgstr ""
+
+#: views/admin/addons/addon-page-pro.php:115
+msgid "There were no Add-ons found for your license or lack thereof..."
+msgstr ""
+
+#: views/admin/onboarding/active_license.php:19
+msgid "License activated until %s"
+msgstr ""
+
+#: views/admin/onboarding/active_license.php:25
+msgid "License activated"
+msgstr ""
+
+#: views/admin/onboarding/active_license.php:32
+msgid "Account email"
+msgstr ""
+
+#: views/admin/onboarding/active_license.php:35
+msgid "Unknown"
+msgstr ""
+
+#: views/admin/onboarding/active_license.php:40
+#: views/cpt/view-thirstypay-stripe-metabox.php:10
+msgid "Product"
+msgstr ""
+
+#: views/admin/onboarding/active_license.php:48
+msgid "License Key"
+msgstr ""
+
+#: views/admin/onboarding/active_license.php:56
+msgid "Activations"
+msgstr ""
+
+#. translators: %1$d: activation count, %2$d: max activations
+#: views/admin/onboarding/active_license.php:62
+msgid "%1$d of %2$d sites have been activated with this license key"
+msgstr ""
+
+#: views/admin/onboarding/active_license.php:71
+msgid "Manage activations"
+msgstr ""
+
+#: views/admin/onboarding/complete.php:5
+msgid "That’s It! You're Ready to Roll"
+msgstr ""
+
+#: views/admin/onboarding/complete.php:9
+msgid "Your next step..."
+msgstr ""
+
+#: views/admin/onboarding/complete.php:14
+#: views/admin/onboarding/complete.php:18
+msgid "Subscribe to the ThirstyAffiliates Blog"
+msgstr ""
+
+#: views/admin/onboarding/complete.php:19
+msgid "Stay up to date on all the smart moves, handy hacks, and inside scoops on amplifying your affiliate link earnings."
+msgstr ""
+
+#: views/admin/onboarding/complete.php:30
+#: views/admin/onboarding/complete.php:34
+msgid "NEW! Start Selling with ThirstyPay™"
+msgstr ""
+
+#: views/admin/onboarding/complete.php:35
+msgid "<i>Selling your own creations?</i> Create custom payment links for easy peasy, personalized transactions that put money in your pocket with every click!"
+msgstr ""
+
+#: views/admin/onboarding/complete.php:46
+#: views/admin/onboarding/complete.php:50
+msgid "Bookmark Our Support Docs"
+msgstr ""
+
+#: views/admin/onboarding/complete.php:51
+msgid "Keep our Support Docs in your digital back pocket! They're packed with handy tips whenever you have a question or need a quick fix."
+msgstr ""
+
+#: views/admin/onboarding/created-links-list.php:17
+msgid "Your Affiliate Links"
+msgstr ""
+
+#: views/admin/onboarding/features.php:9
+msgid "Gear Up with ThirstyAffiliates Goodies"
+msgstr ""
+
+#: views/admin/onboarding/features.php:10
+msgid "We've got a whole bunch of cool link tools ready for you to dive into. Just choose the ones you want to enable right away, then we’ll handle the setup. "
+msgstr ""
+
+#: views/admin/onboarding/features.php:15
+msgid "Monitor clicks, engagement, conversions, and more, enabling data-driven choices that magnify your marketing strategies."
+msgstr ""
+
+#: views/admin/onboarding/features.php:26
+msgid "Adjust cloaked URLs to reveal their true destination, ensuring compliance with stricter affiliate program standards, such as Amazon Associates."
+msgstr ""
+
+#: views/admin/onboarding/features.php:37
+msgid "Effortlessly connect keywords and phrases to your affiliate links, driving more visitors to essential pages and giving your click-through rates a boost."
+msgstr ""
+
+#: views/admin/onboarding/features.php:48
+msgid "Receive real-time notifications when your links hit specific click milestones, staying in the loop on your link performance."
+msgstr ""
+
+#: views/admin/onboarding/features.php:59
+msgid "Automatically add Amazon product links to your affiliate stash, eliminating the need for manual copying and pasting. "
+msgstr ""
+
+#: views/admin/onboarding/features.php:70
+msgid "Stay on top of broken links with instant notifications, so you can take immediate action, enhance user experience, and maintain a healthy website. "
+msgstr ""
+
+#: views/admin/onboarding/features.php:82
+msgid "Move your affiliate links in and out with a simple click, making link management a breeze and saving you valuable time and effort."
+msgstr ""
+
+#: views/admin/onboarding/features.php:94
+msgid "Direct users to different destinations based on their geographical location, enhancing user experience and engagement."
+msgstr ""
+
+#: views/admin/onboarding/features.php:106
+msgid "Transform basic text links into vibrant displays with stunning visuals, intriguing descriptions, and compelling CTAs."
+msgstr ""
+
+#: views/admin/onboarding/features.php:123
+msgid "Collect comprehensive data using Google Analytics for deeper insights into link performance, user behavior, and conversions."
+msgstr ""
+
+#: views/admin/onboarding/features.php:141
+msgid "If your subscription level allows, the following plugins will be installed automatically: %s"
+msgstr ""
+
+#: views/admin/onboarding/license.php:29
+msgid "Your License"
+msgstr ""
+
+#: views/admin/onboarding/license.php:34
+msgid "Let's kick things off by activating your license."
+msgstr ""
+
+#: views/admin/onboarding/license.php:40
+#: views/admin/onboarding/nav/category.php:10
+#: views/admin/onboarding/nav/finish.php:3
+#: views/admin/onboarding/nav/license.php:7
+#: views/admin/onboarding/nav/thirstyaffiliates.php:10
+msgid "Skip"
+msgstr ""
+
+#: views/admin/onboarding/nav/category.php:13
+#: views/admin/onboarding/nav/features.php:3
+#: views/admin/onboarding/nav/finish.php:6
+#: views/admin/onboarding/nav/license.php:11
+#: views/admin/onboarding/nav/thirstyaffiliates.php:13
+msgid "Continue"
+msgstr ""
+
+#: views/admin/onboarding/nav/complete.php:10
+msgid "Finish"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:4
+msgid "Time to Get Organized!"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:5
+msgid "Sort your links into categories for a super sleek system ready to roll. No more link chaos – just quick access and a breeze to manage. No matter how many links you pile up!"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:8
+msgid "Create New Category"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:13
+msgid "Your Category"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:16
+#: views/admin/onboarding/parts/category.php:43
+msgid "Category Name"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:21
+msgid "Category Slug"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:26
+msgid "Count"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:40
+msgid "Create Category"
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:44
+msgid "Enter the name of your category."
+msgstr ""
+
+#: views/admin/onboarding/parts/category.php:48
+#: views/admin/onboarding/parts/link_popup.php:26
+#: views/cpt/view-save-affiliate-link-metabox.php:4
+#: views/cpt/view-urls-metabox.php:27
+msgid "Save"
+msgstr ""
+
+#: views/admin/onboarding/parts/finish.php:45
+msgid "Processing upgrade"
+msgstr ""
+
+#: views/admin/onboarding/parts/finish.php:47
+msgid "Please wait while the upgrade is processed, this may take a minute."
+msgstr ""
+
+#: views/admin/onboarding/parts/finish.php:73
+msgid "Finish setup"
+msgstr ""
+
+#: views/admin/onboarding/parts/finish.php:121
+#: views/admin/onboarding/parts/finish.php:145
+msgid "Finishing setup"
+msgstr ""
+
+#: views/admin/onboarding/parts/finish.php:122
+msgid "Please don't close the browser."
+msgstr ""
+
+#: views/admin/onboarding/parts/finish.php:147
+msgid "Hold tight... We're getting your link(s) ready for top-notch performance!"
+msgstr ""
+
+#: views/admin/onboarding/parts/link_popup.php:2
+msgid "Create Link"
+msgstr ""
+
+#: views/admin/onboarding/parts/link_popup.php:6
+msgid "Destination URL"
+msgstr ""
+
+#: views/admin/onboarding/parts/link_popup.php:7
+msgid "Enter the URL where your link should redirect to."
+msgstr ""
+
+#: views/admin/onboarding/parts/link_popup.php:11
+msgid "SLUG"
+msgstr ""
+
+#: views/admin/onboarding/parts/link_popup.php:12
+msgid "Enter the slug for your link."
+msgstr ""
+
+#: views/admin/onboarding/parts/link_popup.php:16
+msgid "Redirection"
+msgstr ""
+
+#: views/admin/onboarding/parts/link_popup.php:18
+msgid "302 (Temporary)"
+msgstr ""
+
+#: views/admin/onboarding/parts/link_popup.php:19
+msgid "301 (Permanent)"
+msgstr ""
+
+#. translators: %1$s: open underline tag, %2$s: close underline tag
+#: views/admin/onboarding/parts/link_popup.php:31
+msgid "More advanced options are available on the %1$sThirstyAffiliates%2$s page"
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:12
+msgid "Create Your ThirstyAffiliates Link"
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:13
+msgid "Whether you're a newcomer with a single affiliate link or a seasoned marketer with several, let's supercharge them for an electrifying start!"
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:14
+msgid "Click the button below, and we'll take you step by step through the process of creating your first visually appealing, brand-boosting affiliate link. "
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:17
+msgid "<i>Already have a long list of links you'd like to migrate over into ThirstyAffiliates?</i> Click \"Import Existing Links\" and have them automatically converted to thirsty links."
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:21
+msgid "Create Your First Link"
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:24
+msgid "Import Existing Links"
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:32
+msgid "Import Your Links"
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:35
+msgid "To convert your existing links into thirsty links, you'll need a CSV file that's compatible with the plugin."
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:36
+msgid "For an example of a properly formatted ThirstyAffiliates CSV file, please click the \"Download Sample CSV\" button below."
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:39
+msgid "<a class=\"ta-wizard-button-secondary\" href=\"%s\">Download Sample CSV</a>"
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:46
+msgid "For more detailed instructions on how to configure your CSV file, check out the instructional video on the left-hand side of the page or refer to the <a href=\"%s\" class=\"ta-wizard-kb-link\" target=\"_blank\">Importing and Exporting Links</a> article in our knowledge base."
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:80
+msgid "Import"
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:83
+msgid "<i>Oops!</i> ThirstyAffiliates Lite cannot access the Importer feature. Upgrade to ThirstyAffiliates Pro to unlock this awesome functionality and enjoy all its benefits."
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:85
+msgid "Don't want to upgrade yet? Click the \"Create New Link\" button to get started with creating your first link."
+msgstr ""
+
+#: views/admin/onboarding/parts/thirsty-link.php:88
+msgid "<a class=\"ta-wizard-button-blue\" href=\"%s\">Upgrade to ThirstyAffiliates Pro Now</a>"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:11
+msgid "Welcome to ThirstyAffiliates"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:13
+msgid "We're thrilled you've chosen to team up with ThirstyAffiliates! Your decision is more than a smart move –  it's your launchpad to unparalleled affiliate marketing success. And we're here to support you, every click of the way!"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:17
+msgid "Here at ThirstyAffiliates, we see affiliate links as more than just simple URLs. To us, they're valuable assets that can make or break your marketing efforts. That's why we've crafted a toolset that does more than just manage your links – it turns them into lean, mean, conversion machines!"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:21
+msgid "But hang tight, because we're just scratching the surface. We've loaded our platform with all the bells and whistles you could dream of – advanced analytics, automated redirects, you name it! Trust us, if it makes your affiliate life easier and more profitable, it's in here."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:25
+msgid "So get ready! Your adventure in mastering affiliate marketing starts right here, right now! "
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:30
+msgid "Let's Get Started"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:37
+msgid "Tap into the Strength of"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:40
+msgid "Strength of ThirstyAffiliates Pro"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:43
+msgid "Boost your marketing efforts with the EXCEPTIONAL features <br />included in our ThirstyAffiliates Premium plans."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:49
+msgid "Effortless Link Management"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:51
+msgid "We've built a user-friendly platform designed to make managing your affiliate links as smooth as it gets. Our intuitive dashboard lets you edit, shorten, and neatly organize your links into categories – all without breaking a sweat."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:52
+msgid "What's more, we've equipped ThirstyAffiliates with real-time adjustment features. This means you can tweak your links instantly and jump on new opportunities as they come your way."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:59
+msgid "Customized Checkout Links"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:61
+msgid "ThirstyPay™ is here for when you're ready to start making money from your own creative projects. From doubling up on your content's profits to marketing those quirky crafts you love making, ThirstyPay™ is ready to take your side hussle’s side hussle to the marketplace."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:62
+msgid "Create personalized payment links powered by Stripe's reliable payment processing platform. Share them with your network, and watch as followers become your paying customers."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:63
+msgid "*Upgrade to a ThirstyAffiliates Pro plan to avoid the 3% transaction fee on all sales."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:70
+msgid "Product Displays that Shine"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:72
+msgid "Spruce up your blog posts with masterfully crafted visual displays designed to highlight products and drive action."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:73
+msgid "Turn basic text links into mesmerizing showcases bursting with lively visuals, engaging description blurbs, and can't-miss call-to-actions."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:74
+msgid "With interactive elements and optimal page placement, capture your audience's interest right when their shopping spirit is high."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:81
+msgid "Secure Shortening & Cloaking"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:83
+msgid "Affiliate information is sensitive stuff. ThirstyAffiliates takes that seriously, providing top-notch link cloaking capabilities to protect your valuable info, all while supercharging your marketing strategies."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:84
+msgid "But we don't stop at security. We help you turn those long, confusing affiliate URLs into clean, concise links that people actually want to click on. They'll look better, feel more trustworthy, and you'll love sharing them even more."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:91
+msgid "Compliance-Friendly Uncloaking"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:93
+msgid "Navigating the rules around affiliate links can be tricky, especially with platforms like Amazon that have strict requirements for original affiliate URL visibility."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:94
+msgid "That's where we step in. Our handy uncloaking feature lets you switch between cloaked links and meeting platform requirements with uncloaked ones."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:95
+msgid "In other words, you get to stay on the right side of platform guidelines without compromising the security of your information."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:102
+msgid "Automated Link Placement"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:104
+msgid "Forget manual link insertion. With ThirstyAffiliates' AutoLink Placement, you get to put your time and energy where it really counts: crafting your overall marketing strategy."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:105
+msgid "Once you've created a ThirstyAffiliate link, just pinpoint the target keywords you want to focus on. Our software takes it from there, replacing those keywords with your designated affiliate links all across your website, without you lifting another finger."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:112
+msgid "Localize & Monetize"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:114
+msgid "Turn global traffic into localized conversions. Our Geolocation redirect tool goes beyond rerouting clicks; it fine-tunes the user experience based on where your visitors are coming from"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:115
+msgid "It's like having a local guide embedded in your website, directing traffic in a way that maximizes your earning potential while making things more relevant and accessible for your visitors."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:122
+msgid "Reliable Link Checker"
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:124
+msgid "Don't let broken links tarnish your site's reputation or mess with your SEO. Our Link Checker works around the clock, meticulously scanning your WordPress site for any link that's out of order."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:125
+msgid "But wait, it gets better. You can even validate links before publishing them, ensuring they're good to go from the start."
+msgstr ""
+
+#: views/admin/onboarding/welcome.php:126
+msgid "If a link does go rogue, you're not left in the dark. We'll shoot you an alert, so you can patch things up on the spot."
+msgstr ""
+
+#: views/admin/thirstypay-options.php:44
+msgid "Accept all Major Credit Cards"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:45
+msgid "Flexible subscriptions and billing terms"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:46
+msgid "25+ ways to pay"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:51
+msgid "Accept Apple Pay"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:52
+msgid "Accept Google Wallet"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:53
+msgid "Fraud prevention tools"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:63
+msgid "Disconnecting from this Stripe Account will prevent ThirstyPay™ links from working."
+msgstr ""
+
+#: views/admin/thirstypay-options.php:69
+msgid "Connected to Stripe"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:71
+msgid "Connected to: %1$s %2$s %3$s"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:76
+msgid "Refresh Stripe Credentials"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:80
+msgid "Disconnect"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:87
+msgid "Re-Connect to Stripe"
+msgstr ""
+
+#: views/admin/thirstypay-options.php:88
+msgid "Stripe has been disconnected so it may stop working ThirstyPay™ links at any time. <br />To prevent this, re-connect your Stripe account by clicking the \"Connect with Stripe\" button below."
+msgstr ""
+
+#: views/admin/thirstypay-options.php:93
+#: views/admin/thirstypay-options.php:99
+msgid "\"Connect with Stripe\" button"
+msgstr ""
+
+#: views/cpt/view-attach-images-metabox-external-image.php:4
+#: views/cpt/view-attach-images-metabox-single-image.php:4
+msgid "Remove This Image"
+msgstr ""
+
+#: views/cpt/view-attach-images-metabox-external-image.php:5
+msgid "external image"
+msgstr ""
+
+#: views/cpt/view-attach-images-metabox.php:11
+msgid "Add Image To Affiliate Link"
+msgstr ""
+
+#: views/cpt/view-attach-images-metabox.php:13
+#: views/cpt/view-attach-images-metabox.php:20
+msgid "Upload/Insert"
+msgstr ""
+
+#: views/cpt/view-attach-images-metabox.php:31
+msgid "Add external image"
+msgstr ""
+
+#: views/cpt/view-attach-images-metabox.php:33
+msgid "Image source here"
+msgstr ""
+
+#: views/cpt/view-attach-images-metabox.php:34
+msgid "Add image"
+msgstr ""
+
+#: views/cpt/view-attach-images-metabox.php:35
+#: views/cpt/view-thirstypay-stripe-metabox.php:104
+msgid "Cancel"
+msgstr ""
+
+#: views/cpt/view-inserted-link-scanner-metabox.php:4
+msgid "Start Scan"
+msgstr ""
+
+#: views/cpt/view-inserted-link-scanner-metabox.php:12
+msgid "ID"
+msgstr ""
+
+#: views/cpt/view-inserted-link-scanner-metabox.php:13
+msgid "Title"
+msgstr ""
+
+#: views/cpt/view-inserted-link-scanner-metabox.php:14
+msgid "Post Type"
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:7
+msgid "No follow this link? (server side redirects)"
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:8
+msgid "Adds the rel=\"nofollow\" tag so search engines don't pass link juice."
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:11
+#: views/cpt/view-link-options-metabox.php:23
+#: views/cpt/view-link-options-metabox.php:36
+#: views/cpt/view-link-options-metabox.php:50
+#: views/cpt/view-link-options-metabox.php:65
+#: views/linkpicker/quick-add-affiliate-link.php:40
+#: views/linkpicker/quick-add-affiliate-link.php:55
+#: views/linkpicker/quick-add-affiliate-link.php:66
+msgid "Global (%s)"
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:19
+#: views/linkpicker/quick-add-affiliate-link.php:63
+msgid "Open this link in new window?"
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:20
+msgid "Opens links in a new window when clicked on."
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:32
+msgid "Pass query string to destination url?"
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:33
+msgid "Passes the query strings present after the cloaked url automatically to the destination url when redirecting."
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:46
+msgid "Uncloak link?"
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:47
+msgid "Uncloaks the link when loaded on the frontend."
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:60
+msgid "Redirect type (server side redirects):"
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:61
+msgid "Override the default redirection type for this link."
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:78
+msgid "Additional rel tags:"
+msgstr ""
+
+#: views/cpt/view-link-options-metabox.php:85
+msgid "Additional CSS classes:"
+msgstr ""
+
+#: views/cpt/view-save-affiliate-link-metabox.php:5
+msgid "Save Link"
+msgstr ""
+
+#: views/cpt/view-save-affiliate-link-metabox.php:10
+msgid "Delete Permanently"
+msgstr ""
+
+#: views/cpt/view-save-affiliate-link-metabox.php:12
+msgid "Move to Trash"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:37
+msgid "Add a new product"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:40
+msgid "Name"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:42
+msgid "Premium Plan, sunglasses, etc."
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:46
+msgid "Price"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:61
+msgid "Recurring"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:65
+msgid "One time"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:69
+msgid "Billing period"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:72
+msgid "Daily"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:73
+msgid "Weekly"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:74
+msgid "Monthly"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:75
+msgid "Every 3 months"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:76
+msgid "Every 6 months"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:77
+msgid "Yearly"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:78
+#: views/reports/link-performance-report.php:15
+msgid "Custom"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:83
+msgid "every"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:84
+msgid "Interval count"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:85
+msgid "Interval"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:86
+#: views/cpt/view-thirstypay-stripe-metabox.php:206
+msgid "days"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:87
+msgid "weeks"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:88
+msgid "months"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:94
+msgid "Include tax in price"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:97
+msgid "Default"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:98
+msgid "Price is inclusive of tax"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:99
+msgid "Price is exclusive of tax"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:105
+msgid "Add product"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:113
+msgid "Options"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:120
+#: views/cpt/view-thirstypay-stripe-metabox.php:125
+msgid "Collect tax automatically"
+msgstr ""
+
+#. translators: %s: link to Stripe Tax setup docs
+#: views/cpt/view-thirstypay-stripe-metabox.php:128
+msgid "Tax will be calculated automatically based on the address provided by the customer. Stripe Tax must be enabled on the connected Stripe account. Additional charges may apply. Please visit %s to get started."
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:137
+msgid "Collect customers' addresses"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:143
+msgid "Billing addresses only"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:149
+msgid "Billing and shipping addresses"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:165
+msgid "Require customers to provide a phone number"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:171
+msgid "Allow promotion codes"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:177
+#: views/cpt/view-thirstypay-stripe-metabox.php:182
+msgid "Allow business customers to provide tax IDs"
+msgstr ""
+
+#. translators: %s: link to Stripe Tax ID docs
+#: views/cpt/view-thirstypay-stripe-metabox.php:185
+msgid "This displays an additional field for businesses to provide their VAT or other tax ID. Stripe only displays this field to customers in certain countries. %s"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:186
+msgid "View docs"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:194
+msgid "Save payment details for future use"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:200
+msgid "Include a free trial"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:216
+#: views/cpt/view-thirstypay-stripe-metabox.php:220
+msgid "Checkout Message"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:221
+msgid "Custom text that should be displayed alongside the payment confirmation button (up to 1000 characters)."
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:231
+msgid "Thank You Page"
+msgstr ""
+
+#: views/cpt/view-thirstypay-stripe-metabox.php:235
+msgid "Default (Homepage)"
+msgstr ""
+
+#. translators: %s: thank you page title
+#: views/cpt/view-thirstypay-stripe-metabox.php:242
+msgid "Default (%s)"
+msgstr ""
+
+#: views/cpt/view-urls-metabox.php:8
+#: views/linkpicker/quick-add-affiliate-link.php:26
+msgid "Destination URL:"
+msgstr ""
+
+#: views/cpt/view-urls-metabox.php:17
+msgid "Cloaked URL:"
+msgstr ""
+
+#: views/cpt/view-urls-metabox.php:21
+msgid "Edit slug"
+msgstr ""
+
+#: views/cpt/view-urls-metabox.php:22
+msgid "Visit Link"
+msgstr ""
+
+#: views/cpt/view-urls-metabox.php:26
+msgid "<strong>Warning:</strong> Editing the slug will break already inserted links for this affiliate link."
+msgstr ""
+
+#: views/cpt/view-urls-metabox.php:35
+msgid "Category to show in slug:"
+msgstr ""
+
+#: views/customer_portal.php:11
+#: views/customer_portal.php:15
+msgid "Portal Header"
+msgstr ""
+
+#: views/customer_portal.php:16
+msgid "The messaging shown to customers in the portal."
+msgstr ""
+
+#: views/customer_portal.php:28
+#: views/customer_portal.php:32
+msgid "Privacy Policy URL"
+msgstr ""
+
+#: views/customer_portal.php:33
+msgid "A link to the business's publicly available privacy policy."
+msgstr ""
+
+#: views/customer_portal.php:45
+#: views/customer_portal.php:49
+msgid "Terms of Service URL"
+msgstr ""
+
+#: views/customer_portal.php:50
+msgid "A link to the business's publicly available terms of service."
+msgstr ""
+
+#: views/customer_portal.php:61
+msgid "Customer Update"
+msgstr ""
+
+#: views/customer_portal.php:64
+msgid "Allow customers to update their data"
+msgstr ""
+
+#: views/customer_portal.php:64
+#: views/customer_portal.php:89
+#: views/customer_portal.php:97
+#: views/customer_portal.php:113
+msgid "Recommended"
+msgstr ""
+
+#: views/customer_portal.php:68
+msgid "Allow updating names"
+msgstr ""
+
+#: views/customer_portal.php:69
+msgid "Allow updating email addresses"
+msgstr ""
+
+#: views/customer_portal.php:70
+msgid "Allow updating billing addresses"
+msgstr ""
+
+#: views/customer_portal.php:71
+msgid "Allow updating shipping addresses"
+msgstr ""
+
+#: views/customer_portal.php:72
+msgid "Allow updating phone numbers"
+msgstr ""
+
+#: views/customer_portal.php:73
+msgid "Allow updating tax IDs"
+msgstr ""
+
+#: views/customer_portal.php:86
+msgid "Payment Method Update"
+msgstr ""
+
+#: views/customer_portal.php:89
+msgid "Allow customers to update their payment method"
+msgstr ""
+
+#: views/customer_portal.php:94
+msgid "Subscription Cancel"
+msgstr ""
+
+#: views/customer_portal.php:97
+msgid "Allow subscriptions to be cancelled"
+msgstr ""
+
+#: views/customer_portal.php:101
+msgid "Cancel at end of billing period (customer can renew until then)"
+msgstr ""
+
+#: views/customer_portal.php:102
+msgid "Cancel subscriptions immediately"
+msgstr ""
+
+#: views/customer_portal.php:110
+msgid "Invoice History"
+msgstr ""
+
+#: views/customer_portal.php:113
+msgid "Show a history of paid invoices"
+msgstr ""
+
+#. translators: %1$s: open strong tag, %2$s: close strong tag
+#: views/customer_portal_notice.php:10
+msgid "Now that you have a recurring ThirstyPay™ Link, did you know that you can let your customers manage their own subscriptions using the %1$sCustomer Portal%2$s?"
+msgstr ""
+
+#: views/exporter/exporter.php:7
+msgid "STEP 1 - Export your links:"
+msgstr ""
+
+#: views/exporter/exporter.php:10
+msgid "This tool lets you export a properly formatted CSV file containing a list of all the affiliate links on this website. This CSV file will be compatible with the ThirstyAffiliates CSV Importer."
+msgstr ""
+
+#: views/exporter/exporter.php:14
+msgid "You can choose to only export the links from a specific category."
+msgstr ""
+
+#: views/exporter/exporter.php:21
+msgid "Category to export from:"
+msgstr ""
+
+#: views/exporter/exporter.php:24
+msgid "-- All Categories --"
+msgstr ""
+
+#: views/exporter/exporter.php:29
+msgid "Export affiliate links"
+msgstr ""
+
+#: views/importer/importer.php:7
+msgid "STEP 1 - select your CSV file:"
+msgstr ""
+
+#: views/importer/importer.php:10
+msgid "This tool lets you upload a properly formatted CSV file containing a list of affiliate links. These links will be bulk imported for you directly into ThirstyAffiliates."
+msgstr ""
+
+#: views/importer/importer.php:14
+msgid "Any categories you specify in your import file that are not found in the system will be created as the links are imported"
+msgstr ""
+
+#: views/linkpicker/advance-link-picker.php:17
+msgid "Search:"
+msgstr ""
+
+#: views/linkpicker/advance-link-picker.php:22
+msgid "Select category"
+msgstr ""
+
+#: views/linkpicker/advance-link-picker.php:35
+msgid "Fetching..."
+msgstr ""
+
+#: views/linkpicker/advance-link-picker.php:36
+msgid "Load more"
+msgstr ""
+
+#: views/linkpicker/advance-link-picker.php:45
+msgid "Searching..."
+msgstr ""
+
+#: views/linkpicker/edit-shortcode.php:21
+msgid "Link text:"
+msgstr ""
+
+#: views/linkpicker/edit-shortcode.php:28
+msgid "Affiliate link ids:"
+msgstr ""
+
+#: views/linkpicker/edit-shortcode.php:35
+msgid "Class link attribute:"
+msgstr ""
+
+#: views/linkpicker/edit-shortcode.php:42
+msgid "Link title attribute:"
+msgstr ""
+
+#: views/linkpicker/edit-shortcode.php:49
+msgid "Link rel attribute:"
+msgstr ""
+
+#: views/linkpicker/edit-shortcode.php:56
+msgid "link target attribute:"
+msgstr ""
+
+#: views/linkpicker/edit-shortcode.php:64
+msgid "Edit Shortcode"
+msgstr ""
+
+#: views/linkpicker/quick-add-affiliate-link.php:19
+msgid "Link Name:"
+msgstr ""
+
+#: views/linkpicker/quick-add-affiliate-link.php:29
+msgid "http:// or https:// is required"
+msgstr ""
+
+#: views/linkpicker/quick-add-affiliate-link.php:36
+msgid "Redirect Type:"
+msgstr ""
+
+#: views/linkpicker/quick-add-affiliate-link.php:52
+msgid "No follow this link?"
+msgstr ""
+
+#: views/linkpicker/quick-add-affiliate-link.php:76
+msgid "Select categories..."
+msgstr ""
+
+#: views/linkpicker/quick-add-affiliate-link.php:88
+msgid "Add Link"
+msgstr ""
+
+#: views/linkpicker/quick-add-affiliate-link.php:91
+msgid "Add Link & Insert Into Post"
+msgstr ""
+
+#: views/reports/link-performance-report.php:23
+msgid "Go"
+msgstr ""
+
+#: views/reports/link-performance-report.php:41
+#: views/reports/link-performance-report.php:81
+msgid "All links"
+msgstr ""
+
+#: views/reports/link-performance-report.php:48
+msgid "Fetch report for specific link:"
+msgstr ""
+
+#: views/reports/link-performance-report.php:50
+msgid "Search affiliate link"
+msgstr ""
+
+#: views/reports/link-performance-report.php:62
+msgid "Fetch Report"
+msgstr ""
+
+#: views/reports/link-performance-report.php:84
+msgid "Clicks: "
+msgstr ""
+
+#: views/thirstypay-invoice.php:14
+msgid "Order: %s"
+msgstr ""
+
+#: views/thirstypay-invoice.php:43
+msgid "Subtotal"
+msgstr ""
+
+#: views/thirstypay-invoice.php:49
+msgid "Discount"
+msgstr ""
+
+#: views/thirstypay-invoice.php:56
+msgid "Tax"
+msgstr ""
+
+#: views/thirstypay-invoice.php:62
+msgid "Total"
+msgstr ""
+
+#: views/thirstypay-invoice.php:69
+msgid "Manage Subscription"
+msgstr ""

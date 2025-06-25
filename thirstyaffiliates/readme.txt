@@ -5,7 +5,7 @@ Tags: affiliate links, amazon affiliates, link shortner, link tracking, redirect
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.8
-Stable tag: 3.11.5
+Stable tag: 3.11.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -184,6 +184,13 @@ If you need to run an affiliate program on your store we recommend you check out
 5. Reports Page
 
 == Changelog ==
+= 3.11.6 =
+* Updated Growth Tools
+* Properly handle media file deletion
+* Extended data not importing for new links
+* Search columns include Slug and Destination URL
+* Add slug column to Links listing table 
+
 = 3.11.5 =
 * Transform <ta> tag to link in block content
 * Add filter hook to Link Fixer link data (ta_link_fixer_link_data)

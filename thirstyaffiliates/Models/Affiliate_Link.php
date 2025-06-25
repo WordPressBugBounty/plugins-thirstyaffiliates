@@ -171,15 +171,12 @@ class Affiliate_Link {
         $this->_constants        = ThirstyAffiliates()->helpers[ 'Plugin_Constants' ];
         $this->_helper_functions = ThirstyAffiliates()->helpers[ 'Helper_Functions' ];
         $this->deprecated_props  = apply_filters( 'ta_affiliate_link_deprecated_props' , $this->deprecated_props );
+        $this->extend_data       = apply_filters( 'ta_affiliate_link_extended_data' , $this->extend_data , $this->default_data );
+        $this->data              = $this->get_merged_default_extended_data();
 
         if ( filter_var( $id , FILTER_VALIDATE_INT ) && $id ) {
-
-            $this->extend_data = apply_filters( 'ta_affiliate_link_extended_data' , $this->extend_data , $this->default_data );
-            $this->data        = $this->get_merged_default_extended_data();
-            $this->id          = absint( $id );
-
+            $this->id = absint( $id );
             $this->read();
-
         }
 
     }

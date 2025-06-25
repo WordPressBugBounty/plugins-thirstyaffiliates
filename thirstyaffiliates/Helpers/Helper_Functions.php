@@ -384,19 +384,27 @@ class Helper_Functions {
 
         if ( ! is_array( $image_ids ) || empty( $image_ids ) ) return array();
 
-        return array_map( function( $id ) use ( $size ) {
-            if ( ! is_numeric( $id ) ) {
-                return array(
-                    'id' => null,
-                    'src' => $id
-                );
-            }
+        return array_filter(
+            array_map( function( $id ) use ( $size ) {
+                if ( ! is_numeric( $id ) ) {
+                    return array(
+                        'id' => null,
+                        'src' => $id
+                    );
+                }
 
-            return array(
-               'id' => $id,
-               'src' => wp_get_attachment_image_src( $id , $size )[0]
-            );
-        } , $image_ids );
+                $src = wp_get_attachment_image_src( $id , $size );
+
+                if (is_array($src) && !empty($src)) {
+                    return array(
+                        'id' => $id,
+                        'src' => $src[0]
+                    );
+                }
+
+                return false;
+            } , $image_ids)
+        );
     }
 
     /**

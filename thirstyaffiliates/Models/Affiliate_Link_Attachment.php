@@ -251,7 +251,11 @@ class Affiliate_Link_Attachment implements Model_Interface , Initiable_Interface
         $key = array_search( $attachment_id , $attachments );
         unset( $attachments[ $key ] );
 
-        update_post_meta( $affiliate_link_id , Plugin_Constants::META_DATA_PREFIX . 'image_ids' , $attachments );
+        if (!empty($attachments)) {
+            update_post_meta( $affiliate_link_id , Plugin_Constants::META_DATA_PREFIX . 'image_ids' , $attachments );
+        } else {
+            delete_post_meta( $affiliate_link_id , Plugin_Constants::META_DATA_PREFIX . 'image_ids' );
+        }
 
         return true;
 
@@ -348,6 +352,52 @@ class Affiliate_Link_Attachment implements Model_Interface , Initiable_Interface
 
 
 
+    /**
+     * Handle attachment deletion to remove the attachment ID from affiliate links.
+     *
+     * @param int $attachment_id The ID of the attachment being deleted.
+     */
+    public function handle_attachment_deletion( $attachment_id ) {
+        global $wpdb;
+
+        // Get affiliate links that might have this attachment ID in their image_ids metadata.
+        $meta_key = Plugin_Constants::META_DATA_PREFIX . 'image_ids';
+        $post_ids = $wpdb->get_col(
+            $wpdb->prepare(
+                "SELECT post_id
+                FROM $wpdb->postmeta
+                WHERE meta_key = %s 
+                AND meta_value LIKE %s",
+                $meta_key,
+                '%' . $wpdb->esc_like(';i:' . $attachment_id . ';') . '%'
+            )
+        );
+
+        if ( empty( $post_ids ) ) {
+            return;
+        }
+
+        foreach ( $post_ids as $post_id ) {
+            $image_ids = get_post_meta( $post_id, $meta_key, true );
+
+            if ( ! is_array( $image_ids ) || empty( $image_ids ) ) {
+                continue;
+            }
+
+            $key = array_search( $attachment_id, $image_ids );
+            if ( false !== $key) {
+                unset( $image_ids[$key] );
+            }
+
+            if ( ! empty( $image_ids ) ) {
+                update_post_meta( $post_id, $meta_key, array_values( $image_ids ) );
+            } else {
+                delete_post_meta( $post_id, $meta_key );
+            }
+        }
+    }
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -380,6 +430,7 @@ class Affiliate_Link_Attachment implements Model_Interface , Initiable_Interface
     public function run() {
 
         add_action( 'current_screen' , array( $this , 'current_screen_filter' ) );
+        add_action( 'delete_attachment', array( $this, 'handle_attachment_deletion' ) );
 
     }
 

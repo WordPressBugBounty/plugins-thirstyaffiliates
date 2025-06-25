@@ -1119,6 +1119,7 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
             // add link_id and link_destination column before link categories column
             if ( $key == 'taxonomy-thirstylink-category' ) {
 
+                $updated_columns[ 'slug' ]             = __( 'Slug', 'thirstyaffiliates' );
                 $updated_columns[ 'link_id' ]          = __( 'Link ID' , 'thirstyaffiliates' );
 
                 if ( empty( $_REQUEST['thirstypay']) ) {
@@ -1151,6 +1152,7 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
      */
     public function custom_post_listing_sortable_column( $columns ) {
 
+        $columns[ 'slug' ]             = 'name';
         $columns[ 'link_id' ]          = 'ID';
         $columns[ 'redirect_type' ]    = '_ta_redirect_type';
         $columns[ 'cloaked_url' ]      = 'name';
@@ -1205,7 +1207,6 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
      *
      * @param string $column  Current column name.
      * @param int    $post_id Thirstylink ID.
-     * @return array
      */
     public function custom_post_listing_column_value( $column , $post_id ) {
 
@@ -1214,6 +1215,10 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
         $redirect_type = $thirstylink->get_prop( 'redirect_type' );
 
         switch ( $column ) {
+
+            case 'slug' :
+                echo '<span>' . esc_html( $thirstylink->get_prop( 'slug' ) ) . '</span>';
+                break;
 
             case 'link_id' :
                 echo '<span>' . esc_html( $post_id ) . '</span>';
@@ -1242,6 +1247,21 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
 
         do_action( 'ta_post_listing_custom_columns_value' , $column , $thirstylink );
 
+    }
+
+    /**
+     * Set default hidden columns for the Affiliate Links list table.
+     *
+     * @param  array      $hidden Array of hidden column IDs.
+     * @param  \WP_Screen $screen WP_Screen object.
+     * @return array Modified array of hidden column IDs.
+     */
+    public function set_default_hidden_columns( $hidden, $screen ) {
+        if ( isset( $screen->id ) && $screen->id === 'edit-thirstylink' ) {
+            $hidden[] = 'slug';
+        }
+
+        return $hidden;
     }
 
     /**
@@ -1306,8 +1326,53 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
         return $query;
     }
 
+    /**
+     * Adjust the join query when searching the affiliate links admin list table.
+     *
+     * @param string $join The current join query.
+     * @param \WP_Query $query The WP_Query instance.
+     * @return string
+     */
+    public function search_query_join( $join, $query ) {
+        if ( is_admin() && $query->is_search() && $query->get( 'post_type' ) === Plugin_Constants::AFFILIATE_LINKS_CPT ) {
+            global $wpdb;
+            $join .= " LEFT JOIN $wpdb->postmeta ta_pm_1 ON ($wpdb->posts.ID = ta_pm_1.post_id AND ta_pm_1.meta_key = '_ta_destination_url')";
+        }
 
+        return $join;
+    }
 
+    /**
+     * Extend the search query to include the slug (post_name) and destination URL.
+     *
+     * @param string $search The current search query.
+     * @param \WP_Query $query The WP_Query instance.
+     * @return string
+     */
+    public function search_query( $search, $query ) {
+        if ( is_admin() && $query->is_search() && $query->get( 'post_type' ) === Plugin_Constants::AFFILIATE_LINKS_CPT ) {
+            global $wpdb;
+            $escaped_term = '%' . $wpdb->esc_like( $query->get( 's' ) ) . '%';
+            $search       = $wpdb->prepare(
+                "AND (
+                    (
+                        ({$wpdb->posts}.post_title LIKE %s) OR
+                        ({$wpdb->posts}.post_excerpt LIKE %s) OR
+                        ({$wpdb->posts}.post_content LIKE %s) OR
+                        ({$wpdb->posts}.post_name LIKE %s) OR
+                        (ta_pm_1.meta_value LIKE %s)
+                    )
+                ) ",
+                $escaped_term,
+                $escaped_term,
+                $escaped_term,
+                $escaped_term,
+                $escaped_term
+            );
+        }
+
+        return $search;
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -1472,10 +1537,15 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
         add_filter( 'manage_edit-thirstylink_sortable_columns', array( $this , 'custom_post_listing_sortable_column' ) );
         add_action( 'manage_thirstylink_posts_custom_column', array( $this  , 'custom_post_listing_column_value' ) , 10 , 2 );
         add_action( 'pre_get_posts' , array( $this , 'custom_post_listing_column_custom_sorting' ) );
+        add_filter( 'default_hidden_columns', array( $this, 'set_default_hidden_columns' ), 10, 2 );
 
         // filter by category
         add_action( 'restrict_manage_posts' , array( $this , 'restrict_links_by_category' ) );
         add_filter( 'parse_query' , array( $this , 'convert_cat_id_to_slug_in_query' ) );
+
+        // extend search functionality
+        add_filter( 'posts_join' , array ( $this , 'search_query_join' ) , 10 , 2);
+        add_filter( 'posts_search' , array( $this , 'search_query' ) , 10 , 2 );
 
         // filter to add category on permalink
         add_filter( 'post_type_link' , array( $this , 'add_category_slug_to_permalink' ) , 10 , 2 );
