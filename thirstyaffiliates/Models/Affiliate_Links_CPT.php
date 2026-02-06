@@ -1352,25 +1352,47 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
     public function search_query( $search, $query ) {
         if ( is_admin() && $query->is_search() && $query->get( 'post_type' ) === Plugin_Constants::AFFILIATE_LINKS_CPT ) {
             global $wpdb;
-            $escaped_term = '%' . $wpdb->esc_like( $query->get( 's' ) ) . '%';
-            $search       = $wpdb->prepare(
-                "AND (
-                    (
+            $search_string = $query->get( 's' );
+            preg_match_all( '/".*?("|$)|((?<=[\t ",+])|^)[^\t ",+]+/', $search_string, $matches );
+            $search_terms = array_map( 'trim', array_filter($matches[0]) );
+            $search_terms = array_map( function( $term ) {
+                return trim($term, "\"'\n\r " );
+                
+            }, $search_terms);
+
+            $search = '';
+            $search_and = '';
+
+            foreach ($search_terms as $term){
+                if ( empty($term) ) {
+                    continue;
+                }
+
+                $escaped_term = '%' . $wpdb->esc_like( $term ) . '%';
+                
+                $search .= $wpdb->prepare(
+                    "{$search_and}(
                         ({$wpdb->posts}.post_title LIKE %s) OR
                         ({$wpdb->posts}.post_excerpt LIKE %s) OR
                         ({$wpdb->posts}.post_content LIKE %s) OR
                         ({$wpdb->posts}.post_name LIKE %s) OR
                         (ta_pm_1.meta_value LIKE %s)
-                    )
-                ) ",
-                $escaped_term,
-                $escaped_term,
-                $escaped_term,
-                $escaped_term,
-                $escaped_term
-            );
-        }
+                    )",
+                    $escaped_term,
+                    $escaped_term,
+                    $escaped_term,
+                    $escaped_term,
+                    $escaped_term
+                );
 
+                $search_and = ' AND ';
+            }
+
+            if ( !empty($search) ) {
+                $search = " AND ({$search}) ";
+            }
+        }
+            
         return $search;
     }
 

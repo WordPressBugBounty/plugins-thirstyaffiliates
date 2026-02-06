@@ -14,7 +14,7 @@
         ]
     },
     "require": {
-        "caseproof/growth-tools": "^1.5.0",
+        "caseproof/growth-tools": "^1.6.0",
         "caseproof/ground-level-in-product-notifications": "^0.15.1"
     },
     "repositories": {

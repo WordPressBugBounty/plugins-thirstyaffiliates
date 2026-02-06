@@ -141,12 +141,32 @@ class Authenticator implements Model_Interface , Activatable_Interface , Initiab
    * @return void
    */
   public static function delete_connection_data() {
-    if ( isset( $_GET['ta-clear-connection-data'] ) ) {
-      // Admins only
-      if ( current_user_can( 'manage_options' ) ) {
-        self::clear_connection_data();
-      }
+    if ( ! isset( $_GET['ta-clear-connection-data'] ) ) {
+      return;
     }
+
+    // Admins only
+    if ( ! current_user_can( 'manage_options' ) ) {
+      return;
+    }
+
+    // If nonce is present and valid, perform the action.
+    if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], 'ta-clear-connection-data' ) ) {
+      self::clear_connection_data();
+      wp_safe_redirect( admin_url() );
+      exit;
+    }
+
+    // Show confirmation page.
+    $nonce_url = wp_nonce_url( admin_url( '?ta-clear-connection-data=1' ), 'ta-clear-connection-data' );
+    wp_die(
+      '<h1>' . esc_html__( 'Clear Connection Data', 'thirstyaffiliates' ) . '</h1>' .
+      '<p>' . esc_html__( 'Are you sure you want to clear your ThirstyAffiliates connection data? This will remove your site UUID, account email, and secret token.', 'thirstyaffiliates' ) . '</p>' .
+      '<p><a class="button button-primary" href="' . esc_url( $nonce_url ) . '">' . esc_html__( 'Yes, Clear Connection Data', 'thirstyaffiliates' ) . '</a> ' .
+      '<a class="button" href="' . esc_url( admin_url() ) . '">' . esc_html__( 'Cancel', 'thirstyaffiliates' ) . '</a></p>',
+      esc_html__( 'Confirm Action', 'thirstyaffiliates' ),
+      array( 'back_link' => false )
+    );
   }
 
   /**
@@ -245,9 +265,14 @@ class Authenticator implements Model_Interface , Activatable_Interface , Initiab
 
         $this->maybe_install_pro_plugin( $license );
 
-        if( function_exists('ThirstyAffiliates_Pro') && is_object(ThirstyAffiliates_Pro()->get_model('Update')) ) {
+        if( function_exists('ThirstyAffiliates_Pro') && method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
           $update = ThirstyAffiliates_Pro()->get_model('Update');
-          $update->activate_license($license_key);
+          if( is_object($update) && method_exists($update, 'activate_license') ) {
+            $update->activate_license($license_key);
+          } else {
+            set_site_transient( 'tap_license_info', $license, 24 * HOUR_IN_SECONDS );
+            do_action( 'tap_license_activated', $act );
+          }
         } else {
           set_site_transient( 'tap_license_info', $license, 24 * HOUR_IN_SECONDS );
           do_action( 'tap_license_activated', $act );

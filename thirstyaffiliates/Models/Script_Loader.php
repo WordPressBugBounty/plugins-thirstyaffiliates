@@ -375,8 +375,9 @@ class Script_Loader implements Model_Interface {
 
         if ( apply_filters( 'ta_enqueue_tajs_script' , ( get_option( 'ta_enable_link_fixer' , 'yes' ) === 'yes' || get_option( 'ta_enable_stats_reporting_module' , 'yes' ) === 'yes' ) ) ) {
 
-            // load main frontend script that holds the link fixer and stat record JS code
-            wp_enqueue_script( 'ta_main_js' , $this->_constants->JS_ROOT_URL() . 'app/ta.js' , array( 'jquery' ) , Plugin_Constants::VERSION , true );
+            // load main frontend script that holds the link fixer and stat record JS code            
+            $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+            wp_enqueue_script( 'ta_main_js' , $this->_constants->JS_ROOT_URL() . "app/ta{$suffix}.js" , array( 'jquery' ) , Plugin_Constants::VERSION , true );
             wp_localize_script( 'ta_main_js' , 'thirsty_global_vars' , array(
                 'home_url'                  => $this->_get_absolute_home_url( true ),
                 'ajax_url'                  => admin_url( 'admin-ajax.php' ),

@@ -4,8 +4,8 @@ Donate link: https://thirstyaffiliates.com
 Tags: affiliate links, amazon affiliates, link shortner, link tracking, redirects
 Requires at least: 6.0
 Requires PHP: 7.4
-Tested up to: 6.8
-Stable tag: 3.11.6
+Tested up to: 6.9
+Stable tag: 3.11.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -184,6 +184,18 @@ If you need to run an affiliate program on your store we recommend you check out
 5. Reports Page
 
 == Changelog ==
+= 3.11.10 =
+* Minor security fix
+
+= 3.11.9 =
+* Security hardening in Shortcode
+
+= 3.11.8 =
+* Fix regression against old versions of the Pro plugin
+
+= 3.11.7 =
+* Fix in plugin messaging bug
+
 = 3.11.6 =
 * Updated Growth Tools
 * Properly handle media file deletion

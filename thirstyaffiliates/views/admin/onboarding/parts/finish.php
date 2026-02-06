@@ -5,9 +5,12 @@ if ( ! defined( 'ABSPATH' ) ) {die( 'You are not allowed to call this page direc
 
 <?php
 $is_update_model = false;
-if ( function_exists('ThirstyAffiliates_Pro') && is_object(ThirstyAffiliates_Pro()->get_model('Update')) ) {
-  $is_update_model = true;
-  ThirstyAffiliates_Pro()->get_model('Update')->manually_queue_update();
+if ( function_exists('ThirstyAffiliates_Pro') && method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
+  $update = ThirstyAffiliates_Pro()->get_model('Update');
+  if ( is_object($update) && method_exists($update, 'manually_queue_update') ) {
+    $is_update_model = true;
+    $update->manually_queue_update();
+  }
 }
 
 $license                         = get_site_transient('tap_license_info');
@@ -33,10 +36,15 @@ $upgrade_type = Onboarding_Helper::is_upgrade_required(
 // If there's no license currently stored, then look at the license passed back from the checkout process.
 // This will ensure that we're picking up users upgrading from the Lite version to a Pro version.
 if($is_update_model && !$current_license && !empty($upgraded_edition) && !empty($license_param)) {
-  ThirstyAffiliates_Pro()->get_model('Update')->activate_license($license_param);
-  $license = get_site_transient('ta_license_info');
-  $current_license = $license && isset($license['product_slug']) ? $license['product_slug'] : '';
-  $upgrading_from_lite = true;
+  if ( method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
+    $update = ThirstyAffiliates_Pro()->get_model('Update');
+    if ( is_object($update) && method_exists($update, 'activate_license') ) {
+      $update->activate_license($license_param);
+      $license = get_site_transient('ta_license_info');
+      $current_license = $license && isset($license['product_slug']) ? $license['product_slug'] : '';
+      $upgrading_from_lite = true;
+    }
+  }
 }
 
 if(!empty($upgraded_edition) && !empty($current_license) && $upgraded_edition != $current_license) {

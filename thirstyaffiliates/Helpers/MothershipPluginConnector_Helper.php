@@ -22,9 +22,11 @@ class MothershipPluginConnector_Helper extends AbstractPluginConnection
      */
     public function getLicenseActivationStatus(): bool
     {
-      if ( Onboarding_Helper::is_pro_active() && is_object(ThirstyAffiliates_Pro()->get_model('Update')) ) {
+      if ( Onboarding_Helper::is_pro_active() && method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
         $tap_update = ThirstyAffiliates_Pro()->get_model('Update');
-        return $tap_update->is_activated();
+        if ( is_object($tap_update) && method_exists($tap_update, 'is_activated') ) {
+          return $tap_update->is_activated();
+        }
       }
       return false;
     }

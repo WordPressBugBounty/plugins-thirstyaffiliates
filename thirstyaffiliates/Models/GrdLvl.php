@@ -138,7 +138,7 @@ class GrdLvl implements Model_Interface, Initiable_Interface, StaticContainerAwa
      * Later we'll want to move this condition to be only around the {@see self::init_ipn()}
      * load method.
      */
-    if (Notifications::has_access()) {
+    if (Notifications::has_access() || wp_doing_cron()) {
       self::setContainer(new Container());
 
       /**

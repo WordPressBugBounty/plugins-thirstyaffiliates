@@ -282,9 +282,9 @@ class Onboarding implements Model_Interface , Activatable_Interface , Initiable_
     if(!empty($addons)) {
 
       $license_addons = array();
-      if( function_exists('ThirstyAffiliates_Pro') && is_object(ThirstyAffiliates_Pro()->get_model('Update')) ) {
+      if( function_exists('ThirstyAffiliates_Pro') && method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
         $update = ThirstyAffiliates_Pro()->get_model('Update');
-        if( method_exists($update, 'addons') ) {
+        if( is_object($update) && method_exists($update, 'addons') ) {
           $license_addons = $update->addons(true, true, true);
         }
       }
@@ -663,9 +663,13 @@ class Onboarding implements Model_Interface , Activatable_Interface , Initiable_
     if((string) $_GET['page'] === 'thirstyaffiliates_onboarding' && (int) $_GET['step'] === 1) {
       // to rebuild the tap_license_info transient.
 
-      if ( function_exists('ThirstyAffiliates_Pro') && is_object(ThirstyAffiliates_Pro()->get_model('Update')) ) {
+      if ( function_exists('ThirstyAffiliates_Pro') && method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
         $tap_update = ThirstyAffiliates_Pro()->get_model('Update');
-        $tap_update->manually_queue_update();
+        if ( is_object($tap_update) && method_exists($tap_update, 'manually_queue_update') ) {
+          $tap_update->manually_queue_update();
+        } else {
+          return;
+        }
 
         $li = get_site_transient('tap_license_info');
 
@@ -816,9 +820,9 @@ class Onboarding implements Model_Interface , Activatable_Interface , Initiable_
       if(in_array($data['addon_slug'], $features_data['addons_not_installed'], true)) {
 
         $license_addons = array();
-        if( function_exists('ThirstyAffiliates_Pro') && is_object(ThirstyAffiliates_Pro()->get_model('Update')) ) {
+        if( function_exists('ThirstyAffiliates_Pro') && method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
           $update = ThirstyAffiliates_Pro()->get_model('Update');
-          if( method_exists($update, 'addons') ) {
+          if( is_object($update) && method_exists($update, 'addons') ) {
             $license_addons = $update->addons(true, true, true);
           }
         }

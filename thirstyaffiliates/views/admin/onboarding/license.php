@@ -17,9 +17,12 @@ if(Onboarding_Helper::is_pro_active()){
       $li = get_site_transient( 'tap_license_info' );
   }
 
-  if ( empty( $li ) && is_object(ThirstyAffiliates_Pro()->get_model('Update')) ) {
-    ThirstyAffiliates_Pro()->get_model('Update')->manually_queue_update();
-    $li = get_site_transient( 'tap_license_info' );
+  if ( empty( $li ) && method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
+    $update = ThirstyAffiliates_Pro()->get_model('Update');
+    if ( is_object($update) && method_exists($update, 'manually_queue_update') ) {
+      $update->manually_queue_update();
+      $li = get_site_transient( 'tap_license_info' );
+    }
   }
 }
 

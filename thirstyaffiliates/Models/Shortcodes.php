@@ -202,7 +202,7 @@ class Shortcodes implements Model_Interface {
 
             // get link text content default if no value is set
             if ( empty( $content ) && $atts[ 'linktext' ] )
-                $content = $atts[ 'linktext' ]; // backward compatibility to get the link text content.
+                $content = wp_kses_post( $atts[ 'linktext' ] ); // backward compatibility to get the link text content.
             else if ( empty( $content ) )
                 $content = $thirstylink->get_prop( 'name' );
 
@@ -260,7 +260,7 @@ class Shortcodes implements Model_Interface {
 				$output .= ! empty($value) ? ' ' . $name . '="' . trim( esc_attr( $value ) ) . '"' : '';
 			}
 
-			$output .= ' data-shortcode="true">' . do_shortcode( $content ) . '</a>';
+			$output .= ' data-shortcode="true">' . do_shortcode( wp_kses_post( $content ) ) . '</a>';
 
 
         } elseif ( current_user_can( 'edit_published_posts' ) )

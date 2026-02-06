@@ -155,9 +155,15 @@ class Addons implements Model_Interface {
     }
 
     public function route() {
-        if( Onboarding_Helper::is_pro_active() && is_object(ThirstyAffiliates_Pro()->get_model('Update') ) ) {
-            $force = isset($_GET['refresh']) && $_GET['refresh'] == 'true';
+        if( Onboarding_Helper::is_pro_active() && method_exists(ThirstyAffiliates_Pro(), 'get_model') ) {
             $tap_update = ThirstyAffiliates_Pro()->get_model('Update');
+            if ( !is_object($tap_update) ) {
+                $section_title = esc_html__('Add-ons', 'thirstyaffiliates');
+                $upgrade_link = 'https://thirstyaffiliates.com/pricing?utm_source=plugin_admin&utm_medium=link&utm_campaign=addons&utm_content=pro_features';
+                require_once($this->_constants->VIEWS_ROOT_PATH() . '/admin/addons/addon-page-lite.php');
+                return;
+            }
+            $force = isset($_GET['refresh']) && $_GET['refresh'] == 'true';
 
             $addons = array();
             if( method_exists($tap_update, 'addons') ) {
