@@ -760,6 +760,15 @@ class Helper_Functions {
     }
 
     /**
+     * Get the HTML for the 'PRO' badge
+     *
+     * @return string
+     */
+    public function pro_badge() {
+        return sprintf( '<span class="ta-pro-badge">%s</span>', esc_html__( 'PRO', 'thirstyaffiliates' ) );
+    }
+
+    /**
      * Is the link with the given ID a ThirstyPay link?
      *
      * @param int $link_id

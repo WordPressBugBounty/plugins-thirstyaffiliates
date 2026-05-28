@@ -297,7 +297,7 @@ class Marketing implements Model_Interface , Activatable_Interface , Initiable_I
 
             global $submenu;
 
-            array_push( $submenu['edit.php?post_type=thirstylink'] , array( '<div id="spfmlt">Pro Features →</div>' , 'manage_options', 'https://thirstyaffiliates.com/pricing/?utm_source=Free%20Plugin&utm_medium=Pro&utm_campaign=Admin%20Menu' ) );
+            array_push( $submenu['edit.php?post_type=thirstylink'] , array( '<div id="spfmlt" style="color:#8CBD5A;">Try Pro — 50% Off →</div>' , 'manage_options', 'https://thirstyaffiliates.com/pricing/?utm_source=Free%20Plugin&utm_medium=Pro&utm_campaign=Admin%20Menu' ) );
 
         }
 
@@ -424,46 +424,6 @@ class Marketing implements Model_Interface , Activatable_Interface , Initiable_I
         wp_die();
     }
 
-    /**
-     * Add advanced feautures marketing metabox in the sidebar.
-     *
-     * @since 3.3.0
-     * @access public
-     *
-     * @param array $metabox TA registered metaboxes.
-     * @return array Filtered TA registered metaboxes.
-     */
-    public function add_advanced_features_marketing_metabox( $metaboxes ) {
-
-        if ( ! $this->_helper_functions->is_plugin_active( 'thirstyaffiliates-pro/thirstyaffiliates-pro.php' ) ) {
-
-            $metaboxes[] = array(
-                'id'       => 'ta-advanced-features-metabox',
-                'title'    => __( 'Advanced Features', 'thirstyaffiliates' ),
-                'cb'       => array( $this , 'advanced_features_marketing_metabox_cb' ),
-                'sort'     => 40,
-                'priority' => 'default'
-            );
-        }
-
-        return $metaboxes;
-    }
-
-    /**
-     * Display "Advanced Features" metabox
-     *
-     * @since 3.3.0
-     * @access public
-     *
-     * @param \WP_Post $post Affiliate link WP_Post object.
-     */
-    public function advanced_features_marketing_metabox_cb( $post ) {
-
-        $url = 'https://thirstyaffiliates.com/pricing/?utm_source=Free%20Plugin&utm_medium=Pro&utm_campaign=Sidebar';
-        $img = $this->_constants->IMAGES_ROOT_URL() . 'sidebar.jpg';
-        echo '<a href="' . esc_url( $url ) . '" target="_blank"><img src="' . esc_url( $img ) . '"></a>';
-    }
-
     public function dismiss_review_prompt() {
 
         if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
@@ -546,7 +506,6 @@ class Marketing implements Model_Interface , Activatable_Interface , Initiable_I
         add_action( 'admin_menu' , array( $this , 'add_pro_features_menu_link' ) , 20 );
         add_action( 'admin_head', array( $this , 'add_pro_features_menu_link_target' ) );
         add_filter( 'option_ta_enable_javascript_frontend_redirect' , array( $this , 'hide_notice_on_enable_js_redirect_setting_change' ) );
-        add_filter( 'ta_register_side_metaboxes' , array( $this , 'add_advanced_features_marketing_metabox' ) );
     }
 
 }

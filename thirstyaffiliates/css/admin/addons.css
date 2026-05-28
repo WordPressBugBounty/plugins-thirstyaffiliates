@@ -329,3 +329,34 @@ body.folded .thirstyaffiliates-popup-long {
   background-color: #f2f2f2;
   padding: 20px;
 }
+
+.thirstyaffiliates-cta-button {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 14px 32px;
+  background: linear-gradient( 180deg, #FFA640 0%, #FA7E23 100% );
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba( 0, 0, 0, .12 );
+  border: 1px solid #E36F18;
+  border-radius: 6px;
+  box-shadow: 0 1px 0 rgba( 255, 255, 255, .25 ) inset,
+              0 2px 4px rgba( 226, 110, 24, .25 );
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.thirstyaffiliates-cta-button:hover,
+.thirstyaffiliates-cta-button:focus {
+  background: linear-gradient( 180deg, #FFB45A 0%, #FF8A30 100% );
+  color: #fff;
+  box-shadow: 0 1px 0 rgba( 255, 255, 255, .3 ) inset,
+              0 4px 10px rgba( 226, 110, 24, .35 );
+  transform: translateY( -1px );
+}
+.thirstyaffiliates-cta-button:active {
+  transform: translateY( 0 );
+  box-shadow: 0 1px 0 rgba( 255, 255, 255, .2 ) inset,
+              0 1px 2px rgba( 226, 110, 24, .3 );
+}

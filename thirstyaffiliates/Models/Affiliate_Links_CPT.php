@@ -161,10 +161,14 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
      */
     public function add_thirstypay_page() {
 
+        if ( get_option( 'ta_enable_thirstypay', 'yes' ) !== 'yes' ) {
+            return;
+        }
+
         add_submenu_page(
             'edit.php?post_type=' . Plugin_Constants::AFFILIATE_LINKS_CPT,
             esc_html__( 'ThirstyPay™ Links' , 'thirstyaffiliates' ),
-            esc_html__( 'ThirstyPay™ Links' , 'thirstyaffiliates' ) . $this->_helper_functions->new_badge(),
+            esc_html__( 'ThirstyPay™ Links' , 'thirstyaffiliates' ),
             'edit_posts',
             'thirstypay-links',
             $this->_helper_functions->is_stripe_connection_active() ? '__return_empty_string' : array( $this, 'show_thirstypay_popup' )
@@ -202,29 +206,68 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
 
         $slug = 'edit.php?post_type=' . Plugin_Constants::AFFILIATE_LINKS_CPT;
 
-        if ( is_array( $submenu ) && isset( $submenu[ $slug ] ) && is_array( $submenu[ $slug ] ) ) {
-            $thirstypay_index = null;
-            $i = 0;
+        if ( ! is_array( $submenu ) || ! isset( $submenu[ $slug ] ) || ! is_array( $submenu[ $slug ] ) ) {
+            return;
+        }
 
-            foreach ( $submenu[ $slug ] as $key => $sub ) {
-                if ( $sub[2] == $slug && ! empty( $_REQUEST['thirstypay'] ) ) {
-                    $submenu[ $slug ][ $key ][0] = esc_html__( 'Affiliate Links', 'thirstyaffiliates' );
-                } else if ( $sub[2] == 'thirstypay-links' ) {
-                    $thirstypay_index = $i;
+        $thirstypay_slug_modified = $slug . '&amp;thirstypay=1';
 
-                    if ( $this->_helper_functions->is_stripe_connection_active() ) {
-                        $submenu[ $slug ][ $key ][2] = $slug . '&amp;thirstypay=1';
-                    }
-                }
-
-                $i++;
-            }
-
-            if ( is_numeric( $thirstypay_index ) ) {
-                $thirstypay = array_splice( $submenu[ $slug ], $thirstypay_index, 1 );
-                array_splice( $submenu[ $slug ], 1, 0, $thirstypay );
+        foreach ( $submenu[ $slug ] as $key => $sub ) {
+            if ( $sub[2] == $slug && ! empty( $_REQUEST['thirstypay'] ) ) {
+                $submenu[ $slug ][ $key ][0] = esc_html__( 'Affiliate Links', 'thirstyaffiliates' );
+            } else if ( $sub[2] == 'thirstypay-links' && $this->_helper_functions->is_stripe_connection_active() ) {
+                $submenu[ $slug ][ $key ][2] = $thirstypay_slug_modified;
             }
         }
+
+        $link_cat_slug      = 'edit-tags.php?taxonomy=' . Plugin_Constants::AFFILIATE_LINKS_TAX . '&post_type=' . Plugin_Constants::AFFILIATE_LINKS_CPT;
+        $link_cat_slug_amp  = 'edit-tags.php?taxonomy=' . Plugin_Constants::AFFILIATE_LINKS_TAX . '&amp;post_type=' . Plugin_Constants::AFFILIATE_LINKS_CPT;
+        $event_notif_slug     = 'edit-tags.php?taxonomy=tap-event-notification&post_type=' . Plugin_Constants::AFFILIATE_LINKS_CPT;
+        $event_notif_slug_amp = 'edit-tags.php?taxonomy=tap-event-notification&amp;post_type=' . Plugin_Constants::AFFILIATE_LINKS_CPT;
+
+        $order_map = array(
+            $slug                              => 10,
+            'post-new.php?post_type=' . Plugin_Constants::AFFILIATE_LINKS_CPT => 20,
+            'thirstypay-links'                 => 30,
+            $thirstypay_slug_modified          => 30,
+            $link_cat_slug                     => 40,
+            $link_cat_slug_amp                 => 40,
+            'thirsty_csv_import'               => 50,
+            'thirsty_csv_export'               => 55,
+            $event_notif_slug                  => 60,
+            $event_notif_slug_amp              => 60,
+            'amazon'                           => 65,
+            'thirsty-reports'                  => 70,
+            'thirstyaffiliates-addons'         => 80,
+            'thirsty-settings'                 => 90,
+            'thirstyaffiliates-growth-tools'   => 100,
+        );
+
+        $indexed = array();
+        foreach ( $submenu[ $slug ] as $k => $item ) {
+            $indexed[] = array( 'orig' => $k, 'item' => $item );
+        }
+
+        usort( $indexed, function( $a, $b ) use ( $order_map ) {
+            $a_slug = isset( $a['item'][2] ) ? $a['item'][2] : '';
+            $b_slug = isset( $b['item'][2] ) ? $b['item'][2] : '';
+            $a_is_pro = ( isset( $a['item'][0] ) && strpos( $a['item'][0], 'spfmlt' ) !== false );
+            $b_is_pro = ( isset( $b['item'][0] ) && strpos( $b['item'][0], 'spfmlt' ) !== false );
+
+            $a_rank = $a_is_pro ? 9999 : ( isset( $order_map[ $a_slug ] ) ? $order_map[ $a_slug ] : 500 + $a['orig'] );
+            $b_rank = $b_is_pro ? 9999 : ( isset( $order_map[ $b_slug ] ) ? $order_map[ $b_slug ] : 500 + $b['orig'] );
+
+            if ( $a_rank === $b_rank ) {
+                return $a['orig'] - $b['orig'];
+            }
+            return $a_rank - $b_rank;
+        } );
+
+        $reordered = array();
+        foreach ( $indexed as $entry ) {
+            $reordered[] = $entry['item'];
+        }
+        $submenu[ $slug ] = $reordered;
     }
 
     /**

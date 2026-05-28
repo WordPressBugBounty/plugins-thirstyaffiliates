@@ -249,7 +249,6 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
             'key_value'              => array( $this , 'render_key_value_option_field' ),
             'link'                   => array( $this , 'render_link_option_field' ),
             'option_divider'         => array( $this , 'render_option_divider_option_field' ),
-            'migration_controls'     => array( $this , 'render_migration_controls_option_field' ),
             'social_links'           => array( $this , 'render_social_links_option_field' ),
             'export_global_settings' => array( $this , 'render_export_global_settings_option_field' ),
             'import_global_settings' => array( $this , 'render_import_global_settings_option_field' )
@@ -258,7 +257,6 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
         $this->_skip_wp_settings_registration = apply_filters( 'ta_skip_wp_settings_registration' , array(
             'link',
             'option_divider',
-            'migration_controls',
             'export_global_settings',
             'import_global_settings'
         ) );
@@ -617,22 +615,9 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
                                                 ),
 
                                                 array(
-                                                    'title' => __( 'Join the Community' , 'thirstyaffiliates' ),
+                                                    'title' => __( 'Love ThirstyAffiliates?' , 'thirstyaffiliates' ),
                                                     'type'  => 'social_links',
                                                     'id'    => 'ta_social_links'
-                                                ),
-
-                                                array(
-                                                    'id'    => 'ta_other_utilities_divider', // Even though no option is really saved, we still add id, for the purpose of later when extending this section options, they can search for this specific section divider during array loop
-                                                    'title' => __( 'Other Utilities' , 'thirstyaffiliates' ),
-                                                    'type'  => 'option_divider'
-                                                ),
-
-                                                array(
-                                                    'title' => __( 'Migrate Old Data' , 'thirstyaffiliates' ),
-                                                    'type'  => 'migration_controls',
-                                                    'desc'  => __( 'Migrate old ThirstyAffiliates version 2 data to new version 3 data model.' , 'thirstyaffiliates' ),
-                                                    'id'    => 'ta_migrate_old_data'
                                                 )
 
                                             ) )
@@ -766,44 +751,6 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
             array( $this, 'view_settings_page' )
         );
 
-        if ( ! is_plugin_active( 'thirstyaffiliates-pro/thirstyaffiliates-pro.php' ) ) {
-            add_submenu_page(
-                'edit.php?post_type=thirstylink',
-                __( 'Import CSV' , 'thirstyaffiliates' ),
-                __( 'Import CSV' , 'thirstyaffiliates' ),
-                'manage_options',
-                'thirsty_import',
-                array( $this , 'import_page' )
-            );
-
-            add_submenu_page(
-                'edit.php?post_type=thirstylink',
-                __( 'Export CSV' , 'thirstyaffiliates' ),
-                __( 'Export CSV' , 'thirstyaffiliates' ),
-                'manage_options',
-                'thirsty_export',
-                array( $this , 'export_page' )
-            );
-
-            add_submenu_page(
-                'edit.php?post_type=thirstylink',
-                __( 'Amazon Import' , 'thirstyaffiliates' ),
-                __( 'Amazon Import' , 'thirstyaffiliates' ),
-                'manage_options',
-                'amazon_import',
-                array( $this , 'amazon_import_page' )
-            );
-
-            add_submenu_page(
-                'edit.php?post_type=thirstylink',
-                __( 'Event Notifications' , 'thirstyaffiliates' ),
-                __( 'Event Notifications' , 'thirstyaffiliates' ),
-                'manage_options',
-                'thirsty_event_notifications',
-                array( $this , 'event_notifications_page' )
-            );
-        }
-
         add_submenu_page(
             'options.php',
             __( 'Welcome' , 'thirstyaffiliates' ),
@@ -814,23 +761,12 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
         );
 
         $addons = ThirstyAffiliates()->get_model('Addons');
-        add_submenu_page("edit.php?post_type=" . Plugin_Constants::AFFILIATE_LINKS_CPT, esc_html__('Add-ons', 'thirstyaffiliates'), '<span style="color:#8CBD5A;">' . esc_html__('Add-ons', 'thirstyaffiliates') . '</span>', 'manage_options', 'thirstyaffiliates-addons', array($addons, 'route'));
-    }
-
-    public function import_page() {
-        include_once $this->_constants->VIEWS_ROOT_PATH() . 'importer/importer.php';
-    }
-
-    public function export_page() {
-        include_once $this->_constants->VIEWS_ROOT_PATH() . 'exporter/exporter.php';
-    }
-
-    public function amazon_import_page() {
-        include_once $this->_constants->VIEWS_ROOT_PATH() . 'amazon-import/amazon-import.php';
-    }
-
-    public function event_notifications_page() {
-        include_once $this->_constants->VIEWS_ROOT_PATH() . 'event-notifications/event-notifications.php';
+        $addons_label = esc_html__( 'Add-ons', 'thirstyaffiliates' );
+        $addons_menu_label = $addons_label;
+        if ( ! is_plugin_active( 'thirstyaffiliates-pro/thirstyaffiliates-pro.php' ) ) {
+            $addons_menu_label .= $this->_helper_functions->pro_badge();
+        }
+        add_submenu_page("edit.php?post_type=" . Plugin_Constants::AFFILIATE_LINKS_CPT, $addons_label, $addons_menu_label, 'manage_options', 'thirstyaffiliates-addons', array($addons, 'route'));
     }
 
     public function onboarding_page() {
@@ -913,7 +849,7 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
 
                 <h2 class="nav-tab-wrapper">
                     <?php foreach ( $this->_settings_sections as $section_key => $section_data ) { ?>
-                        <a href="?post_type=thirstylink&page=thirsty-settings&tab=<?php echo esc_attr( $section_key ); ?>" class="nav-tab <?php echo $active_tab == $section_key ? 'nav-tab-active' : ''; ?> <?php echo esc_attr( $section_key ); ?>"><?php echo esc_html( $section_data[ 'title' ] ); ?></a>
+                        <a href="<?php echo esc_url( admin_url( 'edit.php?post_type=thirstylink&page=thirsty-settings&tab=' . $section_key ) ); ?>" class="nav-tab <?php echo $active_tab == $section_key ? 'nav-tab-active' : ''; ?> <?php echo esc_attr( $section_key ); ?>"><?php echo esc_html( $section_data[ 'title' ] ); ?></a>
                     <?php }  ?>
 
                     <?php if ( ! $this->_helper_functions->is_plugin_active( 'thirstyaffiliates-pro/thirstyaffiliates-pro.php' ) ) : ?>
@@ -1651,63 +1587,6 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
     }
 
     /**
-     * Render custom "migration_controls" field. Do not need to be registered to WP Settings API.
-     *
-     * @since 3.0.0
-     * @access public
-     *
-     * @param array $option Array of options data. May vary depending on option type.
-     */
-    public function render_migration_controls_option_field( $option ) {
-
-        $database_processing = apply_filters( 'ta_database_processing' , true ); // Flag to determine if another application is processing the db. ex. data downgrade.
-        $processing          = "";
-        $disabled            = false;
-
-        if ( get_option( Plugin_Constants::MIGRATION_COMPLETE_FLAG ) === 'no' ) {
-
-            $processing = "-processing";
-            $disabled   = true;
-
-        } ?>
-
-        <tr valign="top" class="<?php echo esc_attr( $option[ 'id' ] ) . '-row'; ?>">
-
-            <th scope="row" class="title_desc"><?php echo esc_html( $option[ 'title' ] ); ?></th>
-
-            <td class="forminp forminp-<?php echo esc_attr( $option[ 'type' ] ) ?> <?php echo esc_attr( $processing ); ?>">
-
-                <?php if ( !$database_processing ) { ?>
-
-                    <p><?php esc_html_e( 'Another application is currently processing the database. Please wait for this to complete.' , 'thirstyaffiliates' ); ?></p>
-
-                <?php } else { ?>
-
-                    <input
-                        <?php echo $disabled ? "disabled" : ""; ?>
-                        type="button"
-                        id="<?php echo esc_attr( $option[ 'id' ] ); ?>"
-                        class="button button-primary"
-                        style="<?php echo isset( $option[ 'style' ] ) ? esc_attr( $option[ 'style' ] ) : ''; ?>"
-                        value="<?php esc_html_e( 'Migrate' , 'thirstyaffiliates' ); ?>">
-
-                    <span class="spinner"></span>
-                    <p class="status"><?php esc_html_e( 'Migrating data. Please wait...' , 'thirstyaffiliates' ); ?></p>
-
-                <?php } ?>
-
-                <br /><br />
-                <p class="desc"><?php echo isset( $option[ 'desc' ] ) ? wp_kses_post( $option[ 'desc' ] ) : ''; ?></p>
-
-            </td>
-
-        </tr>
-
-        <?php
-
-    }
-
-    /**
      * Render custom "social_links" field. Do not need to be registered to WP Settings API.
      *
      * @since 3.1.0
@@ -1723,18 +1602,7 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
             <td>
                 <ul>
                     <li>
-                        <a href="https://www.facebook.com/thirstyaffiliates/"><?php esc_html_e( 'Like us on Facebook' , 'thirstyaffiliates' ); ?></a>
-                        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fthirstyaffiliates&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px; vertical-align: bottom;" allowTransparency="true"></iframe>
-                    </li>
-                    <li>
-                        <a href="http://twitter.com/thirstyaff"><?php esc_html_e( 'Follow us on Twitter' , 'thirstyaffiliates' ); ?></a>
-                        <a href="https://twitter.com/thirstyaff" class="twitter-follow-button" data-show-count="true" style="vertical-align: bottom;">Follow @thirstyaff</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/company-beta/2928598/"><?php esc_html_e( 'Follow us on Linkedin' , 'thirstyaffiliates' ); ?></a>
-                    </li>
-                    <li>
-                        <a href="https://thirstyaffiliates.com/affiliates?utm_source=Free%20Plugin&utm_medium=Help&utm_campaign=Affiliates%20Link" target="_blank"><?php esc_html_e( 'Join Our Affiliate Program' , 'thirstyaffiliates' ); ?></a>
+                        <a href="https://thirstyaffiliates.com/affiliates?utm_source=Free%20Plugin&utm_medium=Help&utm_campaign=Affiliates%20Link" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Join Our Affiliate Program' , 'thirstyaffiliates' ); ?></a>
                         <?php esc_html_e( '(up to 30% commisions)' , 'thirstyaffiliates' ); ?>
                     </li>
                 </ul>

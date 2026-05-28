@@ -297,7 +297,8 @@ class Affiliate_Link_Attachment implements Model_Interface , Initiable_Interface
             'png'          => 'image/png',
             'bmp'          => 'image/bmp',
             'tiff|tif'     => 'image/tiff',
-            'ico'          => 'image/x-icon'
+            'ico'          => 'image/x-icon',
+            'webp'         => 'image/webp',
         );
 
     }
@@ -310,7 +311,7 @@ class Affiliate_Link_Attachment implements Model_Interface , Initiable_Interface
      */
     public function ajax_insert_external_image() {
 
-        $allowed_extensions = apply_filters( 'ta_allowed_external_image_ext' , array( 'jpg' , 'jpeg' , 'png' , 'gif' , 'svg' ) );
+        $allowed_extensions = apply_filters( 'ta_allowed_external_image_ext' , array( 'jpg' , 'jpeg' , 'png' , 'gif' , 'svg' , 'webp' ) );
 
         if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX )
             $response = array( 'status' => 'fail' , 'error_msg' => __( 'Invalid AJAX call' , 'thirstyaffiliates' ) );

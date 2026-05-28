@@ -46,15 +46,6 @@ class Script_Loader implements Model_Interface {
      */
     private $_helper_functions;
 
-    /**
-     * Property that houses the Guided_Tour model.
-     *
-     * @since 3.0.0
-     * @access private
-     * @var Guided_Tour
-     */
-    private $_guided_tour;
-
 
 
 
@@ -74,11 +65,10 @@ class Script_Loader implements Model_Interface {
      * @param Plugin_Constants           $constants        Plugin constants object.
      * @param Helper_Functions           $helper_functions Helper functions object.
      */
-    public function __construct( Abstract_Main_Plugin_Class $main_plugin , Plugin_Constants $constants , Helper_Functions $helper_functions , Guided_Tour $guided_tour ) {
+    public function __construct( Abstract_Main_Plugin_Class $main_plugin , Plugin_Constants $constants , Helper_Functions $helper_functions ) {
 
         $this->_constants        = $constants;
         $this->_helper_functions = $helper_functions;
-        $this->_guided_tour      = $guided_tour;
 
         $main_plugin->add_to_all_plugin_models( $this );
 
@@ -95,10 +85,10 @@ class Script_Loader implements Model_Interface {
      * @param Helper_Functions           $helper_functions Helper functions object.
      * @return Bootstrap
      */
-    public static function get_instance( Abstract_Main_Plugin_Class $main_plugin , Plugin_Constants $constants , Helper_Functions $helper_functions , Guided_Tour $guided_tour ) {
+    public static function get_instance( Abstract_Main_Plugin_Class $main_plugin , Plugin_Constants $constants , Helper_Functions $helper_functions ) {
 
         if ( !self::$_instance instanceof self )
-            self::$_instance = new self( $main_plugin , $constants , $helper_functions , $guided_tour );
+            self::$_instance = new self( $main_plugin , $constants , $helper_functions );
 
         return self::$_instance;
 
@@ -170,19 +160,6 @@ class Script_Loader implements Model_Interface {
                     'settings_string_copied'       => __( 'Settings string copied' , 'thirstyaffiliates' ),
                     'failed_copy_settings_string'  => __( 'Failed to copy settings string' , 'thirstyaffiliates' ),
                     'import_settings_nonce' => wp_create_nonce( 'ta_import_settings' ),
-                ) );
-
-            } elseif ( isset( $_GET[ 'tab' ] ) && $_GET[ 'tab' ] === 'ta_help_settings' ) {
-
-                // Migration
-
-                wp_enqueue_style( 'ta_migration_css' , $this->_constants->JS_ROOT_URL() . 'app/migration/dist/migration.css' , array() , 'all' );
-
-                wp_enqueue_script( 'ta_migration_js' , $this->_constants->JS_ROOT_URL() . 'app/migration/dist/migration.js' , array() , true );
-                wp_localize_script( 'ta_migration_js' , 'migration_var' , array(
-                    'i18n_migration_failed' => __( 'Failed to do data migration' , 'thirstyaffiliates' ),
-                    'i18n_confirm_migration' => __( 'Are you sure you want to migrate your ThirstyAffiliates data to version 3 format?' , 'thirstyaffiliates' ),
-                    'migration_nonce' => wp_create_nonce( 'ta_migrate_old_plugin_data' )
                 ) );
 
             } elseif ( isset( $_GET[ 'tab' ] ) && $_GET[ 'tab' ] === 'ta_thirstypay_settings' ) {
@@ -259,33 +236,8 @@ class Script_Loader implements Model_Interface {
             wp_enqueue_script( 'ta_affiliate_link_list', $this->_constants->JS_ROOT_URL() . 'app/ta-affiliate-link-list.js', array( 'jquery' ), Plugin_Constants::VERSION, true );
         }
 
-        if ( get_option( 'ta_guided_tour_status' ) == 'open' && array_key_exists( $screen->id , $this->_guided_tour->get_screens() ) ) {
 
-            wp_enqueue_style( 'ta-guided-tour_css' , $this->_constants->CSS_ROOT_URL() . 'admin/ta-guided-tour.css' , array( 'wp-pointer' ) , Plugin_Constants::VERSION , 'all' );
-            wp_enqueue_script( 'ta-guided-tour_js' , $this->_constants->JS_ROOT_URL() . 'app/ta-guided-tour.js' , array( 'wp-pointer' , 'thickbox' ) , Plugin_Constants::VERSION , true );
-
-            wp_localize_script( 'ta-guided-tour_js',
-                'ta_guided_tour_params',
-                array(
-                    'actions'  => array( 'close_tour' => 'ta_close_guided_tour' ),
-                    'nonces'   => array( 'close_tour' => wp_create_nonce( 'ta-close-guided-tour' ) ),
-                    'screen'   => $this->_guided_tour->get_current_screen(),
-                    'screenid' => $screen->id,
-                    'height'   => 640,
-                    'width'    => 640,
-                    'texts'    => array(
-                                     'btn_prev_tour'  => __( 'Previous', 'thirstyaffiliates' ),
-                                     'btn_next_tour'  => __( 'Next', 'thirstyaffiliates' ),
-                                     'btn_close_tour' => __( 'Close', 'thirstyaffiliates' ),
-                                     'btn_start_tour' => __( 'Start Tour', 'thirstyaffiliates' )
-                                 ),
-                    'urls'     => array( 'ajax' => admin_url( 'admin-ajax.php' ) ),
-                    'post'     => isset( $post ) && isset( $post->ID ) ? $post->ID : 0
-                )
-            );
-        }
-
-        if ( ( ! empty( $_GET['post_type'] ) && 'thirstylink' === $_GET['post_type'] ) || $screen->id === 'thirstylink' ) {
+        if ( ( ! empty( $_GET['post_type'] ) && 'thirstylink' === $_GET['post_type'] ) || $screen->id === 'thirstylink' || ( ! empty( $_GET['page'] ) && 'thirstypay-links' === $_GET['page'] ) ) {
           wp_enqueue_style( 'ta-admin-styles' , $this->_constants->CSS_ROOT_URL() . 'admin/ta-admin.css' , array() , Plugin_Constants::VERSION , 'all' );
           wp_enqueue_script( 'ta-admin-scripts' , $this->_constants->JS_ROOT_URL() . 'app/ta-admin.js' , array( 'jquery', 'wp-pointer' ) , Plugin_Constants::VERSION , true );
         }
@@ -456,7 +408,11 @@ class Script_Loader implements Model_Interface {
 
         if ( empty( $_GET['post_type'] ) || 'thirstylink' !== $_GET['post_type'] ) {
             return;
-        }     
+        }
+
+        if ( empty( $_GET['page'] ) || 'thirsty-settings' !== $_GET['page'] ) {
+            return;
+        }
 
         printf(
             '<div id="caseproof-flyout">

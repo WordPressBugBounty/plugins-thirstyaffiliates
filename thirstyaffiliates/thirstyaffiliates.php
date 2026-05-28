@@ -3,12 +3,22 @@
  * Plugin Name: ThirstyAffiliates
  * Plugin URI: http://thirstyaffiliates.com/
  * Description: ThirstyAffiliates is a revolution in affiliate link management. Collect, collate and store your affiliate links for use in your posts and pages.
- * Version: 3.11.10
+ * Version: 3.12.0
  * Requires PHP: 7.4
  * Author: Caseproof
  * Author URI: https://caseproof.com/
  * Text Domain: thirstyaffiliates
  * Domain Path: /languages/
+ */
+/**
+ * * * * * * * * * * * * * * * * * * * * * * *
+ *                                           *
+ * Reporting a Security Vulnerability        *
+ *                                           *
+ * Please disclose any security issues or    *
+ * vulnerabilities to security@caseproof.com *
+ *                                           *
+ * * * * * * * * * * * * * * * * * * * * * * *
  */
 
 if ( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -21,7 +31,6 @@ use ThirstyAffiliates\Helpers\Plugin_Constants;
 use ThirstyAffiliates\Helpers\Helper_Functions;
 
 use ThirstyAffiliates\Models\Bootstrap;
-use ThirstyAffiliates\Models\Migration;
 use ThirstyAffiliates\Models\Marketing;
 use ThirstyAffiliates\Models\Script_Loader;
 use ThirstyAffiliates\Models\Settings;
@@ -33,7 +42,6 @@ use ThirstyAffiliates\Models\Link_Fixer;
 use ThirstyAffiliates\Models\Rewrites_Redirection;
 use ThirstyAffiliates\Models\Link_Picker;
 use ThirstyAffiliates\Models\Shortcodes;
-use ThirstyAffiliates\Models\Guided_Tour;
 use ThirstyAffiliates\Models\REST_API;
 use ThirstyAffiliates\Models\Notifications;
 use ThirstyAffiliates\Models\Onboarding;
@@ -254,9 +262,7 @@ class ThirstyAffiliates extends Abstract_Main_Plugin_Class {
         $helper_functions = Helper_Functions::get_instance( $this , $plugin_constants );
 
         $settings    = Settings::get_instance( $this , $plugin_constants , $helper_functions );
-        $migration   = Migration::get_instance( $this , $plugin_constants , $helper_functions );
         $marketing   = Marketing::get_instance( $this , $plugin_constants , $helper_functions );
-        $guided_tour = Guided_Tour::get_instance( $this , $plugin_constants , $helper_functions );
         $stats       = Stats_Reporting::get_instance( $this , $plugin_constants , $helper_functions );
         $rest_api    = REST_API::get_instance( $this , $plugin_constants , $helper_functions );
         $rewrites    = Rewrites_Redirection::get_instance( $this , $plugin_constants , $helper_functions );
@@ -268,7 +274,7 @@ class ThirstyAffiliates extends Abstract_Main_Plugin_Class {
         $stripe = Stripe::get_instance( $this, $plugin_constants, $helper_functions, $authenticator );
         $addons = Addons::get_instance( $this , $plugin_constants , $helper_functions );
 
-        $activatables   = array( $settings , $stats , $migration , $marketing , $guided_tour, $onboarding, $authenticator, $stripe_connect, $addons );
+        $activatables   = array( $settings , $stats , $marketing , $onboarding, $authenticator, $stripe_connect, $addons );
         $deactivatables = array( $rewrites );
 
         $initiables = array(
@@ -278,9 +284,7 @@ class ThirstyAffiliates extends Abstract_Main_Plugin_Class {
             Link_Fixer::get_instance( $this , $plugin_constants , $helper_functions ),
             $link_picker,
             $stats,
-            $migration,
             $marketing,
-            $guided_tour,
             $rest_api,
             $notifications,
             $onboarding,
@@ -294,7 +298,7 @@ class ThirstyAffiliates extends Abstract_Main_Plugin_Class {
         add_action( 'init', array( $groundlevel, 'initialize' ), 5 );
 
         Bootstrap::get_instance( $this , $plugin_constants , $helper_functions , $activatables , $initiables , $deactivatables );
-        Script_Loader::get_instance( $this , $plugin_constants , $helper_functions , $guided_tour );
+        Script_Loader::get_instance( $this , $plugin_constants , $helper_functions );
 
         Shortcodes::get_instance( $this , $plugin_constants , $helper_functions );
 

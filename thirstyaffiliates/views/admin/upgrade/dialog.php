@@ -8,17 +8,17 @@
       <?php if ( ! empty( $section_title ) ) : ?>
         <h4>ThirstyAffiliates Lite cannot access <?php echo $section_title; ?>.</h4>
       <?php endif; ?>
-      <p>Once you upgrade to ThirstyAffiliates Pro, you'll have access to these pro features:</p>
+      <p>Once you upgrade to ThirstyAffiliates Pro, you'll have access to these pro features and add-ons:</p>
       <ul class="features">
-        <li>Advanced Link Insertion Types</li>
         <li>Automatic Keyword Linking</li>
-        <li>Geolocation Link Redirects</li>
-        <li>REST API Compatibility</li>
-        <li>Support &amp; Updates</li>
+        <li>Geographic Redirects</li>
+        <li>Advanced Reports</li>
+        <li>Event Notifications</li>
+        <li>Amazon API Importing</li>
+        <li>CSV Import/Export</li>
+        <li>Link Scheduling</li>
         <li>Link Categories</li>
-        <li>Automatic 404 Checker</li>
-        <li>Advanced Statistics Reports</li>
-        <li>Import and Export Links</li>
+        <li>Automatic Link Health Checker</li>
         <li>Product Displays</li>
       </ul>
     </div>

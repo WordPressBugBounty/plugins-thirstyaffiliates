@@ -32,3 +32,29 @@
 #menu-posts-thirstylink a[href*="edit.php?post_type=thirstylink&page=thirstypay-links"] {
     padding-right: 43px !important;
 }
+.ta-pro-badge {
+    display: inline-block;
+    background-color: #6c7177;
+    color: #fff;
+    font-size: 8px;
+    font-weight: bold;
+    line-height: 1;
+    margin-left: 5px;
+    padding: 4px 4px 2px;
+    border-radius: 2px;
+    position: relative;
+    top: -2px;
+}
+.wp-not-current-submenu .ta-pro-badge {
+    margin-left: 4px;
+}
+#menu-posts-thirstylink .ta-pro-badge {
+    position: absolute;
+    right: 10px;
+    font-size: 8px;
+    line-height: 1;
+    padding: 4px 4px 2px;
+    top: 50%;
+    margin-top: -7px;
+    margin-left: 0;
+}

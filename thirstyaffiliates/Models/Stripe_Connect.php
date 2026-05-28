@@ -125,7 +125,6 @@ class Stripe_Connect implements Model_Interface , Activatable_Interface , Initia
    */
   public function initialize() {
     add_action( 'admin_init', array( $this, 'persist_display_keys' ) );
-    add_action( 'admin_notices', array( $this, 'enable_payment_links_notice' ), 9999 );
     add_action( 'update_option_home', array( $this, 'url_changed' ), 10, 3 );
     add_action( 'update_option_siteurl', array( $this, 'url_changed' ), 10, 3 );
     add_action( 'wp_ajax_ta_stripe_connect_update_creds', array( $this, 'process_update_creds' ) );
@@ -134,46 +133,6 @@ class Stripe_Connect implements Model_Interface , Activatable_Interface , Initia
     add_filter( 'ta_settings_option_sections', array( $this, 'register_settings_section' ) );
     add_filter( 'ta_settings_section_options' , array( $this , 'register_thirstypay_settings_options' ) );
     add_action( 'ta_before_settings_section_fields' , array( $this , 'render_thirstypay_settings_page' ) );
-  }
-
-  /**
-  * Display an admin notice for enabling ThirstyPay links.
-  *
-  * @return void
-  */
-  public function enable_payment_links_notice() {
-    if ( ! $this->_helper_functions->is_stripe_connection_active() && ! get_option('ta_dismiss_notice_ta_thirstypay_stripe') ) {
-    ?>
-    <style>
-      .ta-warning-notice-icon {
-        color: #72aee6 !important;
-        font-size: 32px !important;
-        vertical-align: top !important;
-      }
-
-      .ta-warning-notice-title {
-        vertical-align: top !important;
-        margin-left: 18px !important;
-        font-size: 18px !important;
-        font-weight: normal !important;
-        line-height: 32px !important;
-      }
-      </style>
-      <div class="notice notice-info ta-notice is-dismissible ta-notice-dismiss-permanently" id="ta_stripe_connect_upgrade_notice" data-notice="ta_thirstypay_stripe">
-        <p style="margin-top: 12px;"><span class="dashicons dashicons-cart ta-warning-notice-icon"></span><em class="ta-warning-notice-title"><?php esc_html_e( 'Thirsty for More Revenue?', 'thirstyaffiliates' ); ?></em></p>
-        <p>
-          <?php
-            printf(
-              esc_html__('Quench it with %1$sNEW ThirstyPay™ Links!%2$s Make taking payments a cinch right on your site with %1$sbrandable checkout links%2$s. No fuss, all fun –  just simple, secure money moves that put more in your pocket.', 'thirstyaffiliates'),
-              '<strong>',
-              '</strong>'
-            );
-          ?>
-        </p>
-        <p style="margin-bottom: 12px;"><a href="<?php echo esc_url(admin_url('edit.php?post_type=thirstylink&page=thirstypay-links')); ?>" class="button button-primary"><?php esc_html_e('Learn More', 'thirstyaffiliates'); ?></a></p>
-      </div>
-      <?php
-    }
   }
 
   /**
@@ -457,32 +416,39 @@ class Stripe_Connect implements Model_Interface , Activatable_Interface , Initia
         'ta_thirstypay_settings',
         array(
             array(
+                'id'      => 'ta_enable_thirstypay',
+                'title'   => __( 'Enable ThirstyPay' , 'thirstyaffiliates' ),
+                'desc'    => __( 'Enable ThirstyPay payment links. When disabled, the ThirstyPay menu item and Stripe settings are hidden.' , 'thirstyaffiliates' ),
+                'type'    => 'toggle',
+                'default' => 'yes',
+            ),
+            array(
                 'id'      => 'ta_stripe_live_publishable_key',
                 'title'   => __( 'Live Publishable Key*' , 'thirstyaffiliates' ),
                 'desc'    => '',
                 'type'    => 'text',
-                'condition_cb' => function() { return isset( $_GET['display-keys'] ); }
+                'condition_cb' => function() { return isset( $_GET['display-keys'] ) && get_option( 'ta_enable_thirstypay', 'yes' ) === 'yes'; }
             ),
             array(
                 'id'      => 'ta_stripe_live_secret_key',
                 'title'   => __( 'Live Secret Key*' , 'thirstyaffiliates' ),
                 'desc'    => '',
                 'type'    => 'text',
-                'condition_cb' => function() { return isset( $_GET['display-keys'] ); }
+                'condition_cb' => function() { return isset( $_GET['display-keys'] ) && get_option( 'ta_enable_thirstypay', 'yes' ) === 'yes'; }
             ),
             array(
                 'id'      => 'ta_stripe_test_publishable_key',
                 'title'   => __( 'Test Publishable Key*' , 'thirstyaffiliates' ),
                 'desc'    => '',
                 'type'    => 'text',
-                'condition_cb' => function() { return isset( $_GET['display-keys'] ); }
+                'condition_cb' => function() { return isset( $_GET['display-keys'] ) && get_option( 'ta_enable_thirstypay', 'yes' ) === 'yes'; }
             ),
             array(
                 'id'      => 'ta_stripe_test_secret_key',
                 'title'   => __( 'Test Secret Key*' , 'thirstyaffiliates' ),
                 'desc'    => '',
                 'type'    => 'text',
-                'condition_cb' => function() { return isset( $_GET['display-keys'] ); }
+                'condition_cb' => function() { return isset( $_GET['display-keys'] ) && get_option( 'ta_enable_thirstypay', 'yes' ) === 'yes'; }
             ),
         )
     );
@@ -518,7 +484,7 @@ class Stripe_Connect implements Model_Interface , Activatable_Interface , Initia
 
   public function render_thirstypay_settings_page( $active_tab ) {
 
-    if( 'ta_thirstypay_settings' === $active_tab ) {
+    if( 'ta_thirstypay_settings' === $active_tab && get_option( 'ta_enable_thirstypay', 'yes' ) === 'yes' ) {
       require_once( $this->_constants->VIEWS_ROOT_PATH() . '/admin/thirstypay-options.php' );
     }
 

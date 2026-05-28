@@ -56,7 +56,8 @@
                 </div>
 
                 <div class="input-wrap link-report-color-field" style="display:none;">
-                    <input type="text" class="color-field" id="link-report-color" value="#e74c3c">
+                    <label for="link-report-color"><?php esc_html_e( 'Color:' , 'thirstyaffiliates' ); ?></label>
+                    <input type="color" class="color-field" id="link-report-color" value="#e74c3c">
                 </div>
 
                 <button type="button" class="button-primary" id="fetch-link-report"><?php esc_html_e( 'Fetch Report' , 'thirstyaffiliates' ); ?></button>

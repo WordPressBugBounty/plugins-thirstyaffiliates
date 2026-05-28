@@ -40,7 +40,7 @@ class Plugin_Constants {
     // Plugin configuration constants
     const TOKEN               = 'ta';
     const INSTALLED_VERSION   = 'ta_installed_version';
-    const VERSION             = '3.11.10';
+    const VERSION             = '3.12.0';
     const TEXT_DOMAIN         = 'thirstyaffiliates';
     const THEME_TEMPLATE_PATH = 'thirstyaffiliates';
     const META_DATA_PREFIX    = '_ta_';
@@ -52,13 +52,11 @@ class Plugin_Constants {
 
     // CRON
     const CRON_REQUEST_REVIEW          = 'ta_cron_request_review';
-    const CRON_MIGRATE_OLD_PLUGIN_DATA = 'ta_cron_migrate_old_plugin_data';
     const CRON_STATS_TRIMMER           = 'ta_cron_stats_trimmer';
 
     // Options
     const SHOW_REQUEST_REVIEW     = 'ta_show_request_review';
     const REVIEW_REQUEST_RESPONSE = 'ta_request_review_response';
-    const MIGRATION_COMPLETE_FLAG = 'ta_migration_complete_flag';
 
     // Settings Constants
     const DEFAULT_BLOCKED_BOTS = 'googlebot,bingbot,Slurp,DuckDuckBot,Baiduspider,YandexBot,Sogou,Exabot,facebo,ia_archiver';
