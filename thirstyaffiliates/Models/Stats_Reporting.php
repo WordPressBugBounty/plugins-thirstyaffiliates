@@ -311,6 +311,11 @@ class Stats_Reporting implements Model_Interface , Initiable_Interface , Activat
                 wp_die();
             }
 
+            // Only process published affiliate links: unauthenticated link_id must not disclose destination_url or write stats.
+            if ( ! $thirstylink->get_id() || get_post_type( $link_id ) !== Plugin_Constants::AFFILIATE_LINKS_CPT || get_post_status( $link_id ) !== 'publish' ) {
+                wp_die();
+            }
+
             $redirect_url  = apply_filters( 'ta_filter_redirect_url' , $thirstylink->get_prop( 'destination_url' ) , $thirstylink , $query_string );
             $redirect_type = $thirstylink->get_redirect_type();
 
@@ -596,6 +601,7 @@ class Stats_Reporting implements Model_Interface , Initiable_Interface , Activat
      *
      * @since 3.0.0
      * @since 3.2.2 Access to the settings page will now be controlled by the plugin. see Bootstrap::admin_interface_visibility.
+     * render_reports() also checks the active tab's capability before rendering.
      *
      * @access public
      */
@@ -620,6 +626,15 @@ class Stats_Reporting implements Model_Interface , Initiable_Interface , Activat
      * @access public
      */
     public function render_reports() {
+
+        // Fail closed: check the capability of the report tab that is actually rendered.
+        $active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_text_field( wp_unslash( $_GET[ 'tab' ] ) ) : 'link_performance';
+        $interfaces = apply_filters( 'ta_admin_interfaces' , array() );
+        $tab_caps   = isset( $interfaces[ 'thirstylink_page_thirsty-reports' ] ) ? $interfaces[ 'thirstylink_page_thirsty-reports' ] : array();
+        $capability = isset( $tab_caps[ $active_tab ] ) ? $tab_caps[ $active_tab ] : 'manage_options';
+
+        if ( ! current_user_can( $capability ) )
+            wp_die( esc_html( apply_filters( 'ta_admin_interface_error_message' , __( "Sorry, you are not allowed to access this page." , 'thirstyaffiliates' ) , 'thirstylink_page_thirsty-reports' , $active_tab , $capability , $tab_caps ) ) );
 
         // fetch current section
         $current_report = $this->get_current_report();

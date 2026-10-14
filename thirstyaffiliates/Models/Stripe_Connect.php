@@ -229,6 +229,26 @@ class Stripe_Connect implements Model_Interface , Activatable_Interface , Initia
     exit;
   }
 
+  /**
+  * Check that a Connect service response contains all four Stripe keys
+  *
+  * @param mixed $creds Decoded response body.
+  * @return bool
+  */
+  private function has_stripe_keys( $creds ) {
+    if ( ! is_array( $creds ) ) {
+      return false;
+    }
+
+    foreach ( array( 'test_secret_key', 'test_publishable_key', 'live_secret_key', 'live_publishable_key' ) as $key ) {
+      if ( ! isset( $creds[ $key ] ) || ! is_string( $creds[ $key ] ) || '' === sanitize_text_field( $creds[ $key ] ) ) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   /** Fetches the credentials from Stripe-Connect and updates them in the payment method. */
   private function update_connect_credentials() {
 
@@ -247,6 +267,11 @@ class Stripe_Connect implements Model_Interface , Activatable_Interface , Initia
     ) );
 
     $creds = json_decode( wp_remote_retrieve_body( $response ), true );
+
+    // Bail without touching the stored options if the response is unusable
+    if ( is_wp_error( $response ) || ! $this->has_stripe_keys( $creds ) ) {
+      wp_die(__('Sorry, updating your credentials failed.', 'thirstyaffiliates'));
+    }
 
     update_option( 'ta_stripe_status', 1 );
     update_option( 'ta_stripe_test_secret_key', sanitize_text_field( $creds['test_secret_key'] ) );
@@ -297,7 +322,7 @@ class Stripe_Connect implements Model_Interface , Activatable_Interface , Initia
 
     $body = json_decode( wp_remote_retrieve_body( $response ), true );
 
-    if ( ! isset( $body['connect_status'] ) || 'refreshed' !== $body['connect_status'] ) {
+    if ( ! isset( $body['connect_status'] ) || 'refreshed' !== $body['connect_status'] || ! $this->has_stripe_keys( $body ) ) {
       wp_die(__('Sorry, the refresh failed.', 'thirstyaffiliates'));
     }
 
@@ -462,7 +487,7 @@ class Stripe_Connect implements Model_Interface , Activatable_Interface , Initia
    * @return void
    */
   public function persist_display_keys() {
-    if ( isset($_GET['page']) && $_GET['page']=='thirsty-settings' && isset( $_GET['display-keys'] ) ) {
+    if ( $this->_helper_functions->is_admin() && isset($_GET['page']) && $_GET['page']=='thirsty-settings' && isset( $_GET['display-keys'] ) ) {
       setcookie( 'ta_stripe_display_keys', '1', time() + HOUR_IN_SECONDS, '/' );
     }
   }

@@ -4,8 +4,8 @@ Donate link: https://thirstyaffiliates.com
 Tags: affiliate links, amazon affiliates, link shortner, link tracking, redirects
 Requires at least: 6.0
 Requires PHP: 7.4
-Tested up to: 7.0
-Stable tag: 3.12.0
+Tested up to: 7.1
+Stable tag: 3.12.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,9 +96,6 @@ Amazing advanced reports such as performance by category, performance over 24/hr
 * **Geolocations**
 Geo-target your visitors based on their country of origin and redirect them to geographically appropriate affiliate URLs
 
-* **Google Click Events**
-Pushes a click event to your Google Analytics on click
-
 * **CSV Import/Export**
 Import and export affiliate links via CSV. Great for managing links across multiple sites
 
@@ -117,7 +114,6 @@ Automatically explores your affiliate links for 404’s or broken links and will
 [Check out all the ThirstyAffiliates PRO features here](https://thirstyaffiliates.com/pricing/?utm_source=WordPressorg&utm_medium=Free%20Plugin%20Listing&utm_content=PRO)
 
 ## INTEGRATIONS ⚡
-* [Google Analytics](https://thirstyaffiliates.com/knowledgebase/how-to-set-up-google-click-tracking-analytics) - ThirstyAffiliates has a tight integration with Google Analytics to easily push click events when an affiliate link is clicked.
 * [Amazon](https://thirstyaffiliates.com/knowledgebase/retrieve-amazon-product-advertising-api-access-key-secret-key) - Integrates with Amazon's Product Advertising API to allow you to search and import affiliate links within Amazon.
 
 ## What's Next 🤩
@@ -184,6 +180,12 @@ If you need to run an affiliate program on your store we recommend you check out
 5. Reports Page
 
 == Changelog ==
+= 3.12.1 =
+* Security: Tightened access checks so only users with the right permissions can view the Payments settings and the Reports page
+* Security: Click tracking and link lookups now only work for published affiliate links (drafts, private and trashed links are ignored)
+* Fix: Stripe Connect now verifies connection details before saving them, so a failed connection no longer shows as "connected"
+* Removed Google Click Tracking from the plugin description
+
 = 3.12.0 =
 * Cleaned up plugin design and pro messaging
 * Added setting to disable ThirstyPay

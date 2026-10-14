@@ -148,7 +148,7 @@ class Link_Fixer implements Model_Interface , Initiable_Interface {
 
             $thirstylink = new Affiliate_Link( $link_id );
 
-            if ( ! $thirstylink->get_id() || get_post_type( $link_id ) !== Plugin_Constants::AFFILIATE_LINKS_CPT )
+            if ( ! $thirstylink->get_id() || get_post_type( $link_id ) !== Plugin_Constants::AFFILIATE_LINKS_CPT || get_post_status( $link_id ) !== 'publish' )
                 continue;
 
             $class   = str_replace( 'thirstylinkimg' , 'thirstylink' , $class );
@@ -229,7 +229,7 @@ class Link_Fixer implements Model_Interface , Initiable_Interface {
         $slug = esc_sql( isset( $link_parts[ $key + 2 ] ) && $link_parts[ $key + 2 ] ? $link_parts[ $key + 2 ] : $link_parts[ $key + 1 ] );
 
         // fetch the ID based on the post type and slug.
-        $id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE post_type = %s AND post_name = %s", $cpt_slug, $slug ) );
+        $id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE post_type = %s AND post_name = %s AND post_status = 'publish'", $cpt_slug, $slug ) ); // published only (public AJAX / #106)
 
         return $id ? absint( $id ) : 0;
     }

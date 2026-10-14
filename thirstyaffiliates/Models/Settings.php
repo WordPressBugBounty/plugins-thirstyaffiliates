@@ -195,7 +195,9 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
             'ta_help_settings'    => 'manage_options',
         ) );
 
+        // Set after the ta_settings_admin_interface filter so it cannot drop or lower these.
         $interfaces[ 'thirstylink_page_thirsty-settings' ][ 'ta_import_export_settings' ] = 'manage_options';
+        $interfaces[ 'thirstylink_page_thirsty-settings' ][ 'ta_thirstypay_settings' ] = 'manage_options';
 
         return $interfaces;
     }
@@ -831,6 +833,16 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
      * @access public
      */
     public function view_settings_page() {
+
+        // Fail closed: check the capability of the tab that is actually rendered.
+        $active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_text_field( wp_unslash( $_GET[ 'tab' ] ) ) : 'ta_general_settings';
+        $interfaces = apply_filters( 'ta_admin_interfaces' , array() );
+        $tab_caps   = isset( $interfaces[ 'thirstylink_page_thirsty-settings' ] ) ? $interfaces[ 'thirstylink_page_thirsty-settings' ] : array();
+        $capability = ( $active_tab !== 'ta_import_export_settings' && isset( $tab_caps[ $active_tab ] ) ) ? $tab_caps[ $active_tab ] : 'manage_options';
+
+        if ( ! current_user_can( $capability ) )
+            wp_die( esc_html( apply_filters( 'ta_admin_interface_error_message' , __( "Sorry, you are not allowed to access this page." , 'thirstyaffiliates' ) , 'thirstylink_page_thirsty-settings' , $active_tab , $capability , $tab_caps ) ) );
+
         ?>
 
         <div class="wrap ta-settings">
@@ -840,7 +852,6 @@ class Settings implements Model_Interface , Activatable_Interface , Initiable_In
             <?php
             settings_errors(); // Show notices based on the outcome of the settings save action
             do_action( 'ta_settings_errors' );
-            $active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_text_field( wp_unslash( $_GET[ 'tab' ] ) ) : 'ta_general_settings';
             ?>
 
             <div class="ta-settings-wrapper">
