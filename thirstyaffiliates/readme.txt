@@ -5,7 +5,7 @@ Tags: affiliate links, amazon affiliates, link shortner, link tracking, redirect
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 3.12.1
+Stable tag: 3.12.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -180,6 +180,9 @@ If you need to run an affiliate program on your store we recommend you check out
 5. Reports Page
 
 == Changelog ==
+= 3.12.2 =
+* Security: Hardened how affiliate link tags are handled in comments.
+
 = 3.12.1 =
 * Security: Tightened access checks so only users with the right permissions can view the Payments settings and the Reports page
 * Security: Click tracking and link lookups now only work for published affiliate links (drafts, private and trashed links are ignored)

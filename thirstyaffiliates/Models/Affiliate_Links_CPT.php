@@ -743,7 +743,8 @@ class Affiliate_Links_CPT implements Model_Interface , Initiable_Interface {
      * @return array          Array of allowed HTML tags
      */
     public function add_affiliate_link_tag( $tags, $context ) {
-        if(isset($tags['a'])) {
+        // Only allow <ta> in post content (block editor), not in comments or other contexts.
+        if('post' === $context && isset($tags['a'])) {
           $tags['ta'] = $tags['a'];
         }
 

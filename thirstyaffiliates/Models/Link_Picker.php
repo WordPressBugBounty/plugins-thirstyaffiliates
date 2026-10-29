@@ -649,20 +649,22 @@ class Link_Picker implements Model_Interface , Initiable_Interface {
      */
     public function gutenberg_transform_ta_tags_to_link( $content ) {
 
-        preg_match_all( '/<ta [^>]*>(.*?)<\/ta>/i' , $content , $matches , PREG_OFFSET_CAPTURE );
+        preg_match_all( '/<ta ([^>]*)>(.*?)<\/ta>/i' , $content , $matches , PREG_OFFSET_CAPTURE );
 
         if ( isset( $matches[0] ) && ! empty( $matches[0] ) ) {
 
             $diff = 0;
 
-            foreach ( $matches[0] as $match ) {
+            foreach ( $matches[0] as $i => $match ) {
 
-                $link_id = $this->_helper_functions->get_string_between( $match[0] , 'linkid="' , '"' );
-                $href    = $this->_helper_functions->get_string_between( $match[0] , 'href="' , '"' );
-                $text    = $this->_helper_functions->get_string_between( $match[0] , '>' , '</ta' );
+                // Read href and linkid from the opening tag's real attributes only, never from the tag body.
+                $attrs   = wp_kses_hair( $matches[1][ $i ][0] , wp_allowed_protocols() );
+                $link_id = isset( $attrs['linkid'] ) ? absint( $attrs['linkid']['value'] ) : 0;
+                $href    = isset( $attrs['href'] ) ? esc_url( $attrs['href']['value'] ) : '';
+                $text    = $matches[2][ $i ][0];
 
                 if ( $link_id )
-                    $replacement = do_shortcode( '[thirstylink ids="' . $link_id . '" href="' . $href .'"]' . $text . '[/thirstylink]' );
+                    $replacement = do_shortcode( '[thirstylink ids="' . $link_id . '" href="' . str_replace( array( '[' , ']' ) , array( '%5B' , '%5D' ) , $href ) . '"]' . $text . '[/thirstylink]' );
                 else
                     $replacement = '<a href="' . $href . '">' . $text . '</a>';
 
@@ -677,6 +679,29 @@ class Link_Picker implements Model_Interface , Initiable_Interface {
         }
 
         return $content;
+    }
+
+    /**
+     * Unwrap <ta> tags in comment text so they are shown as plain text, never transformed.
+     *
+     * <ta> is an editor-only tag. Comments are written by visitors, and older comments may still
+     * contain <ta> tags. Every comment render path (comment blocks, legacy comment lists) runs
+     * comment_text, so unwrapping here stops render_block from turning them into links.
+     *
+     * @since 3.12.2
+     * @access public
+     *
+     * @param string $comment_text Comment text.
+     * @return string Filtered comment text.
+     */
+    public function unwrap_ta_tags_in_comment_text( $comment_text ) {
+
+        do {
+            $previous     = $comment_text;
+            $comment_text = preg_replace( '/<ta [^>]*>(.*?)<\/ta>/i' , '$1' , $comment_text );
+        } while ( null !== $comment_text && $comment_text !== $previous );
+
+        return null === $comment_text ? '' : $comment_text;
     }
 
 
@@ -732,5 +757,6 @@ class Link_Picker implements Model_Interface , Initiable_Interface {
 
         add_filter( 'the_content' , array( $this , 'gutenberg_transform_ta_tags_to_link' ) );
         add_filter( 'render_block' , array( $this , 'gutenberg_transform_ta_tags_to_link' ) );
+        add_filter( 'comment_text' , array( $this , 'unwrap_ta_tags_in_comment_text' ) , 99 );
     }
 }
